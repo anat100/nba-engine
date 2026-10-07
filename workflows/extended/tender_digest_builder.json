@@ -1,0 +1,519 @@
+{
+  "name": "Tender Digest Builder",
+  "nodes": [
+    {
+      "parameters": {
+        "width": 700,
+        "height": 230,
+        "content": "## Tender Digest Builder (\"3 tenders\")\nCalled by the NBA Decision Agent when `action = send_tender_digest`, or run manually.\nSQL ranks the tenders (`match_tenders`); the LLM only writes copy and cannot change the selection. If the copy fails validation, a deterministic template is used (`copy_source = fallback`).\nSetup: run `sql/02_digest_tender_builder.sql`; set `APP_BASE_URL` in 'Validate & render'; replace the ActiveCampaign host, custom field IDs (subject / preheader / html / angle / variant) and trigger tag ID. The AC email template must render `%DIGEST_HTML%` (your field's personalization tag) and carry the unsubscribe footer."
+      },
+      "id": "b8382d44-0bb5-4658-8532-5e28ff020add",
+      "name": "Notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "22400292-b9a8-4a66-b279-09c79f069885",
+      "name": "When called by NBA agent",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "40a531a4-6032-4714-b39d-537048d03437",
+      "name": "Manual test",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id AS user_id FROM users WHERE role = 'subcontractor' AND (SELECT count(*) FROM match_tenders(id, 3)) = 3 LIMIT 1;",
+        "options": {}
+      },
+      "id": "899aeb13-3839-4fc2-8a04-60927b512175",
+      "name": "Pick test user",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        220,
+        200
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst r = $json;\nreturn { json: { user_id: r.user_id, action: 'send_tender_digest', message_angle: 'value_led', ab_variant: 'A' } };\n"
+      },
+      "id": "a8dd2eab-bc51-40cb-959d-c3c82d8ed92c",
+      "name": "Test input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "38203680-350c-40dc-95a7-f994945f1718",
+      "name": "Input",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        660,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT u.id AS user_id, u.email, u.company_name, u.language, u.trade, u.region,\n  coalesce((SELECT jsonb_agg(to_jsonb(m) ORDER BY m.score DESC) FROM match_tenders(u.id, 3) m), '[]'::jsonb) AS tenders\nFROM users u WHERE u.id = $1::uuid;",
+        "options": {
+          "queryReplacement": "={{ $json.user_id }}"
+        }
+      },
+      "id": "5a1f5c16-075c-4431-a1c3-fac6d01e861b",
+      "name": "Load user & matches",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        880,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "deaf4808-61c4-4729-bdab-a01312004483",
+              "leftValue": "={{ $json.tenders.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0bf8f0f3-1a27-4552-9d4b-b024c5fdb0d1",
+      "name": "Has matches?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1100,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return { json: { status: 'skipped', reason: 'no_matching_tenders', user_id: $json.user_id } };"
+      },
+      "id": "308b07dd-a0b1-4a23-a2a0-d0432de14108",
+      "name": "Skipped: no matches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write the email copy.\n\n{{ JSON.stringify({ language: $json.language, company_name: $json.company_name, trade: $json.trade, region: $json.region, variant: $('Input').item.json.ab_variant || 'A', message_angle: $('Input').item.json.message_angle || 'value_led', tenders: $json.tenders.map(t => ({ tender_id: t.tender_id, title: t.title, trade: t.trade, region: t.region, value_eur: t.value_eur, deadline: t.deadline, score: t.score, reasons: t.reasons })) }, null, 2) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You write the copy for a \"tenders you should bid on\" email on Cosuno, a B2B construction marketplace. The recipient is a subcontractor. The tenders were already selected and ranked by a scoring function; you must not change the selection or order.\n\nHard rules:\n- Use ONLY facts in the input (trade, region, deadline, value, scoring reasons). Never invent prices, competitor counts, win rates, customer names or deadlines.\n- Write in the requested language. German: formal \"Sie\". English: plain and direct. No hype, no exclamation marks, at most one emoji in the whole email (zero is fine).\n- subject: max 60 characters. preheader: max 90 characters. intro: 1-2 sentences.\n- why_it_fits: one short sentence per tender (max 140 characters) explaining why THIS tender fits THIS company, based on the scoring reasons (trade match, region match, days left, past bids in the trade).\n- Variant A leads with value/outcome (how well the tenders match their trade and region). Variant B leads with urgency or timing (days left to bid), without false scarcity.\n- Return one reasons entry per tender, using the exact tender_id given.\nReturn only the structured JSON."
+            }
+          ]
+        }
+      },
+      "id": "7c055c4b-3c59-4ff0-88b2-373a878a167d",
+      "name": "Draft copy",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1340,
+        40
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "options": {
+          "temperature": 0.4,
+          "maxTokensToSample": 1024
+        }
+      },
+      "id": "346bea48-2a22-4c38-8d31-a3ebdbbabd9e",
+      "name": "Claude",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1280,
+        260
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"subject\": {\n      \"type\": \"string\"\n    },\n    \"preheader\": {\n      \"type\": \"string\"\n    },\n    \"intro\": {\n      \"type\": \"string\"\n    },\n    \"reasons\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"tender_id\": {\n            \"type\": \"string\"\n          },\n          \"why_it_fits\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"tender_id\",\n          \"why_it_fits\"\n        ]\n      }\n    }\n  },\n  \"required\": [\n    \"subject\",\n    \"preheader\",\n    \"intro\",\n    \"reasons\"\n  ]\n}"
+      },
+      "id": "350fc899-a1ae-4ef3-be4c-c9035961f190",
+      "name": "Output parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1460,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst APP_BASE_URL = 'https://app.example.com';        // TODO: your product deep-link base\nconst inp = $('Input').item.json;\nconst row = $('Load user & matches').item.json;\nconst tenders = row.tenders;\nconst lang = row.language === 'en' ? 'en' : 'de';\nconst locale = lang === 'de' ? 'de-DE' : 'en-GB';\nconst esc = s => String(s ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));\nconst uuid4 = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); });\nconst digestId = uuid4();\n\n// ---- 1) validate LLM copy, else deterministic fallback --------------------------------\nconst o = $json.output;\nlet copy = null, source = 'fallback';\nif (o && typeof o.subject === 'string' && o.subject.length > 0 && o.subject.length <= 70\n    && typeof o.intro === 'string' && Array.isArray(o.reasons)) {\n  const ids = new Set(tenders.map(t => t.tender_id));\n  const why = {};\n  for (const r of o.reasons) {\n    if (ids.has(r.tender_id) && typeof r.why_it_fits === 'string' && r.why_it_fits.length <= 200) why[r.tender_id] = r.why_it_fits;\n  }\n  if (Object.keys(why).length === tenders.length) {\n    copy = { subject: o.subject, preheader: o.preheader || '', intro: o.intro, why };\n    source = 'llm';\n  }\n}\nconst L = lang === 'de'\n  ? { cta: 'Ausschreibung ansehen', deadline: 'Frist', value: 'Volumen', left: d => `noch ${Math.max(0, Math.round(d))} Tage`,\n      subject: n => `${n} passende Ausschreibungen für Ihr Gewerk`, pre: 'Ausgewählt nach Gewerk, Region und Frist.',\n      intro: `Diese offenen Ausschreibungen passen zu ${row.trade} in Ihrer Region:`,\n      why: r => `Passt zu Ihrem Gewerk${r.region_match ? ' und Ihrer Region' : ''}, Frist in ${Math.round(r.days_left)} Tagen.` }\n  : { cta: 'View tender', deadline: 'Deadline', value: 'Value', left: d => `${Math.max(0, Math.round(d))} days left`,\n      subject: n => `${n} open tenders that match your trade`, pre: 'Picked by trade, region and deadline.',\n      intro: `These open tenders match ${row.trade} work in your area:`,\n      why: r => `Matches your trade${r.region_match ? ' and region' : ''}, ${Math.round(r.days_left)} days to bid.` };\nif (!copy) {\n  const why = {}; tenders.forEach(t => why[t.tender_id] = L.why(t.reasons));\n  copy = { subject: L.subject(tenders.length), preheader: L.pre, intro: L.intro, why };\n}\n\n// ---- 2) deterministic HTML render ---------------------------------------------------------\nconst fmtDate = d => new Date(d).toLocaleDateString(locale, { day: '2-digit', month: 'short', year: 'numeric' });\nconst fmtEur = v => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Number(v));\nconst link = t => `${APP_BASE_URL}/tenders/${t.tender_id}?utm_source=nba&utm_medium=email&utm_campaign=tender_digest&utm_content=${digestId}`;\nconst cards = tenders.map(t => `\n<tr><td style=\"padding:0 0 16px 0\">\n  <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid #e3e6ea;border-radius:8px\">\n    <tr><td style=\"padding:16px 18px;font-family:Arial,Helvetica,sans-serif\">\n      <div style=\"font-size:16px;font-weight:bold;color:#14213d\">${esc(t.title)}</div>\n      <div style=\"font-size:13px;color:#5b6573;margin:4px 0 10px\">${esc(t.trade)} · ${esc(t.region)} · ${L.deadline}: ${fmtDate(t.deadline)} (${L.left(t.reasons.days_left)}) · ${L.value}: ${fmtEur(t.value_eur)}</div>\n      <div style=\"font-size:14px;color:#222;margin:0 0 14px\">${esc(copy.why[t.tender_id])}</div>\n      <a href=\"${link(t)}\" style=\"display:inline-block;background:#14213d;color:#ffffff;text-decoration:none;font-size:14px;padding:9px 16px;border-radius:6px\">${L.cta}</a>\n    </td></tr>\n  </table>\n</td></tr>`).join('');\nconst html = `<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tr><td align=\"center\">\n<table role=\"presentation\" width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:600px;width:100%\">\n<tr><td style=\"padding:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#222\">${esc(copy.intro)}</td></tr>${cards}\n</table></td></tr></table>`;\n\nreturn { json: {\n  user_id: row.user_id, email: row.email, digest_id: digestId, copy_source: source,\n  subject: copy.subject, preheader: copy.preheader, html,\n  tender_ids: tenders.map(t => t.tender_id),\n  match_scores: tenders.map(t => ({ tender_id: t.tender_id, score: t.score, reasons: t.reasons })),\n  ab_variant: inp.ab_variant || null, message_angle: inp.message_angle || null\n}};\n"
+      },
+      "id": "7a1f0e49-fbbb-425f-a640-83d9df6d040e",
+      "name": "Validate & render",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://YOUR_ACCOUNT.api-us1.com/api/3/contact/sync",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contact: { email: $('Validate & render').item.json.email, fieldValues: [ { field: '10', value: $('Validate & render').item.json.subject }, { field: '11', value: $('Validate & render').item.json.preheader }, { field: '12', value: $('Validate & render').item.json.html }, { field: '13', value: $('Validate & render').item.json.message_angle || '' }, { field: '14', value: $('Validate & render').item.json.ab_variant || '' } ] } }) }}",
+        "options": {}
+      },
+      "id": "6edb0118-c27b-4c7d-a645-ff87996ba8c6",
+      "name": "ActiveCampaign: sync contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        40
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "ActiveCampaign Api-Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://YOUR_ACCOUNT.api-us1.com/api/3/contactTags",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contactTag: { contact: $json.contact.id, tag: 'REPLACE_TAG_ID' } }) }}",
+        "options": {}
+      },
+      "id": "2931d250-bf9e-407d-b82d-3e394f21a57d",
+      "name": "ActiveCampaign: add trigger tag",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        40
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "ActiveCampaign Api-Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "name"
+        },
+        "table": {
+          "__rl": true,
+          "value": "digest_builds",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Validate & render').item.json.digest_id }}",
+            "user_id": "={{ $('Validate & render').item.json.user_id }}",
+            "subject": "={{ $('Validate & render').item.json.subject }}",
+            "tender_ids": "={{ '{' + $('Validate & render').item.json.tender_ids.join(',') + '}' }}",
+            "match_scores": "={{ JSON.stringify($('Validate & render').item.json.match_scores) }}",
+            "copy_source": "={{ $('Validate & render').item.json.copy_source }}",
+            "ab_variant": "={{ $('Validate & render').item.json.ab_variant }}",
+            "message_angle": "={{ $('Validate & render').item.json.message_angle }}"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "473e866e-95ab-45f0-8931-a25c39143cf9",
+      "name": "Log digest build",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2320,
+        40
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const v = $('Validate & render').item.json;\nreturn { json: { status: 'sent', digest_id: v.digest_id, copy_source: v.copy_source, subject: v.subject, tender_ids: v.tender_ids } };"
+      },
+      "id": "112d1ec7-dd18-4ede-8b88-f05f368160cd",
+      "name": "Done",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2560,
+        40
+      ]
+    }
+  ],
+  "connections": {
+    "When called by NBA agent": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual test": {
+      "main": [
+        [
+          {
+            "node": "Pick test user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick test user": {
+      "main": [
+        [
+          {
+            "node": "Test input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test input": {
+      "main": [
+        [
+          {
+            "node": "Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "Load user & matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load user & matches": {
+      "main": [
+        [
+          {
+            "node": "Has matches?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has matches?": {
+      "main": [
+        [
+          {
+            "node": "Draft copy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skipped: no matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Draft copy",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Output parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Draft copy",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Draft copy": {
+      "main": [
+        [
+          {
+            "node": "Validate & render",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate & render": {
+      "main": [
+        [
+          {
+            "node": "ActiveCampaign: sync contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ActiveCampaign: sync contact": {
+      "main": [
+        [
+          {
+            "node": "ActiveCampaign: add trigger tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ActiveCampaign: add trigger tag": {
+      "main": [
+        [
+          {
+            "node": "Log digest build",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log digest build": {
+      "main": [
+        [
+          {
+            "node": "Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}

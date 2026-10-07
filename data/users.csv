@@ -1,0 +1,851 @@
+id,role,company_name,email,trade,region,company_size,language,plan,signup_at,paid_at
+1a3d1fa7-bc89-40a9-a3b8-c1e9392456de,subcontractor,Wagner HVAC GmbH,kontakt@firma0.example,HVAC,Frankfurt,1-10,en,paid,2026-09-22T15:47:58.186145+00:00,2026-10-05T09:32:07.863149+00:00
+386ecbe0-6b65-46a4-8b81-48f6b38a088c,subcontractor,Neumann Electrical AG,kontakt@firma1.example,Electrical,Munich,11-50,de,paid,2026-06-24T16:28:54.439752+00:00,2026-08-20T17:47:18.744386+00:00
+43b7a3a6-9a8d-4a03-980d-7b71d8f56413,subcontractor,Schneider HVAC GmbH & Co. KG,kontakt@firma2.example,HVAC,Stuttgart,1-10,de,free,2026-08-01T23:45:40.110457+00:00,
+4a15544d-c5e7-4e8a-ba57-8a8ea9488d99,subcontractor,Schneider Scaffolding GmbH,kontakt@firma3.example,Scaffolding,Leipzig,1-10,en,free,2026-06-25T00:15:20.714271+00:00,
+7656af72-29d4-4eef-beab-edcbbaa80dd4,subcontractor,Weber HVAC AG,kontakt@firma4.example,HVAC,Munich,11-50,en,free,2026-07-21T01:21:04.813241+00:00,
+3602f8ac-10f1-4c81-848a-aa9e66b2bc5b,subcontractor,Schwarz Drywall GmbH & Co. KG,kontakt@firma5.example,Drywall,Düsseldorf,51-200,de,free,2026-07-12T02:18:26.233287+00:00,
+bf3c4c06-4343-48bc-89fa-6a688fb5d27b,subcontractor,Fischer Plumbing AG,kontakt@firma6.example,Plumbing,Cologne,1-10,en,free,2026-08-17T17:24:19.008076+00:00,
+6c12ace8-ae34-4454-8ac5-b68c28f49481,subcontractor,Weber Electrical AG,kontakt@firma7.example,Electrical,Cologne,51-200,de,free,2026-07-26T03:05:55.002955+00:00,
+1c8eaee9-5715-4d6f-a416-1293c4c2e2e3,subcontractor,Richter HVAC GmbH & Co. KG,kontakt@firma8.example,HVAC,Hamburg,11-50,de,free,2026-10-02T06:47:36.966364+00:00,
+c333e861-5fb8-416c-a720-797d32ebd689,subcontractor,Richter Roofing AG,kontakt@firma9.example,Roofing,Berlin,51-200,en,paid,2026-06-18T13:49:57.402128+00:00,2026-09-15T21:43:22.796170+00:00
+bb5e4bcf-15ed-4269-9429-6c07f26b4776,subcontractor,Fischer Roofing AG,kontakt@firma10.example,Roofing,Munich,1-10,de,free,2026-07-07T04:29:19.313155+00:00,
+337ea2df-b09b-4a5c-badc-c32ac1590f53,subcontractor,Braun Flooring AG,kontakt@firma11.example,Flooring,Frankfurt,201-1000,de,free,2026-07-17T09:53:40.796185+00:00,
+01d74256-3860-4ab6-96a4-02f23ae8cc93,subcontractor,Klein HVAC AG,kontakt@firma12.example,HVAC,Berlin,1-10,de,free,2026-09-06T07:52:16.863203+00:00,
+93829b43-922f-415a-a1e3-db63ef7ddc76,subcontractor,Weber Concrete AG,kontakt@firma13.example,Concrete,Munich,1-10,de,free,2026-07-01T19:03:32.257342+00:00,
+1931e9ee-a56c-4941-bbf2-4050a748dbcf,subcontractor,Müller Concrete AG,kontakt@firma14.example,Concrete,Berlin,51-200,de,free,2026-07-02T14:06:55.239229+00:00,
+db20a56e-dc81-4fe7-8eda-8bbb71710434,subcontractor,Fischer Plumbing GmbH,kontakt@firma15.example,Plumbing,Cologne,1-10,de,paid,2026-06-09T17:43:51.821002+00:00,2026-09-19T05:34:13.600348+00:00
+0f02bad0-e706-4ef4-a6aa-9385dd59ba71,subcontractor,Koch Plumbing GmbH,kontakt@firma16.example,Plumbing,Berlin,1-10,de,free,2026-08-18T18:11:11.843758+00:00,
+bc594585-9445-48c0-8ef8-c2d6f7fd5646,subcontractor,Wagner Concrete GmbH,kontakt@firma17.example,Concrete,Cologne,1-10,de,free,2026-09-26T01:58:28.275542+00:00,
+0a2c827e-9832-4856-9434-0a033f07f814,subcontractor,Braun Drywall AG,kontakt@firma18.example,Drywall,Cologne,1-10,de,paid,2026-07-27T12:48:54.560753+00:00,2026-09-06T22:54:28.458074+00:00
+50f0fd0a-750c-4b75-8ccc-9bc2a53f8a28,subcontractor,Weber Drywall AG,kontakt@firma19.example,Drywall,Leipzig,1-10,en,free,2026-10-01T14:02:24.047549+00:00,
+3e896c64-e117-4ac3-919c-4ea3e1805081,subcontractor,Braun Facade GmbH & Co. KG,kontakt@firma20.example,Facade,Munich,1-10,de,paid,2026-06-28T18:36:52.557850+00:00,2026-09-04T04:37:10.505795+00:00
+1b66b5a9-e3c4-4657-9d8c-bbac43b409ef,subcontractor,Schneider Roofing GmbH,kontakt@firma21.example,Roofing,Stuttgart,51-200,de,free,2026-08-31T06:06:12.113945+00:00,
+d450281c-6c6f-4633-a260-772317a0df49,subcontractor,Braun Facade GmbH,kontakt@firma22.example,Facade,Hamburg,11-50,de,free,2026-07-05T23:27:41.827228+00:00,
+e767dcea-b0e6-4969-a213-42b0f1eedba3,subcontractor,Schneider Flooring GmbH,kontakt@firma23.example,Flooring,Berlin,11-50,de,free,2026-08-21T04:42:52.405038+00:00,
+5a8aaeca-1a50-4ec3-aabc-25fa3fe12e47,subcontractor,Fischer Electrical AG,kontakt@firma24.example,Electrical,Stuttgart,51-200,en,free,2026-08-16T22:08:56.681779+00:00,
+c84a7b28-550a-4b46-acab-3301bc8f7d29,subcontractor,Müller Plumbing GmbH,kontakt@firma25.example,Plumbing,Leipzig,51-200,en,paid,2026-06-25T06:56:02.241214+00:00,2026-09-21T10:08:23.760144+00:00
+3170f437-a8f7-4f5a-860e-df5b39118497,subcontractor,Zimmermann Concrete GmbH,kontakt@firma26.example,Concrete,Munich,1-10,de,free,2026-09-24T16:08:57.808821+00:00,
+2db69edb-42de-4fcc-b86c-2ca2e08596db,subcontractor,Müller Facade GmbH,kontakt@firma27.example,Facade,Cologne,1-10,en,free,2026-09-28T06:09:38.914249+00:00,
+b572f3d0-0b5c-4a6a-8135-7e8c30a900ad,subcontractor,Braun Facade AG,kontakt@firma28.example,Facade,Munich,1-10,de,free,2026-07-01T21:46:50.425811+00:00,
+d9178793-a9d3-42e6-905c-c6869f871ce7,subcontractor,Wolf Flooring GmbH & Co. KG,kontakt@firma29.example,Flooring,Berlin,1-10,en,free,2026-08-05T08:05:33.227057+00:00,
+9d9262af-2c8d-4e44-a71e-43a6bf85bf0e,subcontractor,Hoffmann Drywall AG,kontakt@firma30.example,Drywall,Cologne,1-10,de,free,2026-06-28T18:40:09.144946+00:00,
+cb323e35-7922-4ac2-82dc-4c8e36b5229a,subcontractor,Koch Painting AG,kontakt@firma31.example,Painting,Düsseldorf,11-50,de,free,2026-09-13T03:24:08.714527+00:00,
+3eae0032-0bd4-4990-8640-be0f25b8fd4b,subcontractor,Fischer Drywall GmbH,kontakt@firma32.example,Drywall,Leipzig,11-50,de,free,2026-07-06T06:43:12.354845+00:00,
+e4855aa1-016b-4287-b008-05cca7f36ae9,subcontractor,Fischer Flooring GmbH,kontakt@firma33.example,Flooring,Stuttgart,11-50,de,free,2026-09-20T09:34:11.048496+00:00,
+8f15ba58-fce6-4504-87f8-424daae65fc1,subcontractor,Schwarz HVAC GmbH & Co. KG,kontakt@firma34.example,HVAC,Cologne,11-50,en,free,2026-06-22T03:24:54.428298+00:00,
+425a609f-7337-4599-b984-4388dc8aee30,subcontractor,Weber Facade AG,kontakt@firma35.example,Facade,Stuttgart,1-10,en,paid,2026-08-31T18:22:16.822444+00:00,2026-09-07T12:18:24.998292+00:00
+236c7b87-14a0-4ccb-8a47-6a87e49d681d,subcontractor,Becker Roofing GmbH & Co. KG,kontakt@firma36.example,Roofing,Berlin,1-10,de,free,2026-09-15T02:00:29.298440+00:00,
+f2311f17-9586-4a76-8511-55ffe7a37e81,subcontractor,Hoffmann Electrical GmbH & Co. KG,kontakt@firma37.example,Electrical,Frankfurt,1-10,en,free,2026-07-06T14:42:34.718842+00:00,
+3875394c-e5d6-46e6-9a6e-c2f5ccc42903,subcontractor,Neumann Flooring AG,kontakt@firma38.example,Flooring,Munich,11-50,de,paid,2026-08-07T19:22:43.576769+00:00,2026-09-06T09:54:27.916302+00:00
+978648f8-64de-42e6-a82c-7d7b06e745f9,subcontractor,Klein Concrete AG,kontakt@firma39.example,Concrete,Cologne,51-200,de,free,2026-07-20T17:45:41.924530+00:00,
+d4f8fd72-f382-4cfd-8083-b73a473bd358,subcontractor,Becker Drywall GmbH & Co. KG,kontakt@firma40.example,Drywall,Munich,11-50,en,free,2026-08-09T13:42:13.702538+00:00,
+f2a03459-9060-4f62-9d48-a071ab61a7b1,subcontractor,Weber Scaffolding GmbH & Co. KG,kontakt@firma41.example,Scaffolding,Hamburg,1-10,de,free,2026-07-06T11:06:42.921883+00:00,
+f54ad0a2-e874-46d7-ad66-a1bd93676a02,subcontractor,Braun HVAC GmbH & Co. KG,kontakt@firma42.example,HVAC,Munich,11-50,en,paid,2026-09-09T20:21:37.761968+00:00,2026-09-17T11:22:46.595288+00:00
+c85aca46-90e0-44a0-bbdd-3933cbd58bf6,subcontractor,Klein Roofing GmbH,kontakt@firma43.example,Roofing,Berlin,51-200,de,free,2026-07-18T13:57:06.386081+00:00,
+b5122df8-75b1-4a55-9426-2982e43e4288,subcontractor,Becker Concrete AG,kontakt@firma44.example,Concrete,Berlin,1-10,de,free,2026-08-03T15:43:46.749570+00:00,
+3ed8c56c-da09-4fa0-9282-8d8044b591f7,subcontractor,Neumann Concrete AG,kontakt@firma45.example,Concrete,Düsseldorf,1-10,de,free,2026-06-23T06:26:54.982899+00:00,
+cc3ebdde-5ad5-4f06-b64d-7c877cd0129d,subcontractor,Becker Electrical GmbH,kontakt@firma46.example,Electrical,Hamburg,11-50,de,free,2026-07-26T02:21:46.268285+00:00,
+72bb912d-7da6-4785-b63b-4dc3a559e463,subcontractor,Neumann Facade GmbH & Co. KG,kontakt@firma47.example,Facade,Stuttgart,11-50,de,free,2026-09-07T04:08:40.592056+00:00,
+7428a656-b3ee-4d3b-9a10-412954aebd1b,subcontractor,Neumann Facade AG,kontakt@firma48.example,Facade,Hamburg,1-10,de,free,2026-09-18T18:44:25.556252+00:00,
+fa02eaec-96ef-4ad6-b97e-670346c8adfe,subcontractor,Neumann Plumbing GmbH & Co. KG,kontakt@firma49.example,Plumbing,Stuttgart,1-10,de,paid,2026-06-11T21:32:28.802875+00:00,2026-09-18T07:41:12.524945+00:00
+a34b6cf6-2053-4a42-b1af-db65b289f224,subcontractor,Richter Electrical GmbH & Co. KG,kontakt@firma50.example,Electrical,Düsseldorf,201-1000,de,paid,2026-06-24T07:02:39.140206+00:00,2026-08-22T16:12:41.829588+00:00
+6694c343-10ba-48e3-9276-2bdc1d34d08e,subcontractor,Zimmermann Electrical GmbH & Co. KG,kontakt@firma51.example,Electrical,Munich,1-10,de,free,2026-07-15T17:08:45.109759+00:00,
+61607459-85c7-404b-8693-da1139c6a1ca,subcontractor,Schwarz Flooring AG,kontakt@firma52.example,Flooring,Munich,11-50,de,paid,2026-06-25T17:41:26.435502+00:00,2026-09-28T08:31:51.081839+00:00
+2c7f0b79-3d67-4de9-a834-e4c014c8b3b4,subcontractor,Wagner Drywall AG,kontakt@firma53.example,Drywall,Cologne,11-50,de,free,2026-08-16T16:14:31.825201+00:00,
+43b9da13-ec85-4f37-bbc1-a987aff8754d,subcontractor,Koch Roofing GmbH,kontakt@firma54.example,Roofing,Stuttgart,11-50,de,free,2026-07-18T14:53:07.713360+00:00,
+91b78d8e-d301-4989-bfbb-b17f9854ce4e,subcontractor,Schwarz HVAC GmbH & Co. KG,kontakt@firma55.example,HVAC,Leipzig,1-10,de,free,2026-08-09T18:08:39.394487+00:00,
+40181c6e-9a8c-4a3c-9283-aac7bc0a6a5d,subcontractor,Müller Concrete GmbH & Co. KG,kontakt@firma56.example,Concrete,Berlin,1-10,de,free,2026-07-17T02:41:13.850928+00:00,
+7135f221-a6c9-437f-84da-d06a7872bdeb,subcontractor,Schwarz Roofing GmbH,kontakt@firma57.example,Roofing,Düsseldorf,11-50,de,paid,2026-07-27T08:14:27.270390+00:00,2026-08-29T17:42:01.626195+00:00
+7ed70ed7-b194-490b-a961-929e546e035a,subcontractor,Schneider Painting GmbH,kontakt@firma58.example,Painting,Hamburg,1-10,en,free,2026-07-01T02:18:30.305995+00:00,
+764414fd-8ae7-49ed-9e8e-de0ba85c6e4a,subcontractor,Zimmermann Flooring GmbH,kontakt@firma59.example,Flooring,Munich,51-200,de,free,2026-08-22T01:14:22.714620+00:00,
+1f15c7b6-7c16-428d-b2c0-8394e17f29e1,subcontractor,Wagner Facade GmbH & Co. KG,kontakt@firma60.example,Facade,Berlin,1-10,de,free,2026-07-02T17:38:41.173336+00:00,
+a5d04d53-1e12-42e3-b272-92b6762172ed,subcontractor,Braun Drywall GmbH,kontakt@firma61.example,Drywall,Düsseldorf,201-1000,de,free,2026-07-12T05:55:31.780097+00:00,
+821c1336-9970-4f60-abff-8d1530cbd755,subcontractor,Weber Drywall GmbH & Co. KG,kontakt@firma62.example,Drywall,Stuttgart,11-50,de,paid,2026-09-24T15:04:29.476183+00:00,2026-10-05T20:49:22.046014+00:00
+9475dbc9-9641-4ced-9664-d2644c6e27ff,subcontractor,Wagner Roofing AG,kontakt@firma63.example,Roofing,Leipzig,51-200,de,free,2026-09-15T13:37:38.350100+00:00,
+9261549d-3d22-4c30-b28f-41defb140bc3,subcontractor,Zimmermann Concrete GmbH,kontakt@firma64.example,Concrete,Munich,51-200,en,paid,2026-08-16T10:00:41.077770+00:00,2026-09-29T05:43:52.879340+00:00
+d85480f0-dfca-40b7-99b1-7e80dea4ae17,subcontractor,Klein Electrical GmbH & Co. KG,kontakt@firma65.example,Electrical,Munich,1-10,de,free,2026-08-11T02:37:45.079175+00:00,
+a65bb1f2-65c1-4795-b155-16bc9f8ded97,subcontractor,Wagner Concrete GmbH & Co. KG,kontakt@firma66.example,Concrete,Berlin,11-50,de,free,2026-07-17T02:31:26.355301+00:00,
+af34cf65-a193-44b2-bc19-e71d118405ad,subcontractor,Müller Concrete AG,kontakt@firma67.example,Concrete,Leipzig,51-200,en,free,2026-07-08T18:40:31.807243+00:00,
+0e5dd462-cbd0-4ef2-930a-37df0bc61066,subcontractor,Wagner Concrete GmbH,kontakt@firma68.example,Concrete,Hamburg,1-10,de,free,2026-09-15T21:58:40.937082+00:00,
+a34db7c5-760d-4bbb-bb70-b3a124a35cf2,subcontractor,Koch Scaffolding AG,kontakt@firma69.example,Scaffolding,Hamburg,11-50,de,paid,2026-10-01T13:48:49.548215+00:00,2026-10-07T07:57:07.335259+00:00
+b0b862ef-6c9f-42b9-b647-8986a3917c99,subcontractor,Klein Concrete GmbH & Co. KG,kontakt@firma70.example,Concrete,Hamburg,51-200,en,free,2026-09-09T17:54:42.324005+00:00,
+a881bfd3-d47d-477b-ba5a-91ca059dd55d,subcontractor,Neumann Scaffolding GmbH & Co. KG,kontakt@firma71.example,Scaffolding,Munich,1-10,de,paid,2026-06-25T04:09:52.763631+00:00,2026-08-20T11:44:49.356837+00:00
+a2f963a3-3810-4e66-9a31-b4cccd4b69a9,subcontractor,Fischer Roofing AG,kontakt@firma72.example,Roofing,Berlin,11-50,de,free,2026-07-07T18:21:26.138454+00:00,
+21a4344f-bb7b-4e03-9d67-8bb1945ef2e4,subcontractor,Koch Electrical GmbH,kontakt@firma73.example,Electrical,Berlin,1-10,de,free,2026-07-08T16:42:12.553123+00:00,
+f1b64afe-d31e-4f1a-a9ff-1cae41c8ca8c,subcontractor,Wagner Facade GmbH,kontakt@firma74.example,Facade,Munich,11-50,en,free,2026-07-08T19:14:48.718426+00:00,
+1fa382e8-895c-4d99-83b3-8eb403902c5d,subcontractor,Schwarz Facade GmbH & Co. KG,kontakt@firma75.example,Facade,Munich,1-10,de,free,2026-07-17T08:05:24.264671+00:00,
+d2e82f38-a2a9-44d8-902e-fde5a5cc8bf7,subcontractor,Klein Facade GmbH,kontakt@firma76.example,Facade,Munich,1-10,de,paid,2026-07-19T23:50:59.288867+00:00,2026-08-30T23:23:39.427728+00:00
+b24cc64f-be3e-4e57-b30a-9e32aba4fc03,subcontractor,Koch Facade GmbH & Co. KG,kontakt@firma77.example,Facade,Leipzig,1-10,de,free,2026-07-09T07:05:17.496443+00:00,
+71818dcf-379e-4c6e-9edb-0d3cb0b63bcf,subcontractor,Wagner Flooring GmbH,kontakt@firma78.example,Flooring,Munich,51-200,de,free,2026-08-21T22:44:13.946056+00:00,
+90882eaf-c977-4598-a03c-8c25fd235def,subcontractor,Becker Electrical GmbH,kontakt@firma79.example,Electrical,Hamburg,1-10,en,paid,2026-07-30T22:08:13.841001+00:00,2026-08-18T06:26:06.649434+00:00
+402adf9c-8a4b-4f7c-a147-2a15fcce96f6,subcontractor,Zimmermann Scaffolding GmbH,kontakt@firma80.example,Scaffolding,Stuttgart,1-10,de,free,2026-06-25T00:21:16.206947+00:00,
+1d181ee9-86ad-4a8c-abc4-123ebde13c1b,subcontractor,Müller Electrical GmbH,kontakt@firma81.example,Electrical,Stuttgart,1-10,de,paid,2026-07-05T04:25:25.124525+00:00,2026-09-13T08:28:29.264142+00:00
+a4b1f991-7542-4646-8d37-a539857dd3b3,subcontractor,Braun Electrical AG,kontakt@firma82.example,Electrical,Leipzig,11-50,de,paid,2026-08-08T13:45:38.159471+00:00,2026-08-26T12:49:41.676392+00:00
+466772ce-204e-478c-90d0-8d1125f934bf,subcontractor,Becker HVAC AG,kontakt@firma83.example,HVAC,Frankfurt,51-200,de,free,2026-07-12T18:12:32.241859+00:00,
+e0b15aba-a6a2-4967-a79b-44b6da509fed,subcontractor,Neumann Flooring GmbH,kontakt@firma84.example,Flooring,Stuttgart,1-10,de,free,2026-09-07T22:17:13.240121+00:00,
+5fd23109-4140-452c-aa44-825950018b7b,subcontractor,Becker Flooring GmbH & Co. KG,kontakt@firma85.example,Flooring,Leipzig,11-50,de,free,2026-08-09T02:46:16.715938+00:00,
+8fca7b6a-8fc4-4092-b4e5-59e596229348,subcontractor,Richter Painting GmbH,kontakt@firma86.example,Painting,Hamburg,51-200,de,free,2026-08-22T23:49:11.907910+00:00,
+279c658a-3676-4ce5-81e5-c9f693f277cc,subcontractor,Becker Roofing GmbH,kontakt@firma87.example,Roofing,Frankfurt,11-50,de,free,2026-09-20T05:04:04.584322+00:00,
+a867a096-edd8-47c8-9be7-173706b89231,subcontractor,Wolf Scaffolding AG,kontakt@firma88.example,Scaffolding,Stuttgart,11-50,de,free,2026-09-11T21:48:08.336148+00:00,
+bf012e32-177d-4e7e-87d9-24cef8c88fae,subcontractor,Neumann Flooring AG,kontakt@firma89.example,Flooring,Cologne,1-10,de,paid,2026-08-11T11:41:17.851024+00:00,2026-08-25T19:49:22.960258+00:00
+0cbd3c03-9e2a-44ac-8122-b5b3284c03d2,subcontractor,Müller Scaffolding GmbH,kontakt@firma90.example,Scaffolding,Frankfurt,1-10,de,free,2026-07-18T12:47:59.575408+00:00,
+7c93f6cc-97d7-4560-adb1-4670ad9fb00d,subcontractor,Schneider HVAC GmbH & Co. KG,kontakt@firma91.example,HVAC,Cologne,1-10,de,paid,2026-09-07T07:07:11.251998+00:00,2026-09-24T16:05:33.536640+00:00
+2112507c-2cfa-45b0-ae3f-683abf3c5140,subcontractor,Müller Roofing GmbH & Co. KG,kontakt@firma92.example,Roofing,Munich,1-10,de,free,2026-08-06T03:01:35.751768+00:00,
+6de59332-9364-43d0-9024-bdc6dcb33df3,subcontractor,Koch Electrical GmbH,kontakt@firma93.example,Electrical,Cologne,1-10,de,free,2026-08-15T14:54:55.242146+00:00,
+6683e107-96c0-44d0-af88-7f283e49fd09,subcontractor,Zimmermann Painting GmbH,kontakt@firma94.example,Painting,Cologne,1-10,de,free,2026-08-27T23:23:34.380750+00:00,
+d1a69d87-f54e-4019-ba35-844e59e1ac09,subcontractor,Fischer HVAC GmbH & Co. KG,kontakt@firma95.example,HVAC,Frankfurt,11-50,de,paid,2026-09-20T20:00:36.639151+00:00,2026-10-07T00:25:20.665155+00:00
+9050f7ef-c123-4c91-b6c5-a0dc7e7e7419,subcontractor,Schwarz HVAC AG,kontakt@firma96.example,HVAC,Stuttgart,1-10,de,paid,2026-06-18T09:05:05.715831+00:00,2026-09-12T17:20:17.034712+00:00
+cbdc4318-4d85-43d2-a1a2-748571348c2a,subcontractor,Schneider Painting GmbH & Co. KG,kontakt@firma97.example,Painting,Hamburg,1-10,de,free,2026-08-05T07:30:03.134912+00:00,
+626d719d-81cf-4252-9815-9d6c9d713084,subcontractor,Zimmermann HVAC GmbH,kontakt@firma98.example,HVAC,Munich,11-50,de,free,2026-07-03T14:20:00.793522+00:00,
+57eb89b1-d65e-49dd-a62d-2d06cf9b8558,subcontractor,Koch Plumbing GmbH,kontakt@firma99.example,Plumbing,Leipzig,201-1000,de,free,2026-07-20T08:26:23.649547+00:00,
+ca0ac6ac-0d67-438e-990f-0c5badcc3daf,subcontractor,Schwarz Roofing GmbH & Co. KG,kontakt@firma100.example,Roofing,Frankfurt,1-10,de,free,2026-08-25T17:48:15.084301+00:00,
+eaafe543-2434-4678-a9e2-7ba9952e6abb,subcontractor,Becker Scaffolding GmbH,kontakt@firma101.example,Scaffolding,Munich,51-200,en,free,2026-07-14T07:56:45.516652+00:00,
+86c1b6cb-e996-40f7-af77-520eff4625af,subcontractor,Zimmermann Plumbing AG,kontakt@firma102.example,Plumbing,Berlin,11-50,de,free,2026-08-05T04:19:20.826054+00:00,
+d5ca69ab-8a2e-4a93-8558-0bb281f7f3fb,subcontractor,Wagner Plumbing GmbH,kontakt@firma103.example,Plumbing,Frankfurt,1-10,de,paid,2026-07-18T12:49:33.524629+00:00,2026-09-07T06:29:29.853833+00:00
+5d42b9e9-692e-47b6-8b2f-6d5c700b5d5f,subcontractor,Weber Scaffolding AG,kontakt@firma104.example,Scaffolding,Frankfurt,51-200,de,free,2026-08-12T13:45:44.046526+00:00,
+5e2ad32d-31ab-4b56-95c9-fdc7e76adca9,subcontractor,Schwarz Roofing GmbH & Co. KG,kontakt@firma105.example,Roofing,Frankfurt,201-1000,de,paid,2026-08-12T23:42:06.625885+00:00,2026-08-31T05:11:36.533371+00:00
+0d5ba7cd-4000-45f0-9f7d-0dd7236e1608,subcontractor,Schwarz Plumbing AG,kontakt@firma106.example,Plumbing,Frankfurt,51-200,en,free,2026-07-30T21:13:05.580614+00:00,
+d11376e0-38d7-4b9a-a916-da57f24823ab,subcontractor,Hoffmann Facade GmbH,kontakt@firma107.example,Facade,Munich,1-10,de,free,2026-09-29T14:08:27.411333+00:00,
+55d596af-a663-42cd-b6f6-dbf1d6d441cc,subcontractor,Becker Painting GmbH,kontakt@firma108.example,Painting,Stuttgart,1-10,de,free,2026-08-30T15:57:48.735446+00:00,
+d5c0244d-3735-462d-8184-3b0304dd7054,subcontractor,Braun Concrete GmbH,kontakt@firma109.example,Concrete,Berlin,11-50,en,free,2026-07-24T15:14:29.762334+00:00,
+d6312a80-1c61-4ec2-9014-2131750565f5,subcontractor,Schwarz Drywall AG,kontakt@firma110.example,Drywall,Düsseldorf,1-10,de,free,2026-09-30T18:23:20.767633+00:00,
+15eacbcf-ab10-41ce-aa14-3cd82ff3cde4,subcontractor,Klein Scaffolding GmbH & Co. KG,kontakt@firma111.example,Scaffolding,Cologne,1-10,de,free,2026-06-15T00:21:23.482687+00:00,
+5b6a8102-0428-4378-bf50-23f440ef3935,subcontractor,Hoffmann Concrete GmbH & Co. KG,kontakt@firma112.example,Concrete,Stuttgart,1-10,de,paid,2026-07-10T08:50:00.438017+00:00,2026-08-25T07:02:01.853726+00:00
+af475b49-c775-4395-9494-05f02cd2a404,subcontractor,Becker Electrical AG,kontakt@firma113.example,Electrical,Munich,1-10,de,free,2026-07-22T00:09:35.043824+00:00,
+d0be73ee-fd37-4539-a5f2-02f983f02dc7,subcontractor,Becker Drywall GmbH & Co. KG,kontakt@firma114.example,Drywall,Cologne,51-200,de,free,2026-07-08T00:40:03.857767+00:00,
+be4969ec-6667-43bb-a3b5-63606fdc0bad,subcontractor,Schwarz Painting GmbH & Co. KG,kontakt@firma115.example,Painting,Munich,1-10,en,free,2026-08-24T16:00:34.487288+00:00,
+febec0db-9a3a-4103-ae3c-453214348f62,subcontractor,Neumann Roofing GmbH & Co. KG,kontakt@firma116.example,Roofing,Stuttgart,51-200,de,free,2026-08-26T17:12:25.676411+00:00,
+debac186-ba10-4217-8ad7-c9a2727716ec,subcontractor,Koch Flooring GmbH & Co. KG,kontakt@firma117.example,Flooring,Düsseldorf,1-10,de,free,2026-08-13T15:18:53.578482+00:00,
+07f8d4f0-f3ea-4184-a8f4-e3ceadedda80,subcontractor,Schwarz Flooring AG,kontakt@firma118.example,Flooring,Berlin,1-10,de,free,2026-07-04T19:19:46.695780+00:00,
+13aec376-c359-410a-b1a6-014c5f3c44dc,subcontractor,Koch Scaffolding GmbH & Co. KG,kontakt@firma119.example,Scaffolding,Cologne,1-10,de,free,2026-08-17T21:10:36.146567+00:00,
+42a259a6-c664-4285-8303-cbc11e2595b8,subcontractor,Braun Concrete AG,kontakt@firma120.example,Concrete,Frankfurt,11-50,de,paid,2026-07-24T06:58:10.739211+00:00,2026-09-04T02:29:30.800851+00:00
+cf7dcb43-1679-442f-bf4c-96d671f2ce8f,subcontractor,Braun HVAC AG,kontakt@firma121.example,HVAC,Frankfurt,11-50,en,paid,2026-08-26T21:41:18.323566+00:00,2026-09-05T13:25:52.525973+00:00
+5c8ac066-cb2f-4fa3-ac91-3a7ca3404f08,subcontractor,Braun Plumbing AG,kontakt@firma122.example,Plumbing,Cologne,11-50,de,free,2026-09-09T13:02:41.459130+00:00,
+10d4de39-1612-47c9-a25d-f9a89ca8a5c4,subcontractor,Richter Painting GmbH,kontakt@firma123.example,Painting,Hamburg,11-50,en,paid,2026-07-11T23:40:13.486477+00:00,2026-09-09T06:55:26.155119+00:00
+c48d5650-2e95-42d6-9679-2482a3c988e4,subcontractor,Zimmermann Painting AG,kontakt@firma124.example,Painting,Leipzig,1-10,de,free,2026-06-19T22:11:05.303023+00:00,
+e519dd7e-84d6-4c4f-b0df-1684f28e4122,subcontractor,Fischer Painting GmbH & Co. KG,kontakt@firma125.example,Painting,Hamburg,51-200,de,paid,2026-09-10T01:57:26.555167+00:00,2026-09-20T11:08:44.236558+00:00
+e6e987ca-b87b-4384-9fdd-de2ea8a2b7ad,subcontractor,Weber Scaffolding GmbH,kontakt@firma126.example,Scaffolding,Cologne,51-200,en,paid,2026-07-29T20:09:53.637042+00:00,2026-09-10T14:57:56.349160+00:00
+8baaf744-a08d-421b-a395-4cb17f7f6c0a,subcontractor,Wolf Scaffolding GmbH,kontakt@firma127.example,Scaffolding,Hamburg,1-10,en,paid,2026-08-08T02:49:22.713760+00:00,2026-08-27T05:01:17.008471+00:00
+9b4e164b-5716-4c2e-b43a-da2a76e5ae78,subcontractor,Hoffmann Electrical GmbH & Co. KG,kontakt@firma128.example,Electrical,Berlin,1-10,en,paid,2026-08-26T22:26:14.749813+00:00,2026-09-20T04:01:40.836798+00:00
+0cf477ef-18c8-4616-a410-8e9a3f779cae,subcontractor,Wagner Drywall GmbH & Co. KG,kontakt@firma129.example,Drywall,Hamburg,11-50,de,free,2026-07-23T21:18:32.141938+00:00,
+7781321e-83c5-41cb-bef7-d9ea7f8e5483,subcontractor,Fischer Scaffolding GmbH,kontakt@firma130.example,Scaffolding,Munich,11-50,de,free,2026-09-29T23:47:02.728073+00:00,
+43b47ee5-e1e8-4e7e-a249-8f666e51484d,subcontractor,Müller Concrete GmbH,kontakt@firma131.example,Concrete,Frankfurt,1-10,de,paid,2026-08-21T13:45:48.892536+00:00,2026-10-03T23:50:25.217021+00:00
+9f8cc29f-fd35-4c5f-9347-9a3b479bc637,subcontractor,Koch HVAC AG,kontakt@firma132.example,HVAC,Frankfurt,1-10,de,free,2026-06-12T12:31:19.573200+00:00,
+09f64405-0b99-4034-8a4e-255280051b10,subcontractor,Richter Plumbing GmbH & Co. KG,kontakt@firma133.example,Plumbing,Berlin,1-10,de,free,2026-08-09T04:13:00.548824+00:00,
+97fe56c5-4c9a-4f24-97b4-c294bd44089d,subcontractor,Hoffmann Scaffolding AG,kontakt@firma134.example,Scaffolding,Hamburg,1-10,en,paid,2026-08-02T10:29:33.877504+00:00,2026-09-04T10:17:55.322012+00:00
+df41e335-b9ae-48e4-a615-99c8cbf81f86,subcontractor,Klein HVAC GmbH & Co. KG,kontakt@firma135.example,HVAC,Frankfurt,201-1000,de,paid,2026-08-09T01:52:54.060002+00:00,2026-09-25T18:19:51.076483+00:00
+25d4a0fc-6154-4765-9756-ba9cc64c9647,subcontractor,Neumann Plumbing AG,kontakt@firma136.example,Plumbing,Stuttgart,11-50,de,free,2026-07-28T19:27:24.210480+00:00,
+78bb22a5-eba7-42d2-9c89-d374c66495a7,subcontractor,Hoffmann Flooring AG,kontakt@firma137.example,Flooring,Düsseldorf,11-50,de,free,2026-09-25T11:51:15.569312+00:00,
+8bd88fcd-57a2-4e4e-887b-03e5e980f808,subcontractor,Weber Facade GmbH & Co. KG,kontakt@firma138.example,Facade,Munich,1-10,de,free,2026-07-11T17:59:55.985803+00:00,
+4c3077c4-fb75-4923-b910-abb3f1053252,subcontractor,Wagner Drywall GmbH,kontakt@firma139.example,Drywall,Stuttgart,1-10,de,free,2026-07-15T06:41:18.665855+00:00,
+faebcd19-e550-4ea2-a133-a34d8b0e8eb1,subcontractor,Klein Roofing AG,kontakt@firma140.example,Roofing,Munich,1-10,de,paid,2026-07-05T18:05:35.256547+00:00,2026-08-28T22:34:53.592675+00:00
+e7ba26ac-ab7a-4d1c-8cfe-f6833e11bafe,subcontractor,Klein HVAC GmbH,kontakt@firma141.example,HVAC,Cologne,11-50,de,free,2026-09-26T14:52:30.789594+00:00,
+e1721c83-ef5e-4376-a723-fb72682b163a,subcontractor,Braun Electrical GmbH,kontakt@firma142.example,Electrical,Düsseldorf,201-1000,de,free,2026-09-09T17:15:07.862854+00:00,
+6afa828c-2cd1-4b9f-abe5-841fe9c96c52,subcontractor,Zimmermann Facade GmbH,kontakt@firma143.example,Facade,Düsseldorf,11-50,de,free,2026-06-18T21:33:30.936600+00:00,
+f0458043-e3a6-4a70-be71-0b558639bd41,subcontractor,Wolf Painting AG,kontakt@firma144.example,Painting,Berlin,1-10,de,free,2026-09-01T06:43:13.185387+00:00,
+6d7df5d0-d3b5-4af7-a7ce-378fe5a4983b,subcontractor,Zimmermann Drywall AG,kontakt@firma145.example,Drywall,Cologne,1-10,de,free,2026-07-17T16:36:16.267670+00:00,
+951c25d5-4d4c-4280-9462-52e7f43ba052,subcontractor,Koch Roofing GmbH & Co. KG,kontakt@firma146.example,Roofing,Frankfurt,1-10,de,free,2026-07-19T11:35:04.491942+00:00,
+3818cfd3-3889-436a-9d58-17e85e175b66,subcontractor,Wolf Roofing GmbH & Co. KG,kontakt@firma147.example,Roofing,Leipzig,11-50,de,paid,2026-08-11T08:00:34.334502+00:00,2026-09-09T04:55:59.888953+00:00
+86879aa9-14f5-43d0-8991-2032df85c777,subcontractor,Wolf Drywall AG,kontakt@firma148.example,Drywall,Munich,11-50,de,free,2026-09-23T16:11:13.779894+00:00,
+1dc1e7eb-711c-4673-8535-1a69dabf984e,subcontractor,Weber Scaffolding GmbH & Co. KG,kontakt@firma149.example,Scaffolding,Frankfurt,11-50,de,free,2026-08-07T10:35:07.748716+00:00,
+41241bb4-655c-4508-8592-bfa5b928e23f,subcontractor,Schwarz Facade GmbH & Co. KG,kontakt@firma150.example,Facade,Stuttgart,11-50,de,paid,2026-07-28T03:36:41.697524+00:00,2026-09-11T10:23:42.547152+00:00
+c4db5a62-2e13-418d-a8ab-80ea497ec6d1,subcontractor,Koch HVAC GmbH,kontakt@firma151.example,HVAC,Berlin,201-1000,de,paid,2026-07-10T18:54:41.962434+00:00,2026-08-21T13:52:42.192702+00:00
+6c93a791-8b60-4511-b816-8aebac6a7c85,subcontractor,Wagner Electrical GmbH & Co. KG,kontakt@firma152.example,Electrical,Cologne,11-50,en,free,2026-09-04T04:37:02.812577+00:00,
+19d45deb-1139-4a12-b4c1-c3ea3d9c4e64,subcontractor,Braun Flooring GmbH,kontakt@firma153.example,Flooring,Cologne,11-50,de,free,2026-07-17T08:57:55.571189+00:00,
+937bf79b-bb44-4adc-aa98-fef8d0d75e37,subcontractor,Wagner Electrical GmbH,kontakt@firma154.example,Electrical,Hamburg,1-10,de,free,2026-07-17T07:33:45.454474+00:00,
+e134edfc-9777-4f10-b2d2-393f8e85140d,subcontractor,Wagner Drywall GmbH,kontakt@firma155.example,Drywall,Frankfurt,1-10,de,free,2026-07-16T14:24:01.202179+00:00,
+4cc57e0d-2633-4018-a883-ac6e6a944054,subcontractor,Becker Flooring AG,kontakt@firma156.example,Flooring,Munich,11-50,de,free,2026-08-09T04:50:19.427535+00:00,
+891f6912-17ab-4863-9efe-ef4fd8ddbbc0,subcontractor,Schneider Drywall GmbH & Co. KG,kontakt@firma157.example,Drywall,Frankfurt,1-10,de,paid,2026-09-01T18:47:48.090224+00:00,2026-09-09T04:40:12.141915+00:00
+03ece8ff-e8b3-4763-b4ff-3f3a4d9dbaeb,subcontractor,Fischer Facade GmbH & Co. KG,kontakt@firma158.example,Facade,Hamburg,1-10,de,free,2026-07-09T09:16:44.809971+00:00,
+a6129a1c-889d-4b76-b75c-30b561730c48,subcontractor,Schwarz Drywall GmbH & Co. KG,kontakt@firma159.example,Drywall,Munich,11-50,de,free,2026-08-04T16:22:37.285475+00:00,
+255b30e2-bdc2-474b-b8a5-6b49dd34aa18,subcontractor,Müller Painting AG,kontakt@firma160.example,Painting,Berlin,1-10,de,free,2026-07-27T11:49:21.477515+00:00,
+566a9ce7-af52-4b94-b186-e47aa7946320,subcontractor,Koch Scaffolding AG,kontakt@firma161.example,Scaffolding,Hamburg,51-200,en,free,2026-06-13T12:11:16.283752+00:00,
+8ac97b01-e3ad-44d4-aab9-eb022f1dc121,subcontractor,Richter Plumbing GmbH & Co. KG,kontakt@firma162.example,Plumbing,Leipzig,1-10,en,free,2026-08-03T09:39:50.715696+00:00,
+e9aa144b-9dd4-4675-af14-5064aab07015,subcontractor,Klein Concrete AG,kontakt@firma163.example,Concrete,Munich,1-10,de,free,2026-10-01T21:30:02.048077+00:00,
+f090f5a0-ce61-4199-ae3a-0ba8ac8d6c7d,subcontractor,Zimmermann Roofing AG,kontakt@firma164.example,Roofing,Düsseldorf,1-10,de,free,2026-09-21T13:55:27.613613+00:00,
+90a3fbbf-7580-4050-a7f1-698cf5948a54,subcontractor,Schneider Roofing GmbH & Co. KG,kontakt@firma165.example,Roofing,Hamburg,11-50,de,free,2026-08-29T03:49:14.400734+00:00,
+c8cce2c2-a518-4418-af14-b3f6d867888b,subcontractor,Schneider Electrical GmbH & Co. KG,kontakt@firma166.example,Electrical,Hamburg,11-50,en,free,2026-06-12T15:57:10.714512+00:00,
+e63949d4-47c6-4688-acf3-2053af36b8cc,subcontractor,Müller Scaffolding GmbH,kontakt@firma167.example,Scaffolding,Cologne,11-50,de,free,2026-09-12T00:43:56.083156+00:00,
+639fc471-d975-4f00-95ab-a8ae9112fbc0,subcontractor,Klein HVAC GmbH,kontakt@firma168.example,HVAC,Frankfurt,1-10,de,paid,2026-08-19T12:20:06.444023+00:00,2026-08-24T18:21:48.365979+00:00
+9aec56a8-5731-4609-9375-ee90d6b361e4,subcontractor,Hoffmann Painting GmbH,kontakt@firma169.example,Painting,Stuttgart,1-10,en,free,2026-08-18T00:51:00.929217+00:00,
+c5acc354-15f0-4cb4-a14c-721da921cb4c,subcontractor,Wolf Flooring AG,kontakt@firma170.example,Flooring,Cologne,1-10,de,free,2026-07-12T15:34:16.046459+00:00,
+71da35b9-4eea-4db8-b165-d77901547950,subcontractor,Schneider Flooring GmbH,kontakt@firma171.example,Flooring,Munich,1-10,de,free,2026-09-17T10:01:52.830497+00:00,
+530ddda6-c8d0-49e5-9919-65ea98d00c2c,subcontractor,Richter Electrical GmbH,kontakt@firma172.example,Electrical,Düsseldorf,1-10,de,paid,2026-08-16T01:38:05.573935+00:00,2026-09-15T08:33:59.101235+00:00
+44d7df9a-238b-45b7-ab64-777c6177a771,subcontractor,Weber Drywall AG,kontakt@firma173.example,Drywall,Hamburg,11-50,de,free,2026-09-25T09:08:00.021999+00:00,
+320f72c0-9dde-4188-9803-b22e7eece88d,subcontractor,Neumann Roofing AG,kontakt@firma174.example,Roofing,Munich,51-200,de,free,2026-10-01T21:04:21.844540+00:00,
+4ce953a7-22d9-4db3-982a-2277f966d59f,subcontractor,Zimmermann Concrete AG,kontakt@firma175.example,Concrete,Hamburg,1-10,en,free,2026-09-09T13:24:02.035407+00:00,
+64976593-c92e-4c93-9105-c8d647c1c017,subcontractor,Becker Scaffolding GmbH & Co. KG,kontakt@firma176.example,Scaffolding,Munich,11-50,en,free,2026-09-09T16:18:09.143162+00:00,
+a2224f96-23a1-4e20-bfd2-55eeac484366,subcontractor,Schwarz HVAC GmbH & Co. KG,kontakt@firma177.example,HVAC,Hamburg,51-200,de,free,2026-09-14T22:18:55.249598+00:00,
+ca6caf9b-0969-4101-8b2c-550a6b15c11b,subcontractor,Richter Scaffolding AG,kontakt@firma178.example,Scaffolding,Leipzig,1-10,de,paid,2026-07-01T05:48:39.676805+00:00,2026-08-27T21:37:03.676097+00:00
+ad6ecc57-a520-43d0-bbcd-bf5e902f3465,subcontractor,Klein Painting GmbH,kontakt@firma179.example,Painting,Frankfurt,1-10,en,free,2026-08-25T12:32:37.595266+00:00,
+96add4df-adf7-4924-85b8-386b768b4f7e,subcontractor,Becker Scaffolding GmbH & Co. KG,kontakt@firma180.example,Scaffolding,Frankfurt,1-10,de,free,2026-06-09T22:05:28.147431+00:00,
+79e5c9aa-592a-4549-bba1-09d08567c805,subcontractor,Koch Painting GmbH,kontakt@firma181.example,Painting,Berlin,1-10,de,paid,2026-08-11T14:59:47.114951+00:00,2026-09-16T14:57:09.433019+00:00
+f55dce6d-6d26-4b37-8f52-42d354bbbcf8,subcontractor,Richter Drywall GmbH,kontakt@firma182.example,Drywall,Munich,11-50,de,free,2026-07-22T05:36:43.898772+00:00,
+34ae4abd-36fc-40ac-b469-8db30123a348,subcontractor,Hoffmann Drywall GmbH & Co. KG,kontakt@firma183.example,Drywall,Hamburg,1-10,de,paid,2026-07-03T02:46:06.433330+00:00,2026-08-27T17:55:39.149176+00:00
+f7464c02-8718-44c1-bd4e-d26edcd5bfae,subcontractor,Wagner Drywall AG,kontakt@firma184.example,Drywall,Frankfurt,11-50,de,free,2026-07-24T08:32:21.954714+00:00,
+1e2c2e7d-502c-40ee-a24a-66a6ac0f6801,subcontractor,Klein Roofing GmbH,kontakt@firma185.example,Roofing,Hamburg,51-200,de,free,2026-08-20T17:25:33.306050+00:00,
+ee4205ee-a52f-43ec-ab4e-2281b184d1fc,subcontractor,Wolf Flooring AG,kontakt@firma186.example,Flooring,Leipzig,1-10,de,free,2026-08-07T08:20:19.254905+00:00,
+f6bd80c7-624a-4a50-90b1-fde031f3f0c0,subcontractor,Koch Painting GmbH,kontakt@firma187.example,Painting,Cologne,201-1000,de,paid,2026-08-16T14:32:23.541768+00:00,2026-09-22T12:16:19.721956+00:00
+398f569b-465c-42cb-885e-b4894ac66780,subcontractor,Schwarz Scaffolding GmbH,kontakt@firma188.example,Scaffolding,Cologne,1-10,de,paid,2026-08-11T01:32:37.123202+00:00,2026-08-31T09:02:13.078624+00:00
+0aa6fcb9-c1bc-4e59-9296-a12d8ac35ac4,subcontractor,Richter HVAC GmbH & Co. KG,kontakt@firma189.example,HVAC,Stuttgart,1-10,de,paid,2026-09-07T12:34:29.760891+00:00,2026-09-20T15:06:05.486516+00:00
+1e0d02b5-fe74-42cd-9d83-ad037066e289,subcontractor,Becker Electrical GmbH,kontakt@firma190.example,Electrical,Stuttgart,1-10,de,free,2026-07-01T10:12:40.232635+00:00,
+0f321333-ce31-4937-b4fa-32b6d0437e4c,subcontractor,Schwarz Plumbing GmbH,kontakt@firma191.example,Plumbing,Cologne,11-50,de,free,2026-07-26T00:25:24.460202+00:00,
+c9230c64-c006-4b5b-b678-39b222b5f457,subcontractor,Wolf Facade GmbH,kontakt@firma192.example,Facade,Munich,201-1000,de,free,2026-08-31T18:20:15.777586+00:00,
+93d228d4-2465-4c39-bd4d-2add64880945,subcontractor,Schwarz Painting AG,kontakt@firma193.example,Painting,Frankfurt,51-200,de,paid,2026-08-20T12:16:30.177671+00:00,2026-09-21T18:39:07.311742+00:00
+53c93ae7-7cf0-4bb3-b343-d9eb7466ef02,subcontractor,Braun Roofing GmbH & Co. KG,kontakt@firma194.example,Roofing,Cologne,11-50,en,free,2026-06-27T05:34:07.875928+00:00,
+363be5cb-d329-4724-adfd-171af7d7465d,subcontractor,Hoffmann HVAC GmbH,kontakt@firma195.example,HVAC,Munich,11-50,de,free,2026-08-31T01:02:01.623978+00:00,
+db8f0e32-edef-4003-9fce-01e3042b03ca,subcontractor,Wolf Electrical GmbH & Co. KG,kontakt@firma196.example,Electrical,Berlin,1-10,de,paid,2026-06-10T14:16:37.686229+00:00,2026-09-21T10:02:56.178473+00:00
+40198303-5c45-4e4d-a793-13b817e52113,subcontractor,Braun Roofing GmbH & Co. KG,kontakt@firma197.example,Roofing,Berlin,1-10,de,free,2026-07-20T00:45:20.653060+00:00,
+13f3cade-7a10-413f-b6a2-c52b00473139,subcontractor,Neumann Flooring GmbH,kontakt@firma198.example,Flooring,Berlin,11-50,de,free,2026-07-16T10:59:54.070343+00:00,
+bb134f02-16de-46c9-a210-def63a9c4308,subcontractor,Koch Flooring GmbH,kontakt@firma199.example,Flooring,Stuttgart,11-50,de,free,2026-08-21T09:16:49.479061+00:00,
+70aa5b0d-2a03-4ad4-a667-b9829c3de1b0,subcontractor,Klein Plumbing GmbH,kontakt@firma200.example,Plumbing,Munich,1-10,de,free,2026-07-08T14:31:43.268935+00:00,
+159152f2-a505-4a9c-86e7-5a2c3f6eed9d,subcontractor,Becker Painting GmbH,kontakt@firma201.example,Painting,Hamburg,201-1000,de,free,2026-07-11T17:17:41.535442+00:00,
+4ba8a4ca-6449-4b6f-bf72-ae52304b2370,subcontractor,Klein Roofing AG,kontakt@firma202.example,Roofing,Frankfurt,1-10,de,free,2026-07-03T08:55:23.903914+00:00,
+6307d4d1-21c9-415d-9104-5a16ef15ab72,subcontractor,Müller HVAC GmbH & Co. KG,kontakt@firma203.example,HVAC,Düsseldorf,11-50,de,free,2026-08-21T15:12:44.196292+00:00,
+8044beb2-b66e-4bf4-a0ea-0251495743a2,subcontractor,Hoffmann Electrical AG,kontakt@firma204.example,Electrical,Stuttgart,51-200,de,free,2026-08-17T09:27:54.074987+00:00,
+9620bee6-6406-4ace-93a5-e8508950ddd6,subcontractor,Fischer HVAC GmbH,kontakt@firma205.example,HVAC,Frankfurt,11-50,en,paid,2026-07-16T08:02:13.143880+00:00,2026-09-07T06:12:19.966194+00:00
+9bdc70d1-9cbf-4b8c-b410-2d5d1db14bfc,subcontractor,Braun Electrical GmbH & Co. KG,kontakt@firma206.example,Electrical,Berlin,1-10,de,free,2026-07-18T23:31:34.172534+00:00,
+bba1aed9-44cd-4fdd-9f9b-141ec7f7bda1,subcontractor,Weber Roofing AG,kontakt@firma207.example,Roofing,Düsseldorf,1-10,de,free,2026-09-29T06:43:38.715498+00:00,
+5e20c957-2ab8-4d33-911f-730bdbff00b0,subcontractor,Müller Concrete GmbH & Co. KG,kontakt@firma208.example,Concrete,Berlin,11-50,de,free,2026-06-21T19:34:11.404598+00:00,
+b6ca1127-e9f8-4970-8d98-f9e28d888beb,subcontractor,Zimmermann Plumbing GmbH,kontakt@firma209.example,Plumbing,Stuttgart,1-10,de,paid,2026-08-26T15:34:37.611357+00:00,2026-09-23T21:24:37.402977+00:00
+8409c5ea-cde9-48b3-b922-a7e42de982f8,subcontractor,Wolf Painting GmbH,kontakt@firma210.example,Painting,Leipzig,1-10,en,free,2026-09-24T17:30:49.341441+00:00,
+76c3e642-3e19-4c1d-9f6a-6a65bd54da04,subcontractor,Schwarz Drywall GmbH & Co. KG,kontakt@firma211.example,Drywall,Munich,1-10,en,free,2026-06-09T21:51:29.639953+00:00,
+a2cd1590-58af-493c-8aa2-b4c93ba5bd76,subcontractor,Hoffmann Plumbing GmbH,kontakt@firma212.example,Plumbing,Düsseldorf,1-10,en,free,2026-06-15T07:01:03.182494+00:00,
+f8f9a45d-0f55-4896-b610-396b7df59abf,subcontractor,Fischer HVAC GmbH & Co. KG,kontakt@firma213.example,HVAC,Leipzig,1-10,de,free,2026-09-21T22:59:49.748425+00:00,
+222df6a4-8163-46ce-9877-bc0694ad6252,subcontractor,Neumann Painting GmbH,kontakt@firma214.example,Painting,Frankfurt,11-50,de,free,2026-07-26T14:07:06.122642+00:00,
+516c3b0a-5385-4918-bc40-15fad4f76322,subcontractor,Hoffmann Painting AG,kontakt@firma215.example,Painting,Munich,51-200,de,paid,2026-06-16T03:32:23.066756+00:00,2026-09-12T14:29:50.735101+00:00
+c534ca08-f6f2-4d1c-9bb8-b9c8893259f3,subcontractor,Hoffmann Concrete GmbH,kontakt@firma216.example,Concrete,Hamburg,11-50,de,paid,2026-09-02T04:19:43.665326+00:00,2026-09-17T16:12:59.758523+00:00
+3f8b4433-b60e-495c-9759-ba9625f88c74,subcontractor,Zimmermann Scaffolding GmbH & Co. KG,kontakt@firma217.example,Scaffolding,Leipzig,1-10,de,free,2026-09-27T00:38:49.090773+00:00,
+cdcc2d6a-1a16-498c-b648-776e183fea70,subcontractor,Richter Concrete GmbH,kontakt@firma218.example,Concrete,Stuttgart,11-50,de,free,2026-09-25T13:32:37.410020+00:00,
+329fc417-1081-4d45-bf45-f8a20594b24f,subcontractor,Wagner HVAC GmbH,kontakt@firma219.example,HVAC,Düsseldorf,11-50,de,paid,2026-09-17T20:17:09.596317+00:00,2026-09-26T02:19:54.426981+00:00
+651ea252-b974-4cde-9259-f9606ee35607,subcontractor,Braun Concrete AG,kontakt@firma220.example,Concrete,Munich,1-10,de,paid,2026-08-14T14:09:28.740047+00:00,2026-09-02T21:53:22.577252+00:00
+7fb75c57-4b8c-431f-a5b4-09833eebc04a,subcontractor,Klein Plumbing AG,kontakt@firma221.example,Plumbing,Munich,1-10,de,free,2026-09-25T15:26:54.398234+00:00,
+61eb64e6-fd49-4e20-84ff-eab2cb7b0b3a,subcontractor,Schwarz Facade AG,kontakt@firma222.example,Facade,Stuttgart,1-10,de,paid,2026-08-01T00:52:53.506397+00:00,2026-09-29T07:00:01.695892+00:00
+c74e48ff-cf89-469d-a550-d73607806e71,subcontractor,Klein Plumbing GmbH,kontakt@firma223.example,Plumbing,Hamburg,1-10,en,paid,2026-08-09T09:54:06.374707+00:00,2026-09-03T15:36:28.587756+00:00
+bcaff931-ead1-4464-8a8e-858cd0f81063,subcontractor,Wagner Drywall AG,kontakt@firma224.example,Drywall,Berlin,11-50,en,free,2026-09-07T10:10:28.908219+00:00,
+5bd93609-b297-4782-bcf4-74aace63cb1a,subcontractor,Klein Plumbing GmbH & Co. KG,kontakt@firma225.example,Plumbing,Düsseldorf,1-10,de,free,2026-07-14T02:12:10.285051+00:00,
+86c5547c-051a-4039-b803-dcee9a069295,subcontractor,Müller Concrete GmbH,kontakt@firma226.example,Concrete,Munich,1-10,de,free,2026-07-24T00:44:19.375657+00:00,
+12916e60-f5e7-4daf-9d69-6bc8dc54d59b,subcontractor,Zimmermann Plumbing AG,kontakt@firma227.example,Plumbing,Munich,11-50,en,free,2026-08-18T03:54:24.919603+00:00,
+f7ff88d4-b509-408a-ac98-8bca51397c06,subcontractor,Koch Flooring AG,kontakt@firma228.example,Flooring,Cologne,11-50,en,free,2026-07-24T01:54:49.939820+00:00,
+92a54d04-f2dd-41f5-b3b6-d344f2e3c6f0,subcontractor,Neumann Roofing GmbH,kontakt@firma229.example,Roofing,Munich,1-10,en,paid,2026-06-13T15:50:34.796454+00:00,2026-08-28T22:19:31.853555+00:00
+13eb22c9-bece-421a-94c7-743b2401342a,subcontractor,Schneider Drywall GmbH & Co. KG,kontakt@firma230.example,Drywall,Hamburg,11-50,en,paid,2026-09-13T08:22:53.054307+00:00,2026-09-23T00:36:38.312434+00:00
+62ccc604-0c53-444b-8053-f649b86d066b,subcontractor,Schwarz HVAC GmbH,kontakt@firma231.example,HVAC,Munich,1-10,de,free,2026-09-13T12:39:23.658537+00:00,
+29a3db6d-39bf-4a38-afe9-be90c21c3fb3,subcontractor,Klein Concrete AG,kontakt@firma232.example,Concrete,Munich,11-50,de,free,2026-09-28T19:31:52.980137+00:00,
+17d5b563-fa60-4de1-a5eb-772df11c0ac5,subcontractor,Schneider Flooring AG,kontakt@firma233.example,Flooring,Hamburg,1-10,en,free,2026-06-21T22:26:47.175736+00:00,
+68c690b2-30a2-4ee8-b972-2cc1349ef4a9,subcontractor,Schneider Flooring GmbH & Co. KG,kontakt@firma234.example,Flooring,Frankfurt,1-10,de,paid,2026-07-10T17:01:20.706811+00:00,2026-09-06T22:07:48.737082+00:00
+6d779595-00fa-4eb4-9c5f-48d40df407b8,subcontractor,Koch Scaffolding GmbH,kontakt@firma235.example,Scaffolding,Berlin,11-50,en,paid,2026-07-22T18:29:58.711095+00:00,2026-08-20T19:22:31.644952+00:00
+7d3572cc-788f-40cd-a5c0-6b93c8edabdd,subcontractor,Schneider HVAC GmbH & Co. KG,kontakt@firma236.example,HVAC,Düsseldorf,11-50,de,free,2026-07-20T20:11:58.050231+00:00,
+907276ea-44c0-4a9a-964a-cb1f39eb038a,subcontractor,Koch Electrical GmbH & Co. KG,kontakt@firma237.example,Electrical,Berlin,1-10,de,free,2026-07-17T21:32:15.817190+00:00,
+f7336094-6b2b-48b9-85c7-f3bed183010f,subcontractor,Müller Scaffolding GmbH & Co. KG,kontakt@firma238.example,Scaffolding,Cologne,1-10,en,free,2026-08-09T01:14:07.306772+00:00,
+c1d71f4a-f302-4d16-9eca-cae925bf213d,subcontractor,Wolf Facade AG,kontakt@firma239.example,Facade,Munich,51-200,en,free,2026-09-13T10:22:33.099120+00:00,
+ceae1325-ea07-4d80-ba23-6c22e92a7b97,subcontractor,Wagner Plumbing GmbH & Co. KG,kontakt@firma240.example,Plumbing,Berlin,51-200,de,free,2026-08-17T23:03:03.203219+00:00,
+25f06b0a-264e-459d-aa18-e5af1cce08e9,subcontractor,Schwarz Scaffolding GmbH & Co. KG,kontakt@firma241.example,Scaffolding,Cologne,11-50,de,paid,2026-06-13T16:48:55.006606+00:00,2026-08-23T05:28:24.840416+00:00
+7c4f48e4-a7a0-4a3d-a20f-230b439e754c,subcontractor,Braun Facade GmbH & Co. KG,kontakt@firma242.example,Facade,Cologne,51-200,de,free,2026-09-12T20:28:45.928186+00:00,
+79a7e63b-bee9-45da-8c9e-55503cd1ff3f,subcontractor,Becker Flooring AG,kontakt@firma243.example,Flooring,Leipzig,51-200,en,free,2026-09-30T07:54:28.446088+00:00,
+44f8b53c-5224-4d05-9369-2867c626e38f,subcontractor,Neumann Drywall GmbH & Co. KG,kontakt@firma244.example,Drywall,Frankfurt,1-10,de,free,2026-09-22T09:19:08.282541+00:00,
+10cc4604-28b2-4b1b-8a9f-1d5983e8b700,subcontractor,Zimmermann Facade GmbH,kontakt@firma245.example,Facade,Hamburg,51-200,de,paid,2026-09-17T01:21:25.805525+00:00,2026-09-23T21:56:20.231334+00:00
+5c418a83-eb04-459c-8cf1-73f974d9d1f5,subcontractor,Fischer Drywall GmbH,kontakt@firma246.example,Drywall,Frankfurt,51-200,de,free,2026-06-29T22:52:23.912928+00:00,
+29dc073e-5820-43f2-9989-dd6c8d2434f9,subcontractor,Koch Plumbing AG,kontakt@firma247.example,Plumbing,Düsseldorf,201-1000,de,free,2026-06-29T02:32:56.106482+00:00,
+83666636-68d5-46b8-a6ce-6d7a44e2a94b,subcontractor,Wolf Drywall GmbH,kontakt@firma248.example,Drywall,Berlin,11-50,de,free,2026-07-06T09:14:59.797651+00:00,
+a48aa108-b599-477f-b78e-e9e8b676291d,subcontractor,Klein Electrical GmbH & Co. KG,kontakt@firma249.example,Electrical,Hamburg,1-10,en,paid,2026-06-26T17:22:22.211303+00:00,2026-09-02T10:13:43.176028+00:00
+f76b9723-a990-4071-bfda-9a9382f29004,subcontractor,Schneider Scaffolding GmbH,kontakt@firma250.example,Scaffolding,Düsseldorf,1-10,de,paid,2026-07-20T05:05:11.122189+00:00,2026-08-18T13:34:14.520829+00:00
+f3c2944a-b60a-4dcc-a7f7-745142da8609,subcontractor,Zimmermann Roofing GmbH & Co. KG,kontakt@firma251.example,Roofing,Düsseldorf,11-50,de,free,2026-09-15T09:56:44.938576+00:00,
+a7c854e4-0684-4c86-b8a6-040223d26b8d,subcontractor,Becker Scaffolding AG,kontakt@firma252.example,Scaffolding,Munich,1-10,de,paid,2026-06-20T08:40:29.141937+00:00,2026-09-13T07:55:22.368031+00:00
+c8ef0377-a368-44f5-88dd-d880afb28b3d,subcontractor,Neumann Drywall GmbH,kontakt@firma253.example,Drywall,Munich,1-10,en,paid,2026-08-22T10:17:54.926874+00:00,2026-09-21T20:39:49.419073+00:00
+8f1cb2cc-ceef-4fa8-b9a5-d4d0423701f1,subcontractor,Weber Roofing AG,kontakt@firma254.example,Roofing,Stuttgart,1-10,de,free,2026-07-16T11:44:40.325886+00:00,
+4b46ef33-95e7-4614-82b4-02815f269466,subcontractor,Braun Roofing GmbH & Co. KG,kontakt@firma255.example,Roofing,Munich,1-10,de,free,2026-09-26T11:36:08.208169+00:00,
+69c165ae-4c61-4ae8-87a3-7f1061b512ed,subcontractor,Zimmermann Drywall AG,kontakt@firma256.example,Drywall,Berlin,11-50,en,paid,2026-09-16T20:37:21.212007+00:00,2026-10-07T04:33:39.651298+00:00
+7cd2192f-14b0-4f62-8768-b07f2e2bdc6c,subcontractor,Zimmermann Concrete AG,kontakt@firma257.example,Concrete,Hamburg,1-10,en,free,2026-08-27T14:43:40.210170+00:00,
+a22c3d4f-6f07-460f-9d4e-8b5d2120bfba,subcontractor,Koch Scaffolding GmbH,kontakt@firma258.example,Scaffolding,Munich,11-50,de,free,2026-08-08T18:07:33.285405+00:00,
+a06e8de5-010e-4265-ad3f-5dd4049626ba,subcontractor,Richter Painting GmbH,kontakt@firma259.example,Painting,Frankfurt,11-50,de,free,2026-06-23T19:16:18.123209+00:00,
+98abb2e7-8531-4f0f-ba53-312274b79620,subcontractor,Wagner HVAC GmbH & Co. KG,kontakt@firma260.example,HVAC,Cologne,51-200,de,free,2026-07-15T16:14:14.810337+00:00,
+ba27bc64-396d-4ffb-ba79-9efa04e55bd5,subcontractor,Braun Plumbing GmbH & Co. KG,kontakt@firma261.example,Plumbing,Leipzig,51-200,de,free,2026-09-30T03:16:12.155907+00:00,
+fea35d37-980b-4853-8c70-31eb9f85c2dd,subcontractor,Wagner Flooring AG,kontakt@firma262.example,Flooring,Berlin,51-200,de,free,2026-06-28T12:03:34.012070+00:00,
+0261c87a-a15c-459a-af8c-a888b1f81ad9,subcontractor,Weber Roofing GmbH,kontakt@firma263.example,Roofing,Hamburg,11-50,de,free,2026-07-18T11:17:51.678079+00:00,
+1b341937-c8e6-4939-9d2f-ed2a485f7888,subcontractor,Klein HVAC GmbH,kontakt@firma264.example,HVAC,Munich,11-50,de,free,2026-07-05T04:35:02.631843+00:00,
+54a27051-7b0c-4ad9-aee1-3caeb02e21aa,subcontractor,Koch Plumbing GmbH,kontakt@firma265.example,Plumbing,Hamburg,1-10,de,free,2026-09-22T10:06:10.213609+00:00,
+3b2d520b-a4f3-4185-8182-2509e79f9f3d,subcontractor,Neumann Facade GmbH,kontakt@firma266.example,Facade,Munich,1-10,en,free,2026-09-02T06:45:56.200898+00:00,
+d9eb404c-1851-41cf-9dab-b10abd10f87c,subcontractor,Becker Painting GmbH & Co. KG,kontakt@firma267.example,Painting,Stuttgart,51-200,de,free,2026-06-26T16:14:03.094811+00:00,
+2ed087d4-57bc-4d3a-90a1-7fe85f642a53,subcontractor,Neumann Scaffolding GmbH,kontakt@firma268.example,Scaffolding,Berlin,1-10,de,free,2026-08-11T03:42:14.036185+00:00,
+d8274fc3-f145-4426-bb48-1ded0f037337,subcontractor,Neumann Plumbing AG,kontakt@firma269.example,Plumbing,Berlin,1-10,de,paid,2026-07-26T17:16:47.416639+00:00,2026-08-29T04:27:52.941714+00:00
+f933a9fa-ba2e-4eb3-96aa-5382e1446b45,subcontractor,Zimmermann Painting AG,kontakt@firma270.example,Painting,Düsseldorf,11-50,de,free,2026-08-07T12:31:54.514957+00:00,
+f4acc7e2-fa57-4cea-b957-134490a4a421,subcontractor,Klein Facade AG,kontakt@firma271.example,Facade,Frankfurt,11-50,de,free,2026-08-03T11:59:09.278119+00:00,
+0df80b89-9ce7-4ed1-bcdf-e961e45e2ad0,subcontractor,Zimmermann Flooring AG,kontakt@firma272.example,Flooring,Berlin,1-10,en,free,2026-08-05T12:23:03.032904+00:00,
+a4b0718e-8ced-4707-b903-4b6581c61eeb,subcontractor,Wagner Painting GmbH,kontakt@firma273.example,Painting,Munich,1-10,en,free,2026-09-23T14:10:41.627731+00:00,
+6747d24a-1a46-4536-848c-8480a7437402,subcontractor,Koch Painting AG,kontakt@firma274.example,Painting,Munich,1-10,de,free,2026-10-02T15:16:56.134158+00:00,
+5d04032d-5742-4882-b34a-794974ca0ad7,subcontractor,Wolf Facade AG,kontakt@firma275.example,Facade,Stuttgart,11-50,en,paid,2026-06-27T13:26:04.347243+00:00,2026-09-06T22:41:41.654517+00:00
+008ffab9-38c4-4b38-a8ae-57b9c262cad0,subcontractor,Schneider Painting GmbH,kontakt@firma276.example,Painting,Munich,11-50,en,free,2026-06-13T17:54:49.348349+00:00,
+da296905-ee22-470b-9ee9-32603002d831,subcontractor,Klein Flooring GmbH,kontakt@firma277.example,Flooring,Munich,1-10,de,free,2026-07-04T19:01:49.296497+00:00,
+011c4544-7fb3-4be5-b6bf-2f7222778161,subcontractor,Klein Concrete AG,kontakt@firma278.example,Concrete,Cologne,11-50,de,free,2026-06-17T02:17:59.348808+00:00,
+810d5c57-5264-4a59-a1f8-5b339b2d5a2a,subcontractor,Wolf Plumbing AG,kontakt@firma279.example,Plumbing,Düsseldorf,1-10,de,free,2026-07-24T14:55:41.087942+00:00,
+e2ed8686-b334-42cb-9a3f-0ad169a9aff9,subcontractor,Weber Roofing GmbH,kontakt@firma280.example,Roofing,Stuttgart,11-50,de,paid,2026-07-13T23:37:34.958943+00:00,2026-08-24T10:22:34.120609+00:00
+a66c0fa1-b5dc-4a9a-bb38-cd9121f6c63d,subcontractor,Braun Roofing AG,kontakt@firma281.example,Roofing,Leipzig,11-50,de,free,2026-08-01T06:28:27.097465+00:00,
+e4d466eb-bf74-431c-ac9b-389a6adfd568,subcontractor,Wolf Scaffolding AG,kontakt@firma282.example,Scaffolding,Düsseldorf,11-50,de,free,2026-06-27T05:11:58.782796+00:00,
+b0cad2eb-0fe1-421a-96e1-ba00257c54bc,subcontractor,Wolf Plumbing GmbH & Co. KG,kontakt@firma283.example,Plumbing,Stuttgart,201-1000,de,free,2026-08-01T10:06:56.566414+00:00,
+82cbcdc7-3cd3-4e99-a38e-13888faf6d4a,subcontractor,Neumann Facade AG,kontakt@firma284.example,Facade,Stuttgart,51-200,de,free,2026-08-30T13:52:04.755967+00:00,
+9edd2182-33fd-462d-8057-e470be6127a8,subcontractor,Müller Painting GmbH,kontakt@firma285.example,Painting,Düsseldorf,201-1000,en,free,2026-08-12T16:53:39.974756+00:00,
+318910ec-f6db-42b6-b993-ff63c6b18d94,subcontractor,Klein Scaffolding GmbH,kontakt@firma286.example,Scaffolding,Hamburg,11-50,de,free,2026-07-16T03:36:44.076645+00:00,
+4148bd11-d894-42e8-9580-1c3a2932a211,subcontractor,Wagner Flooring GmbH,kontakt@firma287.example,Flooring,Berlin,1-10,de,free,2026-06-16T20:15:57.567273+00:00,
+5bab7f4a-8cd7-4c27-929a-f586ca376c36,subcontractor,Wagner Scaffolding GmbH & Co. KG,kontakt@firma288.example,Scaffolding,Berlin,51-200,de,free,2026-08-03T05:39:37.039602+00:00,
+87cec69d-9e47-4339-80ae-0b1af3476736,subcontractor,Wagner Painting GmbH,kontakt@firma289.example,Painting,Munich,1-10,de,free,2026-07-08T03:51:41.420228+00:00,
+61a1a29c-5228-4d8d-a2ba-9fceaebbaf9c,subcontractor,Fischer Scaffolding GmbH,kontakt@firma290.example,Scaffolding,Düsseldorf,51-200,en,paid,2026-08-19T06:43:59.139137+00:00,2026-09-04T11:17:33.494537+00:00
+e5f5c891-4be3-48a8-8b39-dccf7c9f3bc3,subcontractor,Richter Painting GmbH & Co. KG,kontakt@firma291.example,Painting,Frankfurt,11-50,de,paid,2026-09-23T04:28:38.055341+00:00,2026-10-02T23:32:30.343605+00:00
+d5ee2587-6c98-4d9b-af76-b6c2dd6d6b41,subcontractor,Wolf HVAC GmbH,kontakt@firma292.example,HVAC,Berlin,1-10,de,free,2026-07-13T20:10:49.307917+00:00,
+cb51a911-2d90-44ee-8de4-833e12c0620c,subcontractor,Müller Concrete GmbH,kontakt@firma293.example,Concrete,Hamburg,11-50,de,free,2026-06-30T04:04:52.877227+00:00,
+bef6a59a-c186-4221-9030-56b79e4c24dd,subcontractor,Wolf HVAC AG,kontakt@firma294.example,HVAC,Cologne,11-50,de,free,2026-09-24T07:24:13.703628+00:00,
+889157fd-2804-40ac-b957-41bb07e3c39a,subcontractor,Zimmermann Concrete AG,kontakt@firma295.example,Concrete,Hamburg,1-10,de,paid,2026-07-03T00:39:51.364691+00:00,2026-09-06T09:27:42.031437+00:00
+1f8c56e0-2431-43fd-8e19-0d07dff0b9bf,subcontractor,Müller Painting AG,kontakt@firma296.example,Painting,Berlin,201-1000,de,paid,2026-08-18T08:05:06.647306+00:00,2026-08-30T07:45:54.190321+00:00
+29344e15-2477-4047-8336-a758d9f93502,subcontractor,Braun Painting AG,kontakt@firma297.example,Painting,Berlin,1-10,de,free,2026-09-03T14:11:00.122388+00:00,
+402d105b-113e-4f84-abf3-90964a68369c,subcontractor,Richter Facade GmbH,kontakt@firma298.example,Facade,Berlin,11-50,de,free,2026-08-07T15:06:18.512062+00:00,
+9dc89e1a-540e-4d01-b35d-88f37c6166df,subcontractor,Fischer Scaffolding GmbH & Co. KG,kontakt@firma299.example,Scaffolding,Frankfurt,1-10,de,free,2026-09-15T03:08:26.084181+00:00,
+e0bd202c-54e1-4f3a-bba4-1ae0adf8f767,subcontractor,Becker Flooring GmbH,kontakt@firma300.example,Flooring,Munich,1-10,de,paid,2026-07-05T13:23:37.897430+00:00,2026-08-23T23:02:21.031040+00:00
+e2e6e7a6-bbc9-4473-8363-589c32495cff,subcontractor,Weber Roofing AG,kontakt@firma301.example,Roofing,Frankfurt,51-200,de,free,2026-06-22T01:32:25.312625+00:00,
+ffaca645-e4dc-4306-8b20-ce3e42b7c048,subcontractor,Müller Scaffolding AG,kontakt@firma302.example,Scaffolding,Cologne,1-10,de,paid,2026-09-15T13:31:25.102015+00:00,2026-09-28T00:20:30.754097+00:00
+02b622e9-808e-48d2-9d26-4b1b6593b659,subcontractor,Richter Plumbing GmbH,kontakt@firma303.example,Plumbing,Frankfurt,11-50,en,free,2026-07-01T21:42:00.421515+00:00,
+bc653d94-256d-4d11-b7bd-8499df482e7c,subcontractor,Klein Plumbing AG,kontakt@firma304.example,Plumbing,Frankfurt,11-50,en,free,2026-09-28T00:11:31.035501+00:00,
+7463835e-eafb-4f20-b83c-91eb635a11f2,subcontractor,Schwarz Drywall GmbH & Co. KG,kontakt@firma305.example,Drywall,Düsseldorf,11-50,de,paid,2026-07-20T01:49:20.523936+00:00,2026-10-01T12:49:01.737827+00:00
+5d8416e0-60e6-46ff-a757-43f9606cc2f5,subcontractor,Klein Roofing GmbH,kontakt@firma306.example,Roofing,Cologne,11-50,en,free,2026-09-23T16:55:09.314867+00:00,
+23936d45-e1cc-4f0d-8078-636d01b062c1,subcontractor,Koch Painting AG,kontakt@firma307.example,Painting,Munich,11-50,de,paid,2026-08-04T11:37:00.337202+00:00,2026-09-22T01:36:18.268295+00:00
+acdbd5f2-7b44-4cd0-9d03-c3d5b862acc3,subcontractor,Hoffmann HVAC GmbH & Co. KG,kontakt@firma308.example,HVAC,Munich,11-50,de,free,2026-09-14T02:42:39.589156+00:00,
+2e16f0b6-ec25-4a75-821d-4dca2a955908,subcontractor,Weber Electrical GmbH,kontakt@firma309.example,Electrical,Cologne,51-200,de,free,2026-06-13T04:38:17.151926+00:00,
+38283a05-2baa-43c9-bb4e-9ecdde0787b1,subcontractor,Klein HVAC GmbH & Co. KG,kontakt@firma310.example,HVAC,Düsseldorf,1-10,de,free,2026-07-03T06:36:37.153043+00:00,
+1bcb404c-21d8-496a-a2ad-a15760d2759a,subcontractor,Schneider Concrete GmbH,kontakt@firma311.example,Concrete,Berlin,11-50,de,free,2026-06-20T01:58:27.906534+00:00,
+17db4c2f-1e15-4e2f-809c-2ebe80da2ed7,subcontractor,Braun Scaffolding AG,kontakt@firma312.example,Scaffolding,Munich,11-50,de,free,2026-07-25T06:09:38.296557+00:00,
+3abf9c65-6dd0-43f3-87a2-0e22b298b811,subcontractor,Zimmermann Facade GmbH,kontakt@firma313.example,Facade,Leipzig,1-10,de,free,2026-07-06T06:13:00.695089+00:00,
+e8fb5a96-3b85-46e1-840f-54057a25ed81,subcontractor,Weber Scaffolding GmbH & Co. KG,kontakt@firma314.example,Scaffolding,Düsseldorf,1-10,de,free,2026-06-23T19:52:32.339263+00:00,
+b0117b0a-3496-41d6-a790-55b06001f54d,subcontractor,Richter Scaffolding GmbH,kontakt@firma315.example,Scaffolding,Stuttgart,11-50,de,free,2026-09-20T09:34:51.588509+00:00,
+69c9520f-3425-449c-8145-d6ba65bf8e04,subcontractor,Wagner Scaffolding AG,kontakt@firma316.example,Scaffolding,Cologne,1-10,de,free,2026-09-12T02:29:04.503083+00:00,
+c879d932-7254-4ab7-bad2-4ac8bf70c042,subcontractor,Wolf Plumbing GmbH,kontakt@firma317.example,Plumbing,Frankfurt,51-200,de,free,2026-09-07T23:50:46.332829+00:00,
+25343e85-d2c0-4ec2-9751-94d7cdeb2696,subcontractor,Wolf Electrical GmbH,kontakt@firma318.example,Electrical,Munich,1-10,de,paid,2026-09-22T12:28:56.538127+00:00,2026-10-07T02:50:57.379522+00:00
+0eb5e5a7-98f3-4640-b6a9-e3e3b62bccb1,subcontractor,Richter Flooring GmbH & Co. KG,kontakt@firma319.example,Flooring,Leipzig,11-50,en,free,2026-07-21T00:32:47.925980+00:00,
+3b4ec9f5-b2cd-4a0a-840c-5cb082b34384,subcontractor,Schwarz Roofing AG,kontakt@firma320.example,Roofing,Cologne,1-10,de,paid,2026-08-22T06:52:05.804286+00:00,2026-09-02T00:33:47.119311+00:00
+03ef0f77-848a-4924-b347-8a919609598e,subcontractor,Hoffmann Flooring GmbH & Co. KG,kontakt@firma321.example,Flooring,Frankfurt,1-10,de,free,2026-09-22T06:53:34.466086+00:00,
+8f026c2c-1b41-4999-8198-d1f56839f98f,subcontractor,Wagner Flooring GmbH,kontakt@firma322.example,Flooring,Berlin,11-50,de,free,2026-06-15T17:59:16.765146+00:00,
+3e4727fd-c51c-41f4-bbcf-2b31902bd154,subcontractor,Koch Scaffolding GmbH & Co. KG,kontakt@firma323.example,Scaffolding,Stuttgart,1-10,en,paid,2026-08-10T21:19:44.433287+00:00,2026-08-28T02:01:46.616870+00:00
+84399ed9-5a64-445e-b498-16ad6994bf84,subcontractor,Fischer Drywall GmbH & Co. KG,kontakt@firma324.example,Drywall,Cologne,11-50,de,free,2026-09-02T08:54:19.893471+00:00,
+92ded495-e4f1-48e8-b7f3-f32b5a81762a,subcontractor,Koch Facade GmbH & Co. KG,kontakt@firma325.example,Facade,Hamburg,51-200,en,free,2026-07-16T02:22:28.209659+00:00,
+ad0205f5-1417-42f9-ab91-731a1eb05b4a,subcontractor,Schwarz Scaffolding GmbH,kontakt@firma326.example,Scaffolding,Leipzig,1-10,de,free,2026-10-01T21:28:09.580896+00:00,
+82d9a774-ea7f-4c7d-83a6-b204fc014a22,subcontractor,Koch Scaffolding GmbH,kontakt@firma327.example,Scaffolding,Hamburg,51-200,de,free,2026-07-28T08:09:17.135603+00:00,
+f9fc6034-750a-4c98-acbf-b769c6a1a468,subcontractor,Zimmermann Facade AG,kontakt@firma328.example,Facade,Berlin,1-10,de,free,2026-08-27T08:33:11.453626+00:00,
+44f7f01a-3cb5-46d7-834a-130e8c6ea6ad,subcontractor,Wagner Painting GmbH,kontakt@firma329.example,Painting,Munich,11-50,de,paid,2026-08-21T13:48:00.061604+00:00,2026-09-05T11:59:10.813440+00:00
+af9e7a0e-936d-44a7-bab1-996a21925613,subcontractor,Weber Flooring AG,kontakt@firma330.example,Flooring,Hamburg,1-10,de,free,2026-09-01T14:41:28.100967+00:00,
+fedd22d9-226c-4c6a-bfe5-a4b66be8c756,subcontractor,Müller Plumbing GmbH,kontakt@firma331.example,Plumbing,Düsseldorf,11-50,de,paid,2026-08-02T05:57:31.435179+00:00,2026-09-08T07:08:32.819690+00:00
+411920f6-d056-4199-b728-ddc20f5e8b47,subcontractor,Neumann Electrical GmbH,kontakt@firma332.example,Electrical,Munich,1-10,de,free,2026-08-11T22:09:04.944933+00:00,
+f68ece81-adf9-468b-9e0b-de1859e110eb,subcontractor,Hoffmann Roofing GmbH,kontakt@firma333.example,Roofing,Cologne,1-10,de,free,2026-07-19T22:07:18.986934+00:00,
+9d1911a5-618d-4e71-9412-83fbe3bef3d6,subcontractor,Neumann Facade GmbH & Co. KG,kontakt@firma334.example,Facade,Hamburg,11-50,de,free,2026-09-15T23:58:09.338020+00:00,
+3a6c7da6-57f7-471f-a978-cc731440adec,subcontractor,Braun Scaffolding GmbH,kontakt@firma335.example,Scaffolding,Hamburg,1-10,de,free,2026-07-12T22:57:15.319032+00:00,
+daada0b1-2f13-4a6d-aad5-5c0b69fb2fe6,subcontractor,Richter Painting GmbH & Co. KG,kontakt@firma336.example,Painting,Berlin,11-50,de,free,2026-07-18T12:34:06.392124+00:00,
+154ff37d-fefa-4198-83d6-cd548623bc74,subcontractor,Müller Concrete GmbH & Co. KG,kontakt@firma337.example,Concrete,Berlin,11-50,de,free,2026-09-22T23:03:05.681697+00:00,
+ea4f4a80-dc41-4176-9b59-f28ea9de5b26,subcontractor,Müller Facade GmbH,kontakt@firma338.example,Facade,Hamburg,51-200,de,free,2026-06-12T12:48:05.791658+00:00,
+e096521e-a2c7-43d4-bfb8-abb9a18c5492,subcontractor,Klein Facade GmbH & Co. KG,kontakt@firma339.example,Facade,Cologne,1-10,de,free,2026-07-21T02:39:09.747960+00:00,
+00060d5a-02b3-4948-8db6-f47527dd1ac4,subcontractor,Hoffmann Concrete GmbH & Co. KG,kontakt@firma340.example,Concrete,Cologne,1-10,de,free,2026-09-16T23:33:41.110090+00:00,
+3b30ee97-98d5-4cf5-8afc-f9e8cc476b72,subcontractor,Schwarz Concrete GmbH & Co. KG,kontakt@firma341.example,Concrete,Stuttgart,1-10,de,free,2026-09-10T23:17:41.176578+00:00,
+ccca1e14-c3b8-480f-8440-8e983d53ec43,subcontractor,Hoffmann Drywall AG,kontakt@firma342.example,Drywall,Düsseldorf,1-10,en,free,2026-07-15T22:08:36.501950+00:00,
+73e88db6-9e23-43d0-b491-5c14a30b669c,subcontractor,Wagner HVAC GmbH,kontakt@firma343.example,HVAC,Hamburg,1-10,de,free,2026-09-11T01:27:06.526034+00:00,
+3799a376-7e5b-4ac9-83c5-01fe269334ef,subcontractor,Fischer Concrete GmbH,kontakt@firma344.example,Concrete,Munich,11-50,de,paid,2026-07-02T17:14:04.498314+00:00,2026-09-19T22:05:37.261368+00:00
+3133839e-2e7d-452b-b85b-8a078b0ea0b9,subcontractor,Hoffmann Electrical GmbH,kontakt@firma345.example,Electrical,Düsseldorf,1-10,de,free,2026-08-19T18:35:49.296054+00:00,
+180dc855-c55f-4de8-bc3e-1d1975f94230,subcontractor,Müller Concrete GmbH,kontakt@firma346.example,Concrete,Cologne,1-10,en,paid,2026-08-09T06:45:07.812115+00:00,2026-08-30T13:35:01.613928+00:00
+a3760c2d-7b31-4cdc-80d9-1a8e1f44aa88,subcontractor,Richter Electrical AG,kontakt@firma347.example,Electrical,Hamburg,11-50,de,free,2026-09-26T15:59:20.882316+00:00,
+3e3b1a40-ca05-43a2-a553-b15f1ea15b0f,subcontractor,Wagner Electrical AG,kontakt@firma348.example,Electrical,Berlin,1-10,de,free,2026-07-04T13:21:32.440016+00:00,
+ff39a117-f83b-4806-ae4c-1b1856a2d49d,subcontractor,Wolf Plumbing AG,kontakt@firma349.example,Plumbing,Stuttgart,11-50,de,paid,2026-08-22T18:31:18.805225+00:00,2026-08-31T12:14:06.326481+00:00
+e44cbd41-ce36-492a-98e9-d0aac1b6edd4,subcontractor,Schwarz Painting AG,kontakt@firma350.example,Painting,Munich,201-1000,de,free,2026-07-15T09:25:14.623049+00:00,
+77e8b762-bb7e-4979-92dc-bffd59008d65,subcontractor,Weber Concrete AG,kontakt@firma351.example,Concrete,Hamburg,1-10,en,free,2026-06-19T11:48:08.743497+00:00,
+6108ffcc-8186-422b-a355-ad05c6a28e4e,subcontractor,Koch Roofing GmbH,kontakt@firma352.example,Roofing,Frankfurt,11-50,en,paid,2026-07-23T09:16:59.376269+00:00,2026-09-07T10:17:59.654882+00:00
+8d2cfe83-c407-4654-bf5f-61aaaee7c7a5,subcontractor,Fischer Facade AG,kontakt@firma353.example,Facade,Berlin,51-200,de,free,2026-08-16T12:41:24.639265+00:00,
+1947ea42-310d-49d1-bc41-3a2a1b67f7bb,subcontractor,Müller Plumbing GmbH,kontakt@firma354.example,Plumbing,Berlin,1-10,de,free,2026-08-18T23:13:04.556514+00:00,
+a7df30b2-356f-4c0a-abc8-f6b7ee224f70,subcontractor,Schneider Drywall GmbH,kontakt@firma355.example,Drywall,Munich,11-50,en,free,2026-09-23T11:04:11.630229+00:00,
+d59ef0fd-1204-44d6-bbfb-1b710a683eb8,subcontractor,Wagner Electrical AG,kontakt@firma356.example,Electrical,Hamburg,51-200,en,free,2026-06-14T04:31:52.524488+00:00,
+bfcb3388-8ef4-474b-adcc-4095f28f9444,subcontractor,Klein Facade AG,kontakt@firma357.example,Facade,Cologne,11-50,de,free,2026-07-06T12:48:30.365872+00:00,
+a854027e-5667-4e49-8133-8bdc66cc7376,subcontractor,Weber HVAC AG,kontakt@firma358.example,HVAC,Berlin,1-10,en,free,2026-08-12T17:02:13.506048+00:00,
+36c3fe85-8bae-495e-902a-405c3d9ffe59,subcontractor,Becker Flooring AG,kontakt@firma359.example,Flooring,Munich,51-200,de,free,2026-07-09T00:42:51.956423+00:00,
+38cd9122-fc01-45e1-8ce2-afa201ae7eb1,subcontractor,Braun Electrical GmbH & Co. KG,kontakt@firma360.example,Electrical,Hamburg,11-50,de,paid,2026-07-05T22:20:49.183869+00:00,2026-09-04T06:34:37.479394+00:00
+cfa28fb8-4199-422e-bba5-81263ff69f41,subcontractor,Becker Plumbing AG,kontakt@firma361.example,Plumbing,Hamburg,1-10,de,free,2026-07-29T05:07:53.213913+00:00,
+1869c755-e85c-4ec9-91cb-c0929383f86d,subcontractor,Neumann Concrete AG,kontakt@firma362.example,Concrete,Cologne,51-200,de,free,2026-07-10T14:46:19.326753+00:00,
+deaa543e-1edb-4e71-9e2a-2ddfee249b72,subcontractor,Hoffmann Painting GmbH & Co. KG,kontakt@firma363.example,Painting,Stuttgart,51-200,de,paid,2026-06-26T23:11:27.356733+00:00,2026-08-28T10:37:34.648960+00:00
+ac735be0-0cee-4dc2-a737-f345388629ff,subcontractor,Richter Scaffolding AG,kontakt@firma364.example,Scaffolding,Frankfurt,1-10,de,free,2026-08-12T09:50:59.506476+00:00,
+0c9fa6e6-becc-4760-9249-ee3a79d19c4e,subcontractor,Becker Flooring GmbH,kontakt@firma365.example,Flooring,Cologne,1-10,de,free,2026-08-17T19:48:57.783883+00:00,
+ff408dcc-9db1-47f9-8fa8-ae3432339053,subcontractor,Wolf Drywall AG,kontakt@firma366.example,Drywall,Frankfurt,11-50,de,free,2026-09-24T10:00:47.838482+00:00,
+4e089bb4-c509-4558-8632-6b36a7c8f0c5,subcontractor,Becker Painting AG,kontakt@firma367.example,Painting,Berlin,1-10,de,free,2026-06-30T04:10:43.273917+00:00,
+15f7ef61-da4e-404c-ba7e-1b86c1fad753,subcontractor,Becker Drywall GmbH,kontakt@firma368.example,Drywall,Berlin,1-10,de,free,2026-06-15T12:40:25.495455+00:00,
+4237692a-c017-466e-85f4-c0a28be27516,subcontractor,Fischer Drywall GmbH,kontakt@firma369.example,Drywall,Cologne,11-50,de,paid,2026-06-10T12:59:48.481002+00:00,2026-09-12T19:32:57.931521+00:00
+b24f92b9-ca08-41de-b360-d11548b51c88,subcontractor,Weber Facade GmbH,kontakt@firma370.example,Facade,Cologne,1-10,de,free,2026-07-19T08:37:08.212793+00:00,
+62f32fae-a63f-4f12-a226-a768de0e9c53,subcontractor,Müller Painting GmbH & Co. KG,kontakt@firma371.example,Painting,Hamburg,51-200,de,paid,2026-06-12T08:18:06.192405+00:00,2026-10-04T01:41:12.720848+00:00
+0a2d36a6-0580-4493-b664-6199ed25459e,subcontractor,Koch Plumbing AG,kontakt@firma372.example,Plumbing,Hamburg,1-10,de,free,2026-08-25T07:05:54.537460+00:00,
+41f74651-a033-4dad-8fdf-de19cfd835fc,subcontractor,Richter Roofing GmbH & Co. KG,kontakt@firma373.example,Roofing,Düsseldorf,1-10,en,free,2026-06-30T22:44:27.003179+00:00,
+ad9112c5-f5ea-4128-854d-c3bf61d85365,subcontractor,Schneider Flooring AG,kontakt@firma374.example,Flooring,Cologne,11-50,de,free,2026-09-06T12:02:58.043181+00:00,
+dcd28b97-33ca-4a6b-8cd3-af7caf1dcfb8,subcontractor,Klein Drywall AG,kontakt@firma375.example,Drywall,Berlin,11-50,de,free,2026-06-21T07:29:43.892719+00:00,
+2540fbfe-e12f-46cd-96ea-f269514e1353,subcontractor,Schneider Facade GmbH,kontakt@firma376.example,Facade,Frankfurt,51-200,de,paid,2026-06-23T10:35:11.867672+00:00,2026-09-30T02:58:23.784474+00:00
+c32fc21b-06b4-4d27-af4b-8be821acfdb5,subcontractor,Fischer Roofing GmbH,kontakt@firma377.example,Roofing,Leipzig,1-10,de,paid,2026-07-25T00:16:56.003333+00:00,2026-09-08T19:30:43.256405+00:00
+7800e27a-9ace-43cc-989c-83f68098580d,subcontractor,Koch HVAC GmbH,kontakt@firma378.example,HVAC,Frankfurt,11-50,de,free,2026-06-26T15:52:24.386173+00:00,
+33ece6b1-fcfd-4547-abdc-e0dabe0bbddd,subcontractor,Hoffmann Electrical GmbH,kontakt@firma379.example,Electrical,Stuttgart,51-200,de,free,2026-06-18T00:56:44.970568+00:00,
+501a0ccf-b85f-464b-a160-3399d3073198,subcontractor,Klein Flooring AG,kontakt@firma380.example,Flooring,Munich,11-50,en,free,2026-07-28T21:12:41.720856+00:00,
+bc341b4f-fbdc-432e-a546-c66d89b1cad1,subcontractor,Fischer Electrical AG,kontakt@firma381.example,Electrical,Berlin,51-200,de,paid,2026-07-06T15:54:33.934959+00:00,2026-08-27T20:20:38.070773+00:00
+2469d0c2-e757-4997-8458-1f73b0a0c1cd,subcontractor,Klein Plumbing GmbH,kontakt@firma382.example,Plumbing,Munich,1-10,de,free,2026-09-22T06:08:02.562239+00:00,
+74246baa-2dca-4c82-8660-a3e9736d417c,subcontractor,Hoffmann Facade GmbH & Co. KG,kontakt@firma383.example,Facade,Cologne,1-10,de,free,2026-09-09T10:25:06.028361+00:00,
+a25291f3-730b-4657-b4cb-46131d39e9c2,subcontractor,Schneider Plumbing GmbH,kontakt@firma384.example,Plumbing,Munich,11-50,de,paid,2026-08-19T11:40:10.276488+00:00,2026-08-29T03:07:48.653217+00:00
+2dca365a-2504-4d28-9e6a-e4592980f6ff,subcontractor,Wolf Painting GmbH,kontakt@firma385.example,Painting,Stuttgart,11-50,de,free,2026-08-28T05:29:56.352960+00:00,
+75699aef-0320-4c4e-80cb-e188c3f0fac3,subcontractor,Müller Plumbing AG,kontakt@firma386.example,Plumbing,Munich,201-1000,de,free,2026-07-01T19:10:33.882028+00:00,
+e1d5c0dc-3ea5-45a9-81ae-c50599a04abb,subcontractor,Schneider Concrete AG,kontakt@firma387.example,Concrete,Cologne,1-10,de,free,2026-07-30T12:54:59.057951+00:00,
+1be00f8e-0c8d-41d2-9673-aefbeb9e54e0,subcontractor,Wagner Scaffolding GmbH & Co. KG,kontakt@firma388.example,Scaffolding,Munich,51-200,de,paid,2026-07-17T08:46:51.266234+00:00,2026-09-10T19:10:22.116968+00:00
+17d71fc0-092c-4030-ae75-76375c3552b3,subcontractor,Neumann Plumbing AG,kontakt@firma389.example,Plumbing,Stuttgart,201-1000,de,paid,2026-06-21T10:34:06.570456+00:00,2026-08-21T01:43:53.771899+00:00
+9caf8df1-3584-4d71-b221-e1c535b86d0a,subcontractor,Hoffmann Roofing AG,kontakt@firma390.example,Roofing,Berlin,1-10,de,free,2026-06-12T00:44:41.366661+00:00,
+feb9ea24-933c-4d00-8680-0a0b42791490,subcontractor,Zimmermann Roofing GmbH & Co. KG,kontakt@firma391.example,Roofing,Frankfurt,1-10,en,free,2026-07-24T00:18:37.177441+00:00,
+7702beba-0623-4fbf-9e42-d2b800679b62,subcontractor,Wagner Scaffolding GmbH,kontakt@firma392.example,Scaffolding,Frankfurt,1-10,de,paid,2026-06-27T03:04:41.007918+00:00,2026-09-15T15:34:19.162388+00:00
+4818b004-b0a4-4557-b381-001fa3ff8fd2,subcontractor,Fischer Facade GmbH,kontakt@firma393.example,Facade,Hamburg,51-200,de,free,2026-08-29T02:58:00.657049+00:00,
+549c9eb9-31ab-4158-acf6-073bd500c147,subcontractor,Klein Flooring GmbH,kontakt@firma394.example,Flooring,Düsseldorf,11-50,en,free,2026-08-08T13:24:42.623062+00:00,
+69f8d3e4-d06d-4943-88b3-815e76647043,subcontractor,Richter Concrete GmbH & Co. KG,kontakt@firma395.example,Concrete,Leipzig,51-200,de,free,2026-08-03T17:35:18.869606+00:00,
+47cc3a66-2638-48be-b838-93a210f35676,subcontractor,Schwarz Scaffolding GmbH & Co. KG,kontakt@firma396.example,Scaffolding,Düsseldorf,11-50,de,paid,2026-08-20T12:05:10.060615+00:00,2026-09-03T19:20:19.937067+00:00
+b5b81351-5083-4841-9b9a-0eb7b48c531b,subcontractor,Schwarz HVAC GmbH & Co. KG,kontakt@firma397.example,HVAC,Berlin,51-200,de,free,2026-08-06T11:52:49.566985+00:00,
+cc8ceba9-0662-400c-8188-de48719b2dd6,subcontractor,Braun Electrical GmbH,kontakt@firma398.example,Electrical,Munich,11-50,de,free,2026-09-10T18:45:59.188629+00:00,
+6338fb29-7599-4b0a-895b-81d6b97d7617,subcontractor,Weber Facade GmbH,kontakt@firma399.example,Facade,Frankfurt,11-50,de,free,2026-10-02T04:24:26.766441+00:00,
+4fe898d8-c22c-46a8-93da-f60d05c14422,subcontractor,Neumann Facade GmbH & Co. KG,kontakt@firma400.example,Facade,Frankfurt,11-50,de,paid,2026-09-09T14:13:02.857400+00:00,2026-09-22T18:06:27.217861+00:00
+8f43a250-9f79-4228-b553-056703e7dd21,subcontractor,Wagner Roofing GmbH,kontakt@firma401.example,Roofing,Cologne,1-10,de,paid,2026-08-23T08:52:21.408737+00:00,2026-09-28T08:07:47.482979+00:00
+7192e443-8a63-42ca-96b7-979ee46a0b42,subcontractor,Wagner Drywall AG,kontakt@firma402.example,Drywall,Berlin,1-10,de,free,2026-06-20T18:39:49.064662+00:00,
+5b0a31ea-9dc6-4783-b222-534db3099e0d,subcontractor,Wolf Scaffolding AG,kontakt@firma403.example,Scaffolding,Hamburg,51-200,en,free,2026-07-12T16:09:01.095692+00:00,
+77243aa3-c438-4ae0-b5d0-b595a4f89e23,subcontractor,Wagner Concrete AG,kontakt@firma404.example,Concrete,Munich,1-10,en,paid,2026-09-16T03:04:43.777127+00:00,2026-09-25T13:19:41.864916+00:00
+9abc9859-593e-4c83-8497-d0a8484204d5,subcontractor,Koch HVAC GmbH,kontakt@firma405.example,HVAC,Cologne,1-10,de,paid,2026-08-17T00:03:26.507625+00:00,2026-08-21T02:14:21.614055+00:00
+7b7ce7cc-f950-47fa-a8b5-8db58c466308,subcontractor,Klein Scaffolding GmbH,kontakt@firma406.example,Scaffolding,Munich,1-10,de,free,2026-07-01T01:20:35.983349+00:00,
+ee4d0dec-bd47-4885-93f0-e33fab6b3f08,subcontractor,Weber Facade AG,kontakt@firma407.example,Facade,Frankfurt,11-50,en,free,2026-09-19T12:13:10.485416+00:00,
+98ae0666-d066-4d21-af7d-7f211bd6b03d,subcontractor,Schneider Roofing AG,kontakt@firma408.example,Roofing,Stuttgart,201-1000,de,free,2026-08-06T19:29:45.842619+00:00,
+63d5e750-4a9f-450e-8800-61b673f621a8,subcontractor,Wolf Electrical GmbH,kontakt@firma409.example,Electrical,Cologne,11-50,de,free,2026-09-09T00:07:27.955775+00:00,
+67797b58-82ab-43a0-bc86-21109c8aa872,subcontractor,Klein Painting GmbH,kontakt@firma410.example,Painting,Düsseldorf,201-1000,en,paid,2026-09-25T11:29:51.117588+00:00,2026-10-05T02:55:18.923090+00:00
+67f1c18b-61fe-400a-b636-cc4c5170ca8a,subcontractor,Hoffmann Flooring AG,kontakt@firma411.example,Flooring,Munich,11-50,de,paid,2026-07-18T11:17:06.027886+00:00,2026-08-23T19:27:04.154192+00:00
+125df206-02f8-45f8-a260-01c62023fd4b,subcontractor,Zimmermann Flooring AG,kontakt@firma412.example,Flooring,Frankfurt,1-10,de,free,2026-06-22T21:27:28.478672+00:00,
+9f8d367d-6cfa-42dd-ae28-dccd9abbe46b,subcontractor,Braun Flooring AG,kontakt@firma413.example,Flooring,Berlin,51-200,de,free,2026-07-31T04:05:33.325285+00:00,
+692caaae-44ed-48e2-8071-4c8ab64e26cf,subcontractor,Neumann Scaffolding GmbH,kontakt@firma414.example,Scaffolding,Leipzig,11-50,de,free,2026-09-28T19:23:45.226705+00:00,
+c02627d1-fbd1-40c0-9bfe-679afbcbd6ec,subcontractor,Neumann HVAC AG,kontakt@firma415.example,HVAC,Stuttgart,1-10,de,free,2026-09-23T15:49:23.422276+00:00,
+7807c947-02c2-4367-874d-8df088f7f097,subcontractor,Braun Roofing GmbH & Co. KG,kontakt@firma416.example,Roofing,Munich,11-50,en,free,2026-07-28T15:36:23.190288+00:00,
+79210c7c-a119-4eee-8fb9-130742ac66dc,subcontractor,Neumann Scaffolding AG,kontakt@firma417.example,Scaffolding,Cologne,11-50,de,free,2026-07-19T04:18:28.036137+00:00,
+47edc6dd-9da4-4c0f-a1ee-0f6c408669bb,subcontractor,Zimmermann Plumbing GmbH & Co. KG,kontakt@firma418.example,Plumbing,Hamburg,11-50,de,free,2026-07-09T09:24:22.235397+00:00,
+cca3a4c4-2e49-42cf-bc23-9ebc3c775558,subcontractor,Wagner Painting AG,kontakt@firma419.example,Painting,Cologne,51-200,de,free,2026-06-11T11:42:46.436339+00:00,
+93e7e893-35fa-4528-aad3-136fa33817fa,subcontractor,Koch Flooring AG,kontakt@firma420.example,Flooring,Frankfurt,1-10,de,free,2026-07-20T19:06:36.164230+00:00,
+25288a1b-433b-46fc-b97e-b3e463dba8c8,subcontractor,Wolf Facade AG,kontakt@firma421.example,Facade,Cologne,1-10,de,free,2026-08-30T10:41:02.907411+00:00,
+6e8984f4-d820-40d1-b4c8-73a75a947a40,subcontractor,Richter Electrical AG,kontakt@firma422.example,Electrical,Cologne,1-10,de,paid,2026-09-01T07:24:02.275238+00:00,2026-09-16T18:39:16.620316+00:00
+c53f4f7e-96b6-4287-ac00-f929bbfbf76c,subcontractor,Neumann Concrete GmbH,kontakt@firma423.example,Concrete,Berlin,11-50,de,paid,2026-07-15T06:34:56.951155+00:00,2026-09-16T03:46:55.849140+00:00
+382bab11-59fc-4aeb-b229-44a9af7ce609,subcontractor,Richter Electrical GmbH,kontakt@firma424.example,Electrical,Frankfurt,1-10,de,free,2026-09-28T17:47:43.474667+00:00,
+161d6acf-1eb6-41f0-b532-1352b54468e4,subcontractor,Wolf Drywall GmbH,kontakt@firma425.example,Drywall,Düsseldorf,201-1000,de,free,2026-07-19T04:06:05.394290+00:00,
+c516e394-aae6-487e-a744-aa30b1356d67,subcontractor,Wagner Concrete GmbH & Co. KG,kontakt@firma426.example,Concrete,Stuttgart,51-200,de,free,2026-07-04T20:55:56.244453+00:00,
+fabb6609-7de1-4a85-91c4-194a70c98336,subcontractor,Wagner Roofing GmbH,kontakt@firma427.example,Roofing,Leipzig,201-1000,de,free,2026-09-12T03:15:01.025387+00:00,
+12068ad6-12aa-4a4b-88ec-a4c81a71064d,subcontractor,Neumann HVAC GmbH & Co. KG,kontakt@firma428.example,HVAC,Cologne,51-200,de,free,2026-08-12T09:06:58.355270+00:00,
+c55fa445-f09e-4302-b525-a4d983f023fd,subcontractor,Klein Painting GmbH,kontakt@firma429.example,Painting,Munich,51-200,de,free,2026-06-27T14:10:30.036148+00:00,
+668eb10e-4d86-4412-ae8c-c97b555c4e18,subcontractor,Richter Concrete GmbH & Co. KG,kontakt@firma430.example,Concrete,Berlin,1-10,en,paid,2026-07-20T05:49:31.094312+00:00,2026-09-14T15:45:48.948114+00:00
+a925de85-6258-4ce9-b7ae-ede80a119bac,subcontractor,Weber Roofing AG,kontakt@firma431.example,Roofing,Berlin,11-50,de,free,2026-06-21T13:31:08.933310+00:00,
+3d0d5c8f-97cb-4585-bf12-fe28b840d136,subcontractor,Fischer Drywall GmbH,kontakt@firma432.example,Drywall,Munich,1-10,de,paid,2026-08-01T11:49:37.285989+00:00,2026-10-02T18:57:32.094380+00:00
+67cf5ce0-0af5-44a9-b894-3df8c9abda91,subcontractor,Müller Electrical GmbH & Co. KG,kontakt@firma433.example,Electrical,Berlin,1-10,en,free,2026-07-17T21:57:26.494789+00:00,
+eb034c4e-e83c-4ff9-b8a1-d98804e1502a,subcontractor,Koch Electrical AG,kontakt@firma434.example,Electrical,Cologne,11-50,de,free,2026-07-20T01:06:00.566849+00:00,
+1b388581-d145-4d7f-915b-5a37105f86aa,subcontractor,Weber HVAC AG,kontakt@firma435.example,HVAC,Berlin,11-50,de,free,2026-07-23T20:36:57.380314+00:00,
+d62015f0-5253-46f7-a328-051e8bbf1b30,subcontractor,Wolf Flooring AG,kontakt@firma436.example,Flooring,Leipzig,1-10,de,free,2026-09-27T09:55:54.508938+00:00,
+94fd0594-ecf9-4245-be5f-7e23704c19e2,subcontractor,Richter Plumbing GmbH,kontakt@firma437.example,Plumbing,Berlin,11-50,de,paid,2026-06-27T05:01:06.794136+00:00,2026-09-05T06:53:06.834216+00:00
+e30cdee2-97fe-4937-a6d9-77a1b4ecfe8d,subcontractor,Braun Electrical GmbH,kontakt@firma438.example,Electrical,Hamburg,1-10,de,paid,2026-07-03T13:09:58.684675+00:00,2026-08-28T09:47:29.955898+00:00
+2e1482be-98a5-47b2-89a1-8b34b11184e7,subcontractor,Weber Concrete AG,kontakt@firma439.example,Concrete,Frankfurt,1-10,de,paid,2026-09-22T12:48:43.847071+00:00,2026-09-29T20:51:53.379181+00:00
+c5346e41-76d6-4c39-b822-7b0d81ee30e4,subcontractor,Zimmermann HVAC AG,kontakt@firma440.example,HVAC,Frankfurt,11-50,de,paid,2026-09-26T13:16:48.651676+00:00,2026-10-05T05:41:21.693434+00:00
+48f9fd0d-5d3b-41d3-a515-99820dd4c0e6,subcontractor,Wolf Concrete GmbH,kontakt@firma441.example,Concrete,Hamburg,1-10,de,free,2026-07-23T17:19:45.360982+00:00,
+6b47ed61-5372-4bed-946b-448297bb9fbf,subcontractor,Neumann HVAC GmbH & Co. KG,kontakt@firma442.example,HVAC,Berlin,51-200,de,paid,2026-08-26T04:51:36.675318+00:00,2026-09-03T17:26:22.206502+00:00
+0de92f1b-7c02-44e5-95c8-9b2d7892d145,subcontractor,Fischer Drywall GmbH,kontakt@firma443.example,Drywall,Düsseldorf,1-10,de,free,2026-06-17T22:46:56.038175+00:00,
+91941591-b134-458f-8837-59f82090f35e,subcontractor,Fischer Painting GmbH & Co. KG,kontakt@firma444.example,Painting,Berlin,201-1000,de,paid,2026-06-26T17:11:34.449177+00:00,2026-08-18T06:42:41.664235+00:00
+2b80e44a-e7d3-4770-9c8d-1adef3e816b5,subcontractor,Schwarz Scaffolding AG,kontakt@firma445.example,Scaffolding,Cologne,1-10,de,free,2026-09-06T05:46:20.428829+00:00,
+9457f388-6f2a-4c8a-93c9-aacb3f71e1ae,subcontractor,Neumann Electrical GmbH,kontakt@firma446.example,Electrical,Hamburg,11-50,en,free,2026-06-15T20:05:39.031852+00:00,
+7ab16533-64f2-4a7c-87f7-97fa6cfa855f,subcontractor,Richter Concrete GmbH,kontakt@firma447.example,Concrete,Stuttgart,11-50,de,free,2026-09-21T09:16:22.340223+00:00,
+ffbb4bcc-a5cb-4f6f-bd33-31644bb8ebe2,subcontractor,Weber Flooring GmbH & Co. KG,kontakt@firma448.example,Flooring,Berlin,51-200,de,free,2026-08-28T14:24:05.947449+00:00,
+a226a75b-b432-4ce9-b6dc-16b5a076aed6,subcontractor,Zimmermann Flooring GmbH & Co. KG,kontakt@firma449.example,Flooring,Berlin,1-10,de,paid,2026-08-19T09:29:02.021179+00:00,2026-08-28T07:45:01.086850+00:00
+9ed62705-14b9-4b4d-af46-37b3c9a62c37,subcontractor,Schwarz Scaffolding GmbH,kontakt@firma450.example,Scaffolding,Düsseldorf,11-50,de,free,2026-09-26T08:28:13.622251+00:00,
+fb334e61-236e-4007-b468-0b6ec6090b78,subcontractor,Richter Facade AG,kontakt@firma451.example,Facade,Hamburg,11-50,de,paid,2026-07-20T00:24:16.881365+00:00,2026-08-31T02:12:19.984615+00:00
+46f2ff38-6c45-4540-ae23-56f380e9b300,subcontractor,Braun Drywall GmbH & Co. KG,kontakt@firma452.example,Drywall,Berlin,1-10,de,free,2026-08-11T15:05:50.214657+00:00,
+f2037633-ac5d-402d-8cc6-7ffd5e3ece60,subcontractor,Koch Facade AG,kontakt@firma453.example,Facade,Frankfurt,51-200,en,free,2026-06-23T02:18:39.494541+00:00,
+b273f93c-1cad-448a-86a4-2ee12a2e1e6a,subcontractor,Schneider Plumbing GmbH,kontakt@firma454.example,Plumbing,Berlin,1-10,de,free,2026-09-09T04:00:13.236531+00:00,
+d5bf1edb-3b79-4a1e-8d4f-2875df2ddf20,subcontractor,Schneider Electrical GmbH,kontakt@firma455.example,Electrical,Leipzig,1-10,de,free,2026-08-16T07:28:53.402186+00:00,
+e5f5cdc8-21c7-40f6-9137-67ab4dd85715,subcontractor,Koch Facade GmbH & Co. KG,kontakt@firma456.example,Facade,Stuttgart,51-200,de,free,2026-09-02T18:07:48.328093+00:00,
+f92408c3-2ea9-4f6c-8905-eb93890a83b4,subcontractor,Weber Plumbing AG,kontakt@firma457.example,Plumbing,Berlin,11-50,de,free,2026-06-20T14:44:52.469098+00:00,
+fa5fafdb-5123-49fa-aa61-b32f08e1624e,subcontractor,Richter Painting AG,kontakt@firma458.example,Painting,Munich,1-10,de,free,2026-08-01T13:43:07.926537+00:00,
+f9c0fd4d-8bd0-4267-bd0e-01cef85bc2d3,subcontractor,Weber Concrete GmbH,kontakt@firma459.example,Concrete,Cologne,51-200,de,free,2026-08-29T16:00:49.375143+00:00,
+bb4ccb14-1cc0-4764-b06b-efca56b405d7,subcontractor,Neumann Plumbing GmbH & Co. KG,kontakt@firma460.example,Plumbing,Munich,11-50,de,free,2026-07-16T16:26:51.591181+00:00,
+c4605896-ef87-4f0d-8802-2f8e38de6b6e,subcontractor,Klein Scaffolding AG,kontakt@firma461.example,Scaffolding,Hamburg,11-50,de,free,2026-08-01T17:43:57.872375+00:00,
+e88ffab5-0e59-42e9-b182-cdf782f552c8,subcontractor,Klein Drywall AG,kontakt@firma462.example,Drywall,Frankfurt,11-50,de,paid,2026-07-12T07:41:26.385179+00:00,2026-08-30T00:09:13.053838+00:00
+e3472e25-ba54-48fd-b737-cc38166cdd33,subcontractor,Zimmermann Roofing AG,kontakt@firma463.example,Roofing,Munich,201-1000,en,free,2026-07-02T05:34:43.254292+00:00,
+eee31d47-10ec-46ae-95dd-df38fc9454ae,subcontractor,Zimmermann Drywall AG,kontakt@firma464.example,Drywall,Leipzig,1-10,de,paid,2026-09-22T11:38:00.330432+00:00,2026-10-07T03:00:04.022631+00:00
+4a1a4219-61bb-45fb-9510-8bc02f9e1ddb,subcontractor,Weber Scaffolding GmbH,kontakt@firma465.example,Scaffolding,Cologne,11-50,de,free,2026-06-29T15:18:19.265633+00:00,
+e8239943-7dec-4605-adeb-57f96acac954,subcontractor,Wolf Concrete GmbH & Co. KG,kontakt@firma466.example,Concrete,Frankfurt,1-10,de,paid,2026-09-18T22:19:54.490353+00:00,2026-09-24T18:21:49.524331+00:00
+f9690579-79dd-4dd4-af97-fbd2a0c45942,subcontractor,Hoffmann Scaffolding GmbH & Co. KG,kontakt@firma467.example,Scaffolding,Frankfurt,11-50,de,free,2026-08-04T17:10:45.388729+00:00,
+45cdb96b-0d8a-46f3-a9ce-9bfa5b7d9d2d,subcontractor,Neumann Painting GmbH,kontakt@firma468.example,Painting,Munich,11-50,de,free,2026-06-14T19:31:08.846625+00:00,
+8b30bb4c-2ac9-4b60-80ac-430a99487f82,subcontractor,Weber Drywall GmbH,kontakt@firma469.example,Drywall,Hamburg,11-50,de,free,2026-06-27T11:33:53.246190+00:00,
+697878c1-7c22-47a0-875f-f3685f7ddbb1,subcontractor,Richter Plumbing GmbH & Co. KG,kontakt@firma470.example,Plumbing,Munich,1-10,en,free,2026-09-20T21:04:38.589286+00:00,
+c19d5186-b3c7-41a8-8d15-baefb6697d0a,subcontractor,Richter Scaffolding AG,kontakt@firma471.example,Scaffolding,Stuttgart,11-50,de,free,2026-06-19T07:30:16.821095+00:00,
+57904515-f859-496d-837a-9ab085eb43c8,subcontractor,Koch Painting AG,kontakt@firma472.example,Painting,Berlin,1-10,de,paid,2026-07-09T01:02:25.718261+00:00,2026-08-26T03:54:02.873550+00:00
+c8b62c18-c355-453e-b0d9-751c6cc0067f,subcontractor,Weber Roofing GmbH,kontakt@firma473.example,Roofing,Berlin,1-10,de,paid,2026-08-07T23:12:25.792093+00:00,2026-09-17T18:16:13.374878+00:00
+aae6f1a1-4d38-48d0-90f5-96510b147f1f,subcontractor,Schneider Scaffolding GmbH & Co. KG,kontakt@firma474.example,Scaffolding,Berlin,1-10,de,free,2026-09-18T10:04:49.647870+00:00,
+946a95a6-f2e4-41af-8702-1755f11cc0a4,subcontractor,Zimmermann Electrical AG,kontakt@firma475.example,Electrical,Munich,1-10,de,paid,2026-08-06T01:59:58.876684+00:00,2026-08-27T11:33:04.667695+00:00
+4827c440-f6d9-4e17-b109-4211b73f6e64,subcontractor,Richter Scaffolding GmbH,kontakt@firma476.example,Scaffolding,Berlin,11-50,de,free,2026-10-02T03:48:10.191677+00:00,
+1b799e6b-f52e-44a6-ac6c-2e1b708df094,subcontractor,Klein Concrete GmbH,kontakt@firma477.example,Concrete,Berlin,1-10,de,paid,2026-08-20T00:00:47.223837+00:00,2026-08-31T00:33:42.555637+00:00
+b4693ec4-5c7a-48ef-8324-5e357eedcc65,subcontractor,Richter HVAC GmbH,kontakt@firma478.example,HVAC,Hamburg,11-50,de,paid,2026-09-23T04:44:46.844332+00:00,2026-10-06T12:33:28.253031+00:00
+3054366b-6d8e-4559-9af9-3e99fc267da6,subcontractor,Hoffmann Concrete GmbH & Co. KG,kontakt@firma479.example,Concrete,Düsseldorf,1-10,en,free,2026-07-02T09:01:34.356516+00:00,
+b1edf3d3-668f-4032-a512-5d2e24b3bc8e,subcontractor,Schneider Facade GmbH,kontakt@firma480.example,Facade,Cologne,11-50,de,free,2026-06-18T05:56:57.851927+00:00,
+ca1c3218-c19d-41c5-85e1-8b7797f971d5,subcontractor,Neumann Concrete AG,kontakt@firma481.example,Concrete,Stuttgart,1-10,en,free,2026-08-22T16:55:19.586030+00:00,
+079bf5e6-2275-41e2-b141-52c7a0dcec7d,subcontractor,Koch HVAC GmbH,kontakt@firma482.example,HVAC,Berlin,1-10,de,free,2026-09-24T19:26:22.330474+00:00,
+c0697f1d-a93c-4413-9396-a289c29a988f,subcontractor,Klein Plumbing GmbH,kontakt@firma483.example,Plumbing,Cologne,1-10,de,free,2026-08-10T01:31:49.525683+00:00,
+ea3973ff-e14f-4a78-ae2f-1d3bfd9f45f4,subcontractor,Schwarz Facade GmbH,kontakt@firma484.example,Facade,Berlin,11-50,de,paid,2026-06-26T13:49:03.488897+00:00,2026-08-20T19:43:24.832996+00:00
+b739a28a-4ffd-4b7a-a26d-d24f6e411e23,subcontractor,Weber Roofing GmbH & Co. KG,kontakt@firma485.example,Roofing,Munich,51-200,de,free,2026-07-29T05:42:36.925276+00:00,
+974ebb87-7ea4-43e5-836d-977b6431cbbe,subcontractor,Richter Facade GmbH,kontakt@firma486.example,Facade,Leipzig,51-200,de,free,2026-08-23T02:07:21.605740+00:00,
+b020321b-e90f-4137-95be-bdd097b027ce,subcontractor,Wolf Drywall GmbH & Co. KG,kontakt@firma487.example,Drywall,Berlin,1-10,de,free,2026-08-24T19:59:25.888904+00:00,
+96867676-783e-40ab-b22a-55a605391557,subcontractor,Hoffmann Scaffolding GmbH & Co. KG,kontakt@firma488.example,Scaffolding,Berlin,11-50,de,free,2026-07-29T01:34:29.646697+00:00,
+4cad66c5-9d65-4c03-aaa8-14da56ec0e55,subcontractor,Richter Drywall AG,kontakt@firma489.example,Drywall,Munich,1-10,de,free,2026-08-06T12:09:50.222264+00:00,
+9fe3f824-39d3-49cf-8dfa-76af66eb43b0,subcontractor,Wagner Roofing AG,kontakt@firma490.example,Roofing,Stuttgart,1-10,de,free,2026-06-27T13:47:41.547704+00:00,
+81300e68-4d45-4885-92e0-8e57a6cb1dda,subcontractor,Becker Concrete GmbH,kontakt@firma491.example,Concrete,Stuttgart,1-10,de,free,2026-08-01T13:29:43.280662+00:00,
+2fc10403-dcda-4cc1-8427-4378b40d8aef,subcontractor,Müller Facade AG,kontakt@firma492.example,Facade,Cologne,1-10,de,free,2026-06-14T00:18:27.173845+00:00,
+5d411ac5-335d-4b46-85b3-75aa0f546781,subcontractor,Neumann Flooring AG,kontakt@firma493.example,Flooring,Munich,51-200,de,free,2026-07-08T19:35:39.007383+00:00,
+a5630d3a-497b-413b-92de-b47d4455d60e,subcontractor,Zimmermann HVAC GmbH & Co. KG,kontakt@firma494.example,HVAC,Berlin,11-50,de,free,2026-09-05T12:01:56.428110+00:00,
+097913a0-e7d9-4c1b-a59c-aeed6c097204,subcontractor,Richter Roofing GmbH & Co. KG,kontakt@firma495.example,Roofing,Hamburg,11-50,de,paid,2026-09-29T07:19:08.830718+00:00,2026-10-05T20:50:57.717504+00:00
+ddfef849-4c48-4cfc-9a02-70da505c1021,subcontractor,Braun Electrical GmbH,kontakt@firma496.example,Electrical,Berlin,1-10,en,free,2026-06-21T12:39:23.473097+00:00,
+859f02bb-1ee2-4f39-aed4-db8980104995,subcontractor,Klein Plumbing AG,kontakt@firma497.example,Plumbing,Frankfurt,1-10,de,free,2026-07-05T12:25:51.222530+00:00,
+be741860-bf95-4403-8e4b-a2bb63d3ce8e,subcontractor,Klein Painting AG,kontakt@firma498.example,Painting,Hamburg,1-10,de,free,2026-09-16T01:32:37.126270+00:00,
+51057c35-1ceb-48fe-b2de-b798b31a25b5,subcontractor,Richter Scaffolding GmbH & Co. KG,kontakt@firma499.example,Scaffolding,Cologne,1-10,de,free,2026-09-04T07:50:01.720405+00:00,
+08e94548-9b16-4cb8-a7bd-1db7f7808afc,subcontractor,Müller Painting AG,kontakt@firma500.example,Painting,Düsseldorf,51-200,de,free,2026-06-16T11:00:33.952578+00:00,
+1f3eea66-af6c-4f61-8fef-a2a2e7354db2,subcontractor,Neumann Roofing GmbH & Co. KG,kontakt@firma501.example,Roofing,Cologne,11-50,de,free,2026-08-12T18:43:08.227699+00:00,
+e3e735ab-dc02-4c29-b5db-e3964c23e844,subcontractor,Zimmermann Roofing GmbH,kontakt@firma502.example,Roofing,Berlin,1-10,de,free,2026-08-27T04:19:18.646687+00:00,
+d7567d35-ed2e-4bea-a9b7-d533bca83a82,subcontractor,Koch HVAC GmbH & Co. KG,kontakt@firma503.example,HVAC,Hamburg,51-200,de,free,2026-06-19T00:33:47.399260+00:00,
+b1f94a09-7408-4646-93a7-1719bcdf8302,subcontractor,Zimmermann Flooring AG,kontakt@firma504.example,Flooring,Berlin,11-50,de,free,2026-07-20T20:57:19.233746+00:00,
+b6ac2048-8430-4e0c-bfe6-04f428670d3b,subcontractor,Schneider Roofing GmbH,kontakt@firma505.example,Roofing,Leipzig,1-10,en,free,2026-07-06T21:25:17.807249+00:00,
+d3a71b83-97d0-4f8f-affd-d43b2c691f04,subcontractor,Weber Concrete GmbH & Co. KG,kontakt@firma506.example,Concrete,Hamburg,51-200,de,free,2026-09-22T22:48:34.452555+00:00,
+3a8c8ed5-a06a-468a-9cac-3d21a5a8c8af,subcontractor,Müller Scaffolding AG,kontakt@firma507.example,Scaffolding,Düsseldorf,1-10,en,free,2026-09-09T20:32:09.437405+00:00,
+039d08d0-1e0a-4f12-9136-d4adf27e8ce7,subcontractor,Becker Roofing GmbH,kontakt@firma508.example,Roofing,Frankfurt,1-10,de,paid,2026-06-18T20:34:51.237277+00:00,2026-09-02T05:38:25.107176+00:00
+61cf91fb-7e81-4dfa-bf16-e3e949b7e037,subcontractor,Zimmermann Drywall GmbH & Co. KG,kontakt@firma509.example,Drywall,Berlin,51-200,en,free,2026-07-25T15:31:19.860515+00:00,
+5ea0942c-3f91-4419-a846-a9df73733554,subcontractor,Fischer Roofing AG,kontakt@firma510.example,Roofing,Cologne,201-1000,de,free,2026-09-22T19:06:42.963449+00:00,
+0d574085-0f0a-4450-8e97-8ce118643b6a,subcontractor,Wagner Flooring GmbH,kontakt@firma511.example,Flooring,Hamburg,11-50,de,free,2026-06-20T05:02:43.551902+00:00,
+42a27950-2deb-4687-949a-ca460a872ac2,subcontractor,Braun Painting AG,kontakt@firma512.example,Painting,Berlin,1-10,de,free,2026-08-24T15:37:22.379623+00:00,
+d5b5b7b0-f92e-4fa1-9f26-64247fcc4456,subcontractor,Müller Roofing GmbH,kontakt@firma513.example,Roofing,Hamburg,1-10,de,free,2026-08-14T04:42:47.744723+00:00,
+a84ca488-ec40-44c6-9a60-69f38e40b294,subcontractor,Koch Plumbing GmbH,kontakt@firma514.example,Plumbing,Frankfurt,1-10,de,free,2026-09-10T22:19:53.753186+00:00,
+fd2336f4-5b44-46ed-b107-6f2e0a715350,subcontractor,Braun Concrete GmbH & Co. KG,kontakt@firma515.example,Concrete,Frankfurt,1-10,de,paid,2026-08-06T23:06:08.194242+00:00,2026-09-08T08:35:08.353028+00:00
+9030fb0c-45d5-4acb-9294-100f823ca34a,subcontractor,Weber Roofing AG,kontakt@firma516.example,Roofing,Düsseldorf,1-10,de,free,2026-07-27T13:09:35.550348+00:00,
+1f3acc68-ae3e-4268-bb38-bc6cae6a7c48,subcontractor,Müller HVAC GmbH & Co. KG,kontakt@firma517.example,HVAC,Munich,51-200,de,free,2026-06-15T06:23:01.996769+00:00,
+9f534d9a-a7fa-4009-8b39-8e89f842e163,subcontractor,Müller Roofing GmbH & Co. KG,kontakt@firma518.example,Roofing,Leipzig,11-50,de,paid,2026-07-10T12:41:09.147721+00:00,2026-08-24T18:32:59.385095+00:00
+121af952-be69-4d39-8e37-8b07cc535c3e,subcontractor,Wagner Electrical GmbH & Co. KG,kontakt@firma519.example,Electrical,Cologne,51-200,de,free,2026-09-22T00:18:35.583459+00:00,
+a5accd5a-48f1-4eed-a703-7089c78cd2c3,subcontractor,Weber Electrical GmbH & Co. KG,kontakt@firma520.example,Electrical,Stuttgart,51-200,de,free,2026-09-18T18:53:21.113107+00:00,
+332ac35a-833d-4df1-9e11-a680d5016ada,subcontractor,Wolf Scaffolding GmbH,kontakt@firma521.example,Scaffolding,Munich,1-10,en,free,2026-08-08T20:46:37.700798+00:00,
+577c9717-836a-4887-8a5a-269817cb67b8,subcontractor,Wolf Scaffolding GmbH & Co. KG,kontakt@firma522.example,Scaffolding,Leipzig,1-10,de,paid,2026-07-20T04:20:43.333395+00:00,2026-09-09T03:58:30.312730+00:00
+4ce6929f-7a44-4d05-8d32-0878e83ec3a0,subcontractor,Hoffmann HVAC GmbH,kontakt@firma523.example,HVAC,Berlin,1-10,de,paid,2026-06-20T19:44:12.072080+00:00,2026-09-02T06:05:31.649625+00:00
+18302082-69bb-43c4-acc7-21f082ba0fed,subcontractor,Richter HVAC GmbH,kontakt@firma524.example,HVAC,Munich,51-200,de,free,2026-07-01T04:21:15.633701+00:00,
+4c32a0a2-b452-4738-a073-09de6a8f7654,subcontractor,Müller Plumbing GmbH,kontakt@firma525.example,Plumbing,Hamburg,51-200,de,free,2026-07-07T13:27:10.455230+00:00,
+df22367d-4262-448c-9aa3-3580fb708dd7,subcontractor,Schneider Plumbing AG,kontakt@firma526.example,Plumbing,Frankfurt,1-10,de,free,2026-09-30T14:18:16.810053+00:00,
+9e55f98d-4d84-4cb6-bc99-d86eb9d5546c,subcontractor,Neumann Flooring AG,kontakt@firma527.example,Flooring,Stuttgart,51-200,de,free,2026-07-15T05:31:21.891893+00:00,
+3de54ee2-a655-496c-a528-d32da60c2bed,subcontractor,Fischer Drywall GmbH & Co. KG,kontakt@firma528.example,Drywall,Munich,51-200,de,free,2026-07-03T19:19:07.799320+00:00,
+f6bffaa9-71fc-42e6-b3dd-7820bd20c36a,subcontractor,Braun Electrical GmbH,kontakt@firma529.example,Electrical,Munich,1-10,de,paid,2026-08-11T23:05:08.685016+00:00,2026-08-31T05:36:19.178197+00:00
+d93eea4d-6a6a-442b-babf-a7ef6e89a7a8,subcontractor,Wolf Painting AG,kontakt@firma530.example,Painting,Munich,1-10,de,free,2026-07-10T13:58:25.985164+00:00,
+50db8e34-938f-4b90-ac08-7d6c04de78f8,subcontractor,Müller Concrete AG,kontakt@firma531.example,Concrete,Cologne,1-10,de,free,2026-07-20T02:26:30.787789+00:00,
+81f46dfd-3b6b-4c0d-b028-05af580661f1,subcontractor,Fischer Plumbing GmbH & Co. KG,kontakt@firma532.example,Plumbing,Hamburg,1-10,en,free,2026-08-24T15:41:18.232672+00:00,
+a70a409d-ac50-4260-b0f2-4933d544c79b,subcontractor,Hoffmann Roofing GmbH & Co. KG,kontakt@firma533.example,Roofing,Frankfurt,11-50,de,paid,2026-07-02T16:25:36.161263+00:00,2026-08-26T03:42:35.201368+00:00
+cb21aa80-19d4-439a-bdff-e27d9b125dfb,subcontractor,Fischer Concrete GmbH,kontakt@firma534.example,Concrete,Munich,1-10,en,free,2026-08-28T17:40:17.214353+00:00,
+3a085f6a-9e18-4a98-9d2d-17716e3d2494,subcontractor,Schneider Facade GmbH & Co. KG,kontakt@firma535.example,Facade,Berlin,1-10,de,free,2026-09-03T00:09:41.634134+00:00,
+ab636d66-9ab2-4735-83f0-6e7ddfaa8505,subcontractor,Zimmermann Roofing AG,kontakt@firma536.example,Roofing,Berlin,51-200,de,free,2026-06-15T20:03:06.288706+00:00,
+81dec9db-0abe-4257-8ffe-38c9d2d81eb3,subcontractor,Zimmermann Scaffolding GmbH,kontakt@firma537.example,Scaffolding,Berlin,11-50,de,paid,2026-06-24T12:09:03.331966+00:00,2026-09-07T10:01:44.863795+00:00
+d93d8722-1f7b-482f-a345-0e72d1b48562,subcontractor,Becker HVAC GmbH & Co. KG,kontakt@firma538.example,HVAC,Hamburg,1-10,en,free,2026-07-06T04:42:19.463144+00:00,
+a1230193-5c53-4042-aa3e-0103c13d8929,subcontractor,Becker Plumbing AG,kontakt@firma539.example,Plumbing,Frankfurt,1-10,de,free,2026-07-08T00:04:15.175627+00:00,
+f198f62e-5c9d-4ead-aea4-91fccb6b6306,subcontractor,Zimmermann Flooring AG,kontakt@firma540.example,Flooring,Berlin,51-200,de,free,2026-10-01T12:17:32.010175+00:00,
+26a4cbef-a437-499c-ac2a-322ba9014e33,subcontractor,Hoffmann Plumbing GmbH,kontakt@firma541.example,Plumbing,Düsseldorf,1-10,de,free,2026-07-22T00:30:49.689580+00:00,
+be216c79-b8b7-41b0-8de8-1d1edfa0bc17,subcontractor,Neumann Flooring AG,kontakt@firma542.example,Flooring,Hamburg,51-200,de,free,2026-06-29T13:13:15.098767+00:00,
+cfd42949-e33e-4976-9862-5813b28d7506,subcontractor,Wolf Scaffolding GmbH & Co. KG,kontakt@firma543.example,Scaffolding,Stuttgart,11-50,de,paid,2026-09-09T23:12:51.812812+00:00,2026-09-15T14:04:16.643434+00:00
+8d41d660-82fc-4908-97c3-05fc36b74e27,subcontractor,Richter Plumbing GmbH & Co. KG,kontakt@firma544.example,Plumbing,Hamburg,11-50,de,free,2026-07-21T13:15:31.252699+00:00,
+5f7b8b00-d772-4330-8f58-9a93bb63721d,subcontractor,Richter Roofing GmbH,kontakt@firma545.example,Roofing,Hamburg,11-50,de,free,2026-09-18T10:01:36.274755+00:00,
+b6f31d02-90ca-4ac3-94e3-552bfd2f1be9,subcontractor,Fischer Electrical AG,kontakt@firma546.example,Electrical,Düsseldorf,11-50,de,free,2026-08-02T07:52:26.336101+00:00,
+1af026df-3f64-45ee-bccd-9b8c8508df91,subcontractor,Neumann Scaffolding GmbH & Co. KG,kontakt@firma547.example,Scaffolding,Hamburg,11-50,de,free,2026-06-30T00:42:17.131708+00:00,
+13fc927f-7237-4f5b-b6fc-1c4679ebb8bb,subcontractor,Hoffmann HVAC GmbH,kontakt@firma548.example,HVAC,Munich,1-10,de,paid,2026-07-27T00:12:35.173480+00:00,2026-08-26T11:16:35.641531+00:00
+d2e55512-6abb-4c41-b928-62a9bb51cd74,subcontractor,Neumann Flooring GmbH & Co. KG,kontakt@firma549.example,Flooring,Berlin,201-1000,de,free,2026-08-07T21:48:03.324479+00:00,
+5e8c8bbf-8f1c-4f8c-b1ae-8af92826a561,subcontractor,Müller Drywall AG,kontakt@firma550.example,Drywall,Leipzig,11-50,de,paid,2026-06-26T15:21:12.784217+00:00,2026-10-05T06:24:54.046753+00:00
+ca8c5366-0729-4d47-bc65-9dc94b425bba,subcontractor,Becker HVAC GmbH & Co. KG,kontakt@firma551.example,HVAC,Berlin,1-10,de,paid,2026-08-15T03:42:05.190473+00:00,2026-08-22T15:22:36.458689+00:00
+567b9583-e679-4a4b-b3ce-cf7c90d5e87e,subcontractor,Klein Electrical GmbH & Co. KG,kontakt@firma552.example,Electrical,Stuttgart,1-10,de,free,2026-07-11T20:27:29.617064+00:00,
+9ff0f466-ccc0-4446-96dd-58af53415fe2,subcontractor,Weber Concrete AG,kontakt@firma553.example,Concrete,Frankfurt,11-50,de,free,2026-09-05T21:09:40.219694+00:00,
+4f10aae3-b518-474f-8587-4243cbd10fdc,subcontractor,Klein Plumbing AG,kontakt@firma554.example,Plumbing,Cologne,11-50,de,free,2026-07-30T07:56:12.775476+00:00,
+1ecae0c0-04c7-4b2a-a598-e5c280acefb5,subcontractor,Schwarz Scaffolding GmbH & Co. KG,kontakt@firma555.example,Scaffolding,Frankfurt,11-50,de,free,2026-06-13T23:35:26.879696+00:00,
+96c1b183-66dc-4989-9207-c6cc9b5ad674,subcontractor,Schwarz Scaffolding AG,kontakt@firma556.example,Scaffolding,Berlin,1-10,en,free,2026-09-29T23:32:38.791507+00:00,
+16f1e5cb-c4af-4dc9-816c-05622ec36411,subcontractor,Wagner HVAC GmbH,kontakt@firma557.example,HVAC,Berlin,11-50,en,free,2026-07-16T14:47:27.697657+00:00,
+4207fb51-52ff-4ff5-a49c-5edd69aec17b,subcontractor,Becker Roofing GmbH,kontakt@firma558.example,Roofing,Munich,1-10,en,paid,2026-09-18T17:53:01.632996+00:00,2026-09-26T06:46:30.943759+00:00
+8d9957fa-76fe-4cd6-917e-7f4a0f8593c3,subcontractor,Schneider Facade GmbH & Co. KG,kontakt@firma559.example,Facade,Munich,1-10,de,free,2026-08-16T19:04:04.132255+00:00,
+91788bdd-4dfb-4b6e-a025-7194c903cc1d,subcontractor,Richter HVAC AG,kontakt@firma560.example,HVAC,Munich,1-10,de,free,2026-07-21T12:56:43.618246+00:00,
+d0096b2a-0041-4afc-8ab2-e2ca73a55d2e,subcontractor,Hoffmann Drywall AG,kontakt@firma561.example,Drywall,Munich,11-50,en,free,2026-08-30T09:25:19.843920+00:00,
+88ba135e-bd3b-47eb-a952-94200ba4e32b,subcontractor,Richter Drywall GmbH & Co. KG,kontakt@firma562.example,Drywall,Cologne,11-50,de,free,2026-08-18T04:42:32.929413+00:00,
+57b6f1aa-f206-4a1c-ae9e-2bbfe2495790,subcontractor,Richter Flooring GmbH & Co. KG,kontakt@firma563.example,Flooring,Frankfurt,1-10,en,paid,2026-07-13T06:20:57.751141+00:00,2026-08-17T22:07:09.744488+00:00
+00862f9e-ec19-4606-a57d-4eb4223bd9be,subcontractor,Braun Scaffolding AG,kontakt@firma564.example,Scaffolding,Cologne,1-10,de,free,2026-10-01T13:18:49.328497+00:00,
+07ec2d32-89e4-4c28-93d8-8e04a6b96653,subcontractor,Schwarz Flooring AG,kontakt@firma565.example,Flooring,Düsseldorf,11-50,en,free,2026-08-12T11:03:46.037139+00:00,
+76730495-1ff0-464c-8228-8f07fbda05ae,subcontractor,Schwarz Flooring AG,kontakt@firma566.example,Flooring,Munich,1-10,de,free,2026-10-01T13:54:28.651039+00:00,
+389d2267-b7c2-4d94-8ef4-40984d9d1bb1,subcontractor,Klein Drywall AG,kontakt@firma567.example,Drywall,Hamburg,1-10,de,free,2026-08-21T21:52:22.587157+00:00,
+91b0af07-4700-4fcf-9eb2-d4901c66fdd9,subcontractor,Wolf Drywall GmbH & Co. KG,kontakt@firma568.example,Drywall,Cologne,201-1000,de,free,2026-09-10T08:56:41.152761+00:00,
+db00ab4c-91e5-4e86-aefe-02c34276bfe1,subcontractor,Schneider Scaffolding GmbH,kontakt@firma569.example,Scaffolding,Hamburg,1-10,de,free,2026-07-04T16:43:59.514191+00:00,
+a6685e80-f16d-4fe8-ac50-4475a4165dd1,subcontractor,Müller Facade GmbH & Co. KG,kontakt@firma570.example,Facade,Berlin,51-200,en,free,2026-08-13T21:55:03.794012+00:00,
+01521e60-50f5-4bd8-b2e8-9652884c0a55,subcontractor,Braun Drywall GmbH & Co. KG,kontakt@firma571.example,Drywall,Munich,1-10,de,free,2026-06-23T10:40:44.139375+00:00,
+a041301d-1016-4d65-8f90-f91a544810de,subcontractor,Fischer HVAC GmbH,kontakt@firma572.example,HVAC,Frankfurt,51-200,de,free,2026-08-13T23:34:17.724573+00:00,
+f18c5581-3c9b-4b84-8b4a-ddc685096c78,subcontractor,Zimmermann Painting GmbH & Co. KG,kontakt@firma573.example,Painting,Berlin,51-200,de,free,2026-08-13T05:24:33.491849+00:00,
+0fdf60d5-20a6-4f9b-885b-811b10a5b073,subcontractor,Braun Electrical AG,kontakt@firma574.example,Electrical,Düsseldorf,1-10,de,paid,2026-08-28T23:41:25.835832+00:00,2026-09-06T10:28:35.602183+00:00
+3bad3a0d-693e-4fcf-8080-aba49e07809d,subcontractor,Hoffmann Roofing GmbH,kontakt@firma575.example,Roofing,Düsseldorf,51-200,de,paid,2026-07-22T21:29:17.384781+00:00,2026-08-24T00:41:34.454276+00:00
+967aefbb-5404-401d-8468-1060743e5fef,subcontractor,Wolf HVAC GmbH,kontakt@firma576.example,HVAC,Berlin,1-10,de,free,2026-07-26T05:04:02.557366+00:00,
+2f98ad33-71d2-463f-9ef0-1577b980e521,subcontractor,Hoffmann Facade GmbH & Co. KG,kontakt@firma577.example,Facade,Hamburg,1-10,de,free,2026-09-25T16:47:42.034241+00:00,
+f863af2d-5e6b-4460-8a83-2ab557c850b0,subcontractor,Wagner Plumbing AG,kontakt@firma578.example,Plumbing,Berlin,1-10,de,free,2026-07-16T15:38:29.907773+00:00,
+1182e8e7-c907-4c97-b385-db3be893786d,subcontractor,Fischer Flooring AG,kontakt@firma579.example,Flooring,Munich,1-10,de,free,2026-07-14T18:09:12.680252+00:00,
+00f24a96-eb82-4435-b82a-fbde7ef55011,subcontractor,Braun Concrete GmbH,kontakt@firma580.example,Concrete,Frankfurt,51-200,de,free,2026-08-10T00:06:33.204351+00:00,
+5b9e75f4-12e0-4b9c-8288-49d95ce195be,subcontractor,Weber Flooring GmbH,kontakt@firma581.example,Flooring,Berlin,1-10,de,free,2026-08-30T05:45:37.151042+00:00,
+8df4097b-d8f8-4018-96fe-47692c9de90a,subcontractor,Wagner Plumbing AG,kontakt@firma582.example,Plumbing,Hamburg,1-10,de,paid,2026-09-12T09:46:37.139214+00:00,2026-09-19T20:50:51.123565+00:00
+5f5258ab-cf3a-4723-9ea0-c5033d7a774e,subcontractor,Wagner Painting GmbH & Co. KG,kontakt@firma583.example,Painting,Frankfurt,51-200,en,free,2026-06-12T06:56:58.484977+00:00,
+9db402f1-c359-4dc2-8bd3-72a9ebc78c06,subcontractor,Wolf Scaffolding GmbH,kontakt@firma584.example,Scaffolding,Cologne,1-10,en,paid,2026-08-29T19:48:22.662550+00:00,2026-09-16T15:59:27.836040+00:00
+c8dfd1f1-14d7-4283-ba30-3cce359097e0,subcontractor,Klein Plumbing GmbH & Co. KG,kontakt@firma585.example,Plumbing,Munich,51-200,de,free,2026-09-25T04:42:03.892074+00:00,
+b1cb62d0-8685-42d2-9fb6-8406b6658a34,subcontractor,Weber Concrete GmbH & Co. KG,kontakt@firma586.example,Concrete,Munich,11-50,en,free,2026-08-09T04:10:41.392944+00:00,
+37f5c238-6559-4365-bc00-a0f0dcf89878,subcontractor,Fischer Drywall GmbH & Co. KG,kontakt@firma587.example,Drywall,Hamburg,1-10,en,free,2026-07-28T22:46:06.264318+00:00,
+6d150b06-561c-4af3-9f02-1a1983239ba9,subcontractor,Müller Painting GmbH & Co. KG,kontakt@firma588.example,Painting,Munich,1-10,de,free,2026-08-21T09:25:03.776147+00:00,
+8346452b-8073-4a66-97b4-db174b658517,subcontractor,Becker Roofing GmbH,kontakt@firma589.example,Roofing,Cologne,11-50,de,free,2026-08-31T20:49:04.110989+00:00,
+c4bb4ace-d0c8-4a67-bec6-2bbe4d7ec4b1,subcontractor,Becker Painting GmbH & Co. KG,kontakt@firma590.example,Painting,Frankfurt,1-10,de,free,2026-07-13T12:10:37.179555+00:00,
+78d540ef-030b-4532-a7c2-4c68c1ff9427,subcontractor,Zimmermann Flooring AG,kontakt@firma591.example,Flooring,Frankfurt,51-200,en,paid,2026-06-15T05:38:29.177651+00:00,2026-09-14T05:49:17.097702+00:00
+5025ac18-15fb-45dc-8aba-ef3c5735773c,subcontractor,Neumann Facade GmbH & Co. KG,kontakt@firma592.example,Facade,Düsseldorf,11-50,de,free,2026-06-16T08:01:28.155961+00:00,
+5acb287d-d594-4c84-a8aa-454ecf76770a,subcontractor,Müller Roofing GmbH & Co. KG,kontakt@firma593.example,Roofing,Hamburg,51-200,de,free,2026-07-15T19:02:43.187890+00:00,
+fe87a6bc-f3e0-4dc5-ba2c-9e7927584f1a,subcontractor,Müller Electrical GmbH,kontakt@firma594.example,Electrical,Hamburg,11-50,de,free,2026-07-25T07:27:46.745517+00:00,
+e50dede5-a395-4867-b397-d1a1f6419405,subcontractor,Becker Drywall AG,kontakt@firma595.example,Drywall,Hamburg,11-50,de,free,2026-07-17T01:03:59.722879+00:00,
+a8d99292-4a85-4443-bba8-78d934b55b86,subcontractor,Hoffmann Drywall GmbH & Co. KG,kontakt@firma596.example,Drywall,Cologne,1-10,de,free,2026-08-21T06:16:13.515583+00:00,
+4f4c3f0b-34a7-4f9d-9ed5-c01721433dfc,subcontractor,Zimmermann Flooring GmbH,kontakt@firma597.example,Flooring,Munich,201-1000,de,free,2026-08-09T01:21:28.105895+00:00,
+663463e9-d317-48c9-9060-573a721b7707,subcontractor,Müller Concrete GmbH,kontakt@firma598.example,Concrete,Cologne,1-10,de,paid,2026-08-25T20:00:36.851683+00:00,2026-09-16T06:24:01.055995+00:00
+b62e8f02-d7b7-4862-b347-f1d458c6b1c6,subcontractor,Braun HVAC GmbH & Co. KG,kontakt@firma599.example,HVAC,Stuttgart,1-10,de,free,2026-06-29T23:05:05.867507+00:00,
+3d5cab0e-0b2d-483a-b218-9128b2da61f7,subcontractor,Schneider Plumbing GmbH & Co. KG,kontakt@firma600.example,Plumbing,Düsseldorf,11-50,de,free,2026-06-23T03:53:47.678630+00:00,
+1397b542-5e65-4990-becd-0ded1f08f855,subcontractor,Hoffmann Drywall AG,kontakt@firma601.example,Drywall,Stuttgart,51-200,de,free,2026-07-05T00:18:04.687872+00:00,
+57f9f3a7-6193-4947-b63f-56acbfeeb533,subcontractor,Neumann Electrical AG,kontakt@firma602.example,Electrical,Stuttgart,1-10,en,paid,2026-08-18T00:55:46.305795+00:00,2026-08-26T18:54:38.446423+00:00
+d770a46e-4775-47ab-9207-7bc478858b6d,subcontractor,Koch Drywall GmbH,kontakt@firma603.example,Drywall,Berlin,11-50,en,free,2026-07-24T20:27:44.120507+00:00,
+b6e3b91b-3777-4823-ad8d-7db85bab96cc,subcontractor,Weber Electrical GmbH & Co. KG,kontakt@firma604.example,Electrical,Berlin,11-50,de,free,2026-09-07T19:07:52.087419+00:00,
+0c754a17-0131-4601-9923-fc7a0d6b160f,subcontractor,Wagner HVAC GmbH & Co. KG,kontakt@firma605.example,HVAC,Stuttgart,1-10,de,free,2026-06-17T20:12:21.419477+00:00,
+f5705436-3877-4265-902c-01a3ab404598,subcontractor,Fischer Electrical AG,kontakt@firma606.example,Electrical,Düsseldorf,1-10,de,free,2026-06-29T03:42:24.605518+00:00,
+8aad0665-ef30-441d-b505-c5639fea97cc,subcontractor,Wolf Painting GmbH,kontakt@firma607.example,Painting,Munich,1-10,de,free,2026-09-05T22:18:15.170744+00:00,
+4748ffb3-d0a9-4757-a870-2d9710e67176,subcontractor,Koch Electrical GmbH,kontakt@firma608.example,Electrical,Frankfurt,1-10,de,free,2026-09-24T21:54:58.943037+00:00,
+18412e07-f583-4c69-807f-26542be4be9c,subcontractor,Schwarz HVAC AG,kontakt@firma609.example,HVAC,Cologne,11-50,en,free,2026-07-14T13:55:12.951126+00:00,
+9bc8d6f6-0484-41b3-95c9-74a411489054,subcontractor,Wolf Painting GmbH & Co. KG,kontakt@firma610.example,Painting,Düsseldorf,201-1000,de,free,2026-08-04T21:19:06.686698+00:00,
+1452e130-9ea8-4fe3-be59-034bc1dadb7d,subcontractor,Neumann HVAC GmbH & Co. KG,kontakt@firma611.example,HVAC,Berlin,1-10,de,free,2026-08-29T13:05:38.466164+00:00,
+47334b73-225f-42ab-9425-04b8e098d2e3,subcontractor,Koch Scaffolding AG,kontakt@firma612.example,Scaffolding,Hamburg,201-1000,de,free,2026-09-28T02:26:02.539668+00:00,
+0dd7cac2-8a10-45c5-b4b0-738e3e040782,subcontractor,Becker Drywall GmbH & Co. KG,kontakt@firma613.example,Drywall,Düsseldorf,51-200,de,free,2026-09-04T02:20:15.565719+00:00,
+11ea8815-7ddc-44f5-9eaf-9631108abb5c,subcontractor,Wolf Painting GmbH,kontakt@firma614.example,Painting,Leipzig,1-10,de,free,2026-06-10T13:47:45.542832+00:00,
+9b191112-2d2a-408e-ac8c-5d0e3eb366fd,subcontractor,Neumann Concrete GmbH,kontakt@firma615.example,Concrete,Hamburg,1-10,de,paid,2026-08-12T02:31:19.859765+00:00,2026-08-29T02:36:57.002678+00:00
+7b64665c-cb26-4809-b429-73f5d1d18e0b,subcontractor,Hoffmann Facade GmbH,kontakt@firma616.example,Facade,Berlin,11-50,de,paid,2026-06-26T10:35:39.025561+00:00,2026-09-12T20:03:28.471295+00:00
+8fe88b77-6009-405a-8881-7b98741f5545,subcontractor,Koch Plumbing GmbH & Co. KG,kontakt@firma617.example,Plumbing,Cologne,1-10,de,free,2026-09-16T22:34:44.940873+00:00,
+625046c0-5f86-4c8e-be00-6ccbf8723487,subcontractor,Hoffmann Concrete GmbH & Co. KG,kontakt@firma618.example,Concrete,Munich,1-10,de,free,2026-07-27T00:01:04.149163+00:00,
+7d165228-b589-417e-8275-b18a593c73f2,subcontractor,Schwarz Flooring AG,kontakt@firma619.example,Flooring,Frankfurt,201-1000,de,free,2026-09-26T00:29:09.348045+00:00,
+25dbbe8d-a534-4425-aa69-b7f7b28d7cb8,subcontractor,Wolf Painting GmbH,kontakt@firma620.example,Painting,Hamburg,11-50,de,free,2026-07-16T08:00:25.838578+00:00,
+e041f0a3-3056-487f-a8f2-6d6384bed7ed,subcontractor,Klein Flooring GmbH,kontakt@firma621.example,Flooring,Munich,1-10,en,free,2026-09-03T13:49:33.832224+00:00,
+a2dcb574-1bf9-42a5-96c0-68e8de922cf1,subcontractor,Schwarz Roofing AG,kontakt@firma622.example,Roofing,Cologne,11-50,de,free,2026-07-01T00:28:52.803821+00:00,
+c6141017-11e1-41c7-98cc-84170067743e,subcontractor,Zimmermann Electrical GmbH & Co. KG,kontakt@firma623.example,Electrical,Frankfurt,201-1000,de,free,2026-07-19T09:16:19.865641+00:00,
+366b3575-d07a-4518-912c-f322735e8153,subcontractor,Richter Drywall GmbH,kontakt@firma624.example,Drywall,Berlin,11-50,de,paid,2026-09-11T15:25:03.115978+00:00,2026-09-22T08:11:16.704428+00:00
+579744ba-1073-40cb-86d9-e34d1feb21c7,subcontractor,Schneider Plumbing GmbH & Co. KG,kontakt@firma625.example,Plumbing,Berlin,1-10,de,free,2026-08-07T20:36:51.337615+00:00,
+fca54576-8523-43d7-9a5d-376e602ba256,subcontractor,Richter Electrical GmbH,kontakt@firma626.example,Electrical,Leipzig,1-10,de,paid,2026-08-07T18:35:40.153043+00:00,2026-08-22T12:11:32.704313+00:00
+660237ed-aa42-4203-9c78-4ca4f0e4ca0b,subcontractor,Zimmermann Painting GmbH,kontakt@firma627.example,Painting,Munich,201-1000,de,free,2026-08-22T17:06:35.959310+00:00,
+c05e5ade-b303-4188-b378-cb94478b2f00,subcontractor,Schneider Plumbing AG,kontakt@firma628.example,Plumbing,Stuttgart,1-10,de,free,2026-07-23T13:05:59.979832+00:00,
+53559e80-bc5e-4e2f-8ebc-1bd7f8378be2,subcontractor,Becker Painting GmbH,kontakt@firma629.example,Painting,Frankfurt,1-10,de,free,2026-08-07T22:25:51.298990+00:00,
+628616f4-bbf9-404b-99b7-775fe7bb5e42,subcontractor,Zimmermann Concrete AG,kontakt@firma630.example,Concrete,Hamburg,201-1000,de,free,2026-09-16T04:37:30.310759+00:00,
+8c7aa939-ff0d-43c2-ac4d-cd33d51528af,subcontractor,Schneider Plumbing GmbH & Co. KG,kontakt@firma631.example,Plumbing,Leipzig,11-50,de,free,2026-06-21T13:39:46.814842+00:00,
+53958e5c-edd0-4e02-add3-2be929052dd7,subcontractor,Neumann HVAC GmbH,kontakt@firma632.example,HVAC,Düsseldorf,1-10,de,free,2026-09-07T07:30:46.143700+00:00,
+9372e80d-ee89-4190-b94b-5d35df377ff8,subcontractor,Neumann Concrete GmbH & Co. KG,kontakt@firma633.example,Concrete,Stuttgart,1-10,de,free,2026-07-20T14:20:52.159652+00:00,
+4a7d6fa1-1d9d-4b86-8253-fb27393aa0a9,subcontractor,Hoffmann Facade GmbH,kontakt@firma634.example,Facade,Berlin,201-1000,de,paid,2026-07-09T11:44:47.436755+00:00,2026-09-01T18:16:37.257286+00:00
+d8dcc3a5-309a-4327-891d-47fe970e287a,subcontractor,Wagner Scaffolding GmbH,kontakt@firma635.example,Scaffolding,Munich,11-50,de,free,2026-07-05T23:00:55.381267+00:00,
+50e08a81-75ea-4023-9a34-65d989cd90e7,subcontractor,Hoffmann Scaffolding GmbH,kontakt@firma636.example,Scaffolding,Berlin,1-10,en,free,2026-06-28T09:01:57.747435+00:00,
+4600fc5f-1f9b-4662-b048-16fdfd869a13,subcontractor,Wagner Electrical AG,kontakt@firma637.example,Electrical,Leipzig,11-50,de,free,2026-08-08T15:41:25.053911+00:00,
+cf7798cc-ef36-4eb1-bb8f-7b2bd91b1cb6,subcontractor,Neumann Painting GmbH,kontakt@firma638.example,Painting,Hamburg,1-10,de,free,2026-06-18T11:50:05.981205+00:00,
+793228b9-ad8a-44bc-ac24-dcaa566082e1,subcontractor,Richter Plumbing GmbH & Co. KG,kontakt@firma639.example,Plumbing,Leipzig,201-1000,de,free,2026-08-18T16:24:59.518468+00:00,
+dda8b391-9494-465d-8a91-28fbc0948932,subcontractor,Weber Facade GmbH & Co. KG,kontakt@firma640.example,Facade,Stuttgart,1-10,en,free,2026-07-13T01:17:20.713500+00:00,
+bc3ddbfc-3216-4340-bf95-ff33cdea6f52,subcontractor,Fischer Roofing GmbH,kontakt@firma641.example,Roofing,Frankfurt,51-200,de,paid,2026-06-26T04:48:02.511606+00:00,2026-08-26T02:59:54.571078+00:00
+a66ccf43-83f3-4f4e-baf3-6aec1e0a7157,subcontractor,Weber Painting GmbH,kontakt@firma642.example,Painting,Hamburg,201-1000,de,free,2026-09-15T13:42:07.580102+00:00,
+b119779c-c69e-47c9-a018-5b17bec5715c,subcontractor,Weber Roofing AG,kontakt@firma643.example,Roofing,Leipzig,11-50,de,paid,2026-09-22T08:25:26.053983+00:00,2026-10-01T07:07:21.721759+00:00
+a43366c9-7d3d-4b72-9f3e-c5721527b2ac,subcontractor,Schneider Concrete GmbH,kontakt@firma644.example,Concrete,Frankfurt,1-10,de,free,2026-09-30T00:11:48.526729+00:00,
+9248c8c8-4c61-4a43-af04-1c76b3e6922d,subcontractor,Koch Scaffolding AG,kontakt@firma645.example,Scaffolding,Berlin,1-10,de,free,2026-07-12T13:45:02.125979+00:00,
+ca41e052-d19e-4f98-b6b8-432989fab5cc,subcontractor,Richter Facade AG,kontakt@firma646.example,Facade,Frankfurt,11-50,de,paid,2026-09-08T19:09:02.399994+00:00,2026-09-23T05:03:36.289733+00:00
+933882b3-20fa-45b7-8a05-49501f7fe5b0,subcontractor,Schwarz Electrical GmbH & Co. KG,kontakt@firma647.example,Electrical,Hamburg,11-50,de,paid,2026-07-29T23:15:40.088888+00:00,2026-09-25T03:08:07.444618+00:00
+a8be8d1f-4b1c-4df3-8865-b35ce79524eb,subcontractor,Müller Electrical AG,kontakt@firma648.example,Electrical,Cologne,1-10,de,paid,2026-08-07T06:07:42.517233+00:00,2026-09-01T02:09:52.923548+00:00
+371831f3-d527-489b-9b28-65da4cb9be7b,subcontractor,Fischer Electrical GmbH,kontakt@firma649.example,Electrical,Leipzig,1-10,de,free,2026-09-07T19:28:49.310312+00:00,
+f1da833d-1550-4390-b4c0-db3e666a4a82,subcontractor,Wolf Roofing GmbH,kontakt@firma650.example,Roofing,Hamburg,1-10,de,free,2026-07-14T18:53:17.701891+00:00,
+9adda7c8-82ec-48aa-920c-d375a5d453c4,subcontractor,Klein Drywall AG,kontakt@firma651.example,Drywall,Berlin,11-50,en,paid,2026-08-27T06:35:46.094216+00:00,2026-09-21T06:34:30.873025+00:00
+55616496-e8c4-4e4c-9ce1-bcc216c702a1,subcontractor,Becker Facade AG,kontakt@firma652.example,Facade,Stuttgart,1-10,de,free,2026-07-02T21:00:06.995728+00:00,
+b3510ddc-5951-4620-8769-ee241875589a,subcontractor,Schwarz Roofing GmbH & Co. KG,kontakt@firma653.example,Roofing,Cologne,11-50,de,free,2026-09-01T11:38:30.211680+00:00,
+4251d2f0-20a8-4260-97a1-a2f67a139e90,subcontractor,Braun Facade GmbH & Co. KG,kontakt@firma654.example,Facade,Berlin,11-50,de,free,2026-09-14T18:35:41.044482+00:00,
+fc7aa2dc-705f-4ecd-aedf-f02e75318081,subcontractor,Hoffmann Drywall AG,kontakt@firma655.example,Drywall,Munich,11-50,de,paid,2026-08-30T16:07:42.273184+00:00,2026-09-21T05:37:10.448312+00:00
+1458771d-a27a-4bda-9713-742bd862042e,subcontractor,Hoffmann HVAC GmbH & Co. KG,kontakt@firma656.example,HVAC,Berlin,51-200,de,free,2026-09-21T21:19:18.895479+00:00,
+22ecf870-bb15-494a-aeb4-7b07823901c4,subcontractor,Hoffmann Electrical AG,kontakt@firma657.example,Electrical,Munich,201-1000,de,free,2026-06-09T21:23:47.252524+00:00,
+a942b4d7-bd2d-4fff-be85-544c3e859c67,subcontractor,Neumann Flooring GmbH & Co. KG,kontakt@firma658.example,Flooring,Leipzig,11-50,en,free,2026-06-23T10:02:04.710132+00:00,
+8380d397-2221-4e52-96e3-81035df70cc1,subcontractor,Weber Facade GmbH,kontakt@firma659.example,Facade,Munich,51-200,de,free,2026-08-06T16:08:56.315107+00:00,
+4b25c483-7bae-4f3b-8c96-edc24a41aed8,subcontractor,Zimmermann Facade GmbH,kontakt@firma660.example,Facade,Hamburg,51-200,de,free,2026-07-22T01:42:13.184215+00:00,
+7cff07e3-d92d-4519-9e24-c724e47a7b03,subcontractor,Müller Facade GmbH & Co. KG,kontakt@firma661.example,Facade,Berlin,51-200,de,paid,2026-08-10T17:10:26.314043+00:00,2026-09-08T01:31:37.841948+00:00
+8772df4a-15b1-44a6-b292-45ba7df6bc1d,subcontractor,Schneider Flooring GmbH & Co. KG,kontakt@firma662.example,Flooring,Cologne,1-10,de,free,2026-09-18T09:56:41.871512+00:00,
+cfc15689-8953-4e15-aea3-7b78e466c937,subcontractor,Becker Flooring GmbH & Co. KG,kontakt@firma663.example,Flooring,Hamburg,1-10,en,free,2026-07-19T04:25:07.877776+00:00,
+54ca6897-be71-4d60-abca-4f866500f793,subcontractor,Müller HVAC GmbH,kontakt@firma664.example,HVAC,Düsseldorf,1-10,de,paid,2026-09-09T18:31:58.668899+00:00,2026-09-17T00:10:28.572733+00:00
+c3af3d93-c047-4d80-932b-d70a209f839f,subcontractor,Wolf Facade AG,kontakt@firma665.example,Facade,Stuttgart,11-50,de,paid,2026-07-11T04:00:20.513044+00:00,2026-08-27T08:36:11.241085+00:00
+3c8b966c-af37-4e8c-8473-5700037e7f60,subcontractor,Becker Electrical AG,kontakt@firma666.example,Electrical,Berlin,1-10,en,paid,2026-08-14T05:52:30.478178+00:00,2026-08-30T15:59:19.186072+00:00
+1d71f339-c448-42af-87f8-b6f13fdd0e2b,subcontractor,Richter Scaffolding GmbH,kontakt@firma667.example,Scaffolding,Düsseldorf,1-10,en,free,2026-09-04T05:03:09.398387+00:00,
+3ab8ec3f-2612-49e5-a26d-18f6a1001bc8,subcontractor,Zimmermann Plumbing AG,kontakt@firma668.example,Plumbing,Berlin,1-10,de,paid,2026-09-01T03:53:33.180754+00:00,2026-09-20T17:25:38.776156+00:00
+3b3ed7bd-fae9-4dd3-a220-9a31b33d9c7c,subcontractor,Richter Electrical GmbH & Co. KG,kontakt@firma669.example,Electrical,Hamburg,1-10,de,paid,2026-09-25T14:25:31.573843+00:00,2026-10-03T10:04:45.281757+00:00
+0a77b5cc-2e87-4651-8c2c-a7fae525aeaf,subcontractor,Fischer Painting GmbH & Co. KG,kontakt@firma670.example,Painting,Berlin,11-50,de,free,2026-08-26T16:01:31.297505+00:00,
+ab402561-18cd-49c9-9c8d-23b44dea5200,subcontractor,Becker Roofing GmbH & Co. KG,kontakt@firma671.example,Roofing,Berlin,51-200,de,free,2026-06-25T12:42:06.079213+00:00,
+62510f01-9596-47e9-b5c4-be0846a47588,subcontractor,Fischer Facade AG,kontakt@firma672.example,Facade,Berlin,11-50,de,paid,2026-07-22T06:10:07.895669+00:00,2026-08-25T04:51:16.543534+00:00
+33b636dc-c2d0-4c42-bd59-5978796512e3,subcontractor,Wagner Facade AG,kontakt@firma673.example,Facade,Cologne,11-50,de,free,2026-09-17T22:56:04.224001+00:00,
+1e0fd29b-b7a2-4b33-a13e-cf1572cfbb0e,subcontractor,Braun Facade GmbH & Co. KG,kontakt@firma674.example,Facade,Düsseldorf,201-1000,de,paid,2026-08-15T11:17:57.082582+00:00,2026-10-06T15:43:10.643165+00:00
+65c227c0-d085-449d-bd9f-82d730b05a0b,subcontractor,Müller Electrical AG,kontakt@firma675.example,Electrical,Munich,201-1000,de,paid,2026-08-04T14:31:28.675367+00:00,2026-09-19T16:49:35.819241+00:00
+9267e7e6-28f5-45c2-80eb-f7252f1ef8dc,subcontractor,Wagner Flooring GmbH,kontakt@firma676.example,Flooring,Hamburg,1-10,de,paid,2026-06-23T13:16:58.179195+00:00,2026-09-24T16:31:44.629710+00:00
+2bcdce43-1e7d-4f7b-8d59-c34d44bd604f,subcontractor,Wagner Roofing AG,kontakt@firma677.example,Roofing,Hamburg,51-200,de,free,2026-08-30T02:15:47.444170+00:00,
+a60da1aa-005b-4f73-9dbe-4a3c88db3692,subcontractor,Fischer Electrical GmbH,kontakt@firma678.example,Electrical,Munich,11-50,de,free,2026-08-21T05:00:23.857577+00:00,
+d0e04655-a03e-4b5d-8ea8-d0eefc3a156a,subcontractor,Wagner Flooring GmbH & Co. KG,kontakt@firma679.example,Flooring,Berlin,51-200,de,free,2026-07-10T15:38:06.162902+00:00,
+41e15f65-a761-4e80-b216-880d61c9815e,subcontractor,Neumann Scaffolding AG,kontakt@firma680.example,Scaffolding,Düsseldorf,1-10,de,free,2026-07-31T07:19:40.570482+00:00,
+e6f47dcf-25f9-4ab9-9e5f-310c6f144dc6,subcontractor,Neumann Plumbing AG,kontakt@firma681.example,Plumbing,Munich,1-10,de,free,2026-08-10T19:50:02.267899+00:00,
+11c7bec9-3016-4ecc-9b9a-3a55aff745a0,subcontractor,Weber Roofing GmbH & Co. KG,kontakt@firma682.example,Roofing,Berlin,1-10,de,free,2026-08-11T07:53:02.375699+00:00,
+037825da-d399-456c-9c2b-498f054da360,subcontractor,Hoffmann Electrical GmbH & Co. KG,kontakt@firma683.example,Electrical,Stuttgart,11-50,de,free,2026-09-27T15:01:41.364486+00:00,
+56a0b8b4-d179-4ee0-bc73-1d478ad8c568,subcontractor,Müller Electrical GmbH,kontakt@firma684.example,Electrical,Düsseldorf,11-50,de,free,2026-09-16T15:28:32.169155+00:00,
+8b2a3730-a0a2-49bd-8478-09c0b1299cb7,subcontractor,Müller Concrete AG,kontakt@firma685.example,Concrete,Berlin,1-10,en,free,2026-09-20T19:58:49.489755+00:00,
+b7007ce3-e25c-4f9c-afcf-ea4d627e91e1,subcontractor,Braun Roofing AG,kontakt@firma686.example,Roofing,Stuttgart,1-10,de,free,2026-09-13T03:46:03.592500+00:00,
+55b85720-87cd-4444-adba-97542d95d98d,subcontractor,Klein HVAC GmbH,kontakt@firma687.example,HVAC,Cologne,51-200,de,free,2026-09-15T09:08:36.152333+00:00,
+cf8b4eb2-43f1-4176-aed1-58095e7e2813,subcontractor,Koch HVAC AG,kontakt@firma688.example,HVAC,Düsseldorf,1-10,de,free,2026-07-03T22:30:27.955397+00:00,
+474a3674-ba09-4484-b5a7-620d6d6d91e1,subcontractor,Schneider Concrete AG,kontakt@firma689.example,Concrete,Berlin,51-200,de,free,2026-09-17T23:45:07.246384+00:00,
+a7698b2d-f1ab-47a0-8d59-1b8c23627835,subcontractor,Wolf Flooring GmbH & Co. KG,kontakt@firma690.example,Flooring,Leipzig,11-50,de,free,2026-07-31T11:34:27.531004+00:00,
+cfb0d68d-b189-45a6-86ce-c51b93efb5c4,subcontractor,Hoffmann HVAC AG,kontakt@firma691.example,HVAC,Stuttgart,11-50,de,free,2026-09-05T14:37:04.093628+00:00,
+dde4cd87-d96d-4200-9947-c72a5c613985,subcontractor,Müller Plumbing GmbH & Co. KG,kontakt@firma692.example,Plumbing,Stuttgart,51-200,de,free,2026-08-10T17:04:43.425511+00:00,
+06beab4a-bbab-4b0e-a0a1-451d24a0aaad,subcontractor,Neumann Plumbing AG,kontakt@firma693.example,Plumbing,Frankfurt,1-10,de,free,2026-09-26T10:28:50.310279+00:00,
+0331bd0d-13ba-4d24-bebb-527c1438e799,subcontractor,Becker Plumbing GmbH,kontakt@firma694.example,Plumbing,Cologne,1-10,en,paid,2026-09-15T10:31:52.080776+00:00,2026-10-03T00:08:21.771254+00:00
+b1fbb587-a514-43fc-8809-a0b471a84189,subcontractor,Neumann Roofing GmbH & Co. KG,kontakt@firma695.example,Roofing,Berlin,11-50,de,paid,2026-09-25T18:08:54.491160+00:00,2026-10-01T12:46:19.143464+00:00
+420fd9a8-d45b-4e9b-b61e-c0ed8ddd2994,subcontractor,Wolf Flooring GmbH & Co. KG,kontakt@firma696.example,Flooring,Düsseldorf,51-200,de,paid,2026-07-13T01:56:12.853786+00:00,2026-08-29T15:43:41.511745+00:00
+d77a80b8-9ae6-4efe-8f2d-e908f9da4f55,subcontractor,Zimmermann Drywall AG,kontakt@firma697.example,Drywall,Berlin,1-10,de,paid,2026-08-08T18:04:54.424430+00:00,2026-08-27T12:09:04.767159+00:00
+5cda0385-13eb-4358-9ab9-f6621bc02912,subcontractor,Fischer Painting GmbH & Co. KG,kontakt@firma698.example,Painting,Cologne,11-50,en,free,2026-09-29T10:20:08.955869+00:00,
+44e831e1-3d86-4ad2-8849-30a1ede02d33,subcontractor,Fischer Roofing AG,kontakt@firma699.example,Roofing,Berlin,1-10,de,paid,2026-09-27T11:53:49.015486+00:00,2026-10-03T11:59:19.848471+00:00
+212804c5-f94e-485d-9b18-2716b9c6b26b,gc,Schwarz Bau GmbH & Co. KG,kontakt@firma700.example,Facade,Frankfurt,11-50,de,free,2026-08-16T19:38:23.154526+00:00,
+17e1e8f6-a03e-4003-a29c-b897142925a0,gc,Wolf Bau GmbH & Co. KG,kontakt@firma701.example,Roofing,Leipzig,11-50,de,free,2026-09-07T20:33:51.879494+00:00,
+c4c557d8-ee23-4eb0-85f6-2467a6c1d136,gc,Neumann Bau AG,kontakt@firma702.example,Facade,Munich,51-200,de,free,2026-08-24T16:03:12.663718+00:00,
+91206a37-2703-475d-b540-838e13331679,gc,Klein Bau AG,kontakt@firma703.example,Flooring,Frankfurt,51-200,de,free,2026-07-02T02:42:20.476625+00:00,
+295642c6-4bac-4a4a-af1e-4acf2b729d66,gc,Koch Bau GmbH & Co. KG,kontakt@firma704.example,HVAC,Berlin,51-200,de,free,2026-08-23T00:27:13.242679+00:00,
+1fbc4004-f098-4a1f-a3f4-59beec95ccf1,gc,Koch Bau AG,kontakt@firma705.example,Roofing,Leipzig,201-1000,de,free,2026-08-21T20:34:03.537495+00:00,
+155fa2f4-5fa9-421a-904b-10c8f3b937f2,gc,Zimmermann Bau AG,kontakt@firma706.example,Concrete,Frankfurt,51-200,de,free,2026-09-02T10:20:49.055522+00:00,
+4a68bbad-1af4-4f72-9a62-2059279163f4,gc,Richter Bau GmbH,kontakt@firma707.example,Drywall,Munich,201-1000,de,free,2026-06-26T11:10:55.588567+00:00,
+bb55cfa3-2e26-4519-95f8-77681bef39f1,gc,Braun Bau GmbH & Co. KG,kontakt@firma708.example,Concrete,Berlin,201-1000,en,free,2026-08-18T00:10:58.111805+00:00,
+745f4433-4743-468f-9d44-7f4179e984e1,gc,Neumann Bau AG,kontakt@firma709.example,Scaffolding,Berlin,51-200,de,free,2026-08-09T14:38:24.898412+00:00,
+79315fc6-fa82-465d-ae1b-abe2ca208c07,gc,Schwarz Bau GmbH & Co. KG,kontakt@firma710.example,Flooring,Hamburg,11-50,de,free,2026-09-30T00:25:43.398360+00:00,
+73905263-b653-4dba-9faf-c6cf4c5fccfb,gc,Hoffmann Bau GmbH,kontakt@firma711.example,Plumbing,Düsseldorf,11-50,de,free,2026-07-17T15:31:55.671923+00:00,
+6b4a3541-f123-467e-996a-2b3632d7cc22,gc,Wagner Bau GmbH,kontakt@firma712.example,Painting,Munich,1000+,de,free,2026-07-04T12:18:15.385388+00:00,
+bbae2fbd-bc99-4291-9342-98bebe2a85c6,gc,Zimmermann Bau AG,kontakt@firma713.example,Plumbing,Hamburg,51-200,de,free,2026-08-10T21:51:05.934887+00:00,
+d51f6de1-f17d-4a26-b357-d500fcfd348c,gc,Neumann Bau GmbH,kontakt@firma714.example,Flooring,Düsseldorf,51-200,de,free,2026-07-21T04:20:29.122685+00:00,
+f3cef8b7-35b3-4874-991c-228f3754c5ec,gc,Klein Bau GmbH & Co. KG,kontakt@firma715.example,Facade,Berlin,201-1000,de,free,2026-06-14T19:39:44.557711+00:00,
+5a2a83bd-5a0a-4917-a90f-1c3c69ff6cc0,gc,Wolf Bau GmbH & Co. KG,kontakt@firma716.example,HVAC,Stuttgart,201-1000,de,free,2026-06-12T15:19:01.319073+00:00,
+a8dbe9a1-d857-4c60-88f7-972661ae2255,gc,Richter Bau GmbH & Co. KG,kontakt@firma717.example,Facade,Frankfurt,51-200,de,free,2026-08-31T01:59:06.695306+00:00,
+7f1464b3-1a8a-46f3-a949-9fceeeb81b7d,gc,Müller Bau AG,kontakt@firma718.example,HVAC,Stuttgart,11-50,de,free,2026-08-01T00:17:07.975262+00:00,
+32103c49-1d4f-41c8-a18e-72a78d34dd83,gc,Schwarz Bau GmbH & Co. KG,kontakt@firma719.example,Flooring,Düsseldorf,51-200,en,free,2026-08-23T08:03:24.870668+00:00,
+43b63613-a89f-4f9d-a12d-ef5844820852,gc,Richter Bau GmbH & Co. KG,kontakt@firma720.example,Painting,Hamburg,201-1000,en,free,2026-06-20T01:58:42.941050+00:00,
+8e44f2f8-3de8-44cd-ae15-c527fe2a0cbc,gc,Weber Bau AG,kontakt@firma721.example,Scaffolding,Leipzig,51-200,de,free,2026-07-20T13:06:42.644773+00:00,
+288fc36a-846c-454c-9170-a2efe777c664,gc,Weber Bau GmbH & Co. KG,kontakt@firma722.example,Flooring,Munich,1000+,de,free,2026-07-02T12:30:57.690617+00:00,
+06905ba5-17e0-4df5-97df-85b33429c8cf,gc,Weber Bau GmbH & Co. KG,kontakt@firma723.example,Roofing,Munich,201-1000,de,free,2026-07-26T10:16:30.953395+00:00,
+3d5e69df-2fc2-447c-9bad-d755c7101f3d,gc,Wolf Bau AG,kontakt@firma724.example,Plumbing,Frankfurt,1000+,de,free,2026-09-10T08:46:58.331900+00:00,
+05ec8e9f-a09f-4700-a4ce-1460ef5a9491,gc,Wagner Bau GmbH,kontakt@firma725.example,Roofing,Frankfurt,201-1000,de,free,2026-09-20T18:18:48.955737+00:00,
+640b7b85-353d-4edc-969b-deb1e9a7f5e0,gc,Koch Bau GmbH & Co. KG,kontakt@firma726.example,Plumbing,Berlin,11-50,de,free,2026-08-16T01:48:50.833689+00:00,
+e754d4c3-0298-4dd2-8c7b-34e22e07cb63,gc,Koch Bau GmbH,kontakt@firma727.example,Painting,Berlin,201-1000,de,free,2026-07-24T21:22:59.748152+00:00,
+89344b06-0790-4eb4-9b2a-1376315e4e80,gc,Wagner Bau GmbH,kontakt@firma728.example,Plumbing,Berlin,51-200,de,free,2026-09-15T03:16:32.406332+00:00,
+b544f70c-593a-4b51-978b-55e7f406d6e0,gc,Koch Bau GmbH,kontakt@firma729.example,Plumbing,Cologne,51-200,de,free,2026-07-08T23:00:50.311854+00:00,
+1a574cee-6490-4d65-b63d-329547f50a35,gc,Zimmermann Bau AG,kontakt@firma730.example,Plumbing,Cologne,11-50,de,free,2026-08-27T19:46:32.580026+00:00,
+620f4af4-9b77-4a46-9b88-fe699f7717ca,gc,Wagner Bau GmbH & Co. KG,kontakt@firma731.example,Flooring,Munich,51-200,de,free,2026-08-20T15:37:11.030467+00:00,
+a52523e3-e093-47d5-93a1-b88a9a980457,gc,Hoffmann Bau GmbH & Co. KG,kontakt@firma732.example,Facade,Leipzig,51-200,de,free,2026-08-17T20:25:27.373627+00:00,
+507ffc32-c78e-4415-a521-51f95f390d2b,gc,Wolf Bau GmbH & Co. KG,kontakt@firma733.example,Drywall,Berlin,11-50,de,free,2026-10-01T09:39:49.849530+00:00,
+1a58fa44-37ab-4ed7-86fa-aa8336511c93,gc,Wagner Bau AG,kontakt@firma734.example,Facade,Cologne,11-50,de,free,2026-06-15T20:02:33.164774+00:00,
+7e7279ce-cd7f-45f6-8cb6-80293276ab75,gc,Becker Bau GmbH,kontakt@firma735.example,Flooring,Munich,51-200,en,free,2026-08-15T05:08:09.149995+00:00,
+fcea9a96-9364-4cb5-9b29-920ac886b7c6,gc,Müller Bau AG,kontakt@firma736.example,Scaffolding,Berlin,11-50,de,free,2026-09-17T14:01:49.632392+00:00,
+5133577b-4651-4173-8d0e-391db9272714,gc,Schwarz Bau GmbH & Co. KG,kontakt@firma737.example,Concrete,Stuttgart,11-50,de,free,2026-07-30T15:56:53.226221+00:00,
+9e33bdbc-f00d-4a65-9fb8-4f18d7d3ce21,gc,Wolf Bau GmbH,kontakt@firma738.example,Concrete,Berlin,51-200,de,free,2026-06-29T17:29:26.345735+00:00,
+d0ef0cd4-5e6e-4398-8ff1-b675e6fb976b,gc,Fischer Bau AG,kontakt@firma739.example,Drywall,Düsseldorf,11-50,en,free,2026-06-17T05:36:21.929591+00:00,
+d9a3ac28-e346-41b7-9589-9035c0c6e3ff,gc,Becker Bau GmbH,kontakt@firma740.example,Concrete,Leipzig,11-50,de,free,2026-08-12T06:38:18.926883+00:00,
+c425d020-4389-4f66-9780-29e939d00762,gc,Neumann Bau GmbH & Co. KG,kontakt@firma741.example,Roofing,Hamburg,51-200,de,free,2026-07-30T10:14:55.056599+00:00,
+3754a771-aba5-41c9-835c-5d033664cafa,gc,Koch Bau GmbH,kontakt@firma742.example,HVAC,Munich,11-50,de,free,2026-08-07T13:50:55.997002+00:00,
+d909e0c9-276c-4935-a7c1-0adb743ac892,gc,Wagner Bau AG,kontakt@firma743.example,Painting,Cologne,201-1000,en,free,2026-09-07T11:54:16.347889+00:00,
+f3952657-4ea1-4bd9-afaf-20ec2a08c526,gc,Wagner Bau GmbH & Co. KG,kontakt@firma744.example,Flooring,Düsseldorf,11-50,de,free,2026-09-15T17:13:51.629701+00:00,
+43fcf7b7-5a19-47ab-b3e0-467e87e81b25,gc,Koch Bau AG,kontakt@firma745.example,Plumbing,Berlin,51-200,de,free,2026-08-22T21:31:57.402324+00:00,
+ed92b753-bb64-4511-a1ec-ff07a60c1329,gc,Schneider Bau GmbH,kontakt@firma746.example,Concrete,Munich,51-200,de,free,2026-08-17T08:19:13.689637+00:00,
+0922d88d-e522-4d31-8d9a-6fce1d7cf46d,gc,Schneider Bau GmbH,kontakt@firma747.example,Electrical,Cologne,201-1000,de,free,2026-08-02T11:04:01.609416+00:00,
+2bc8906f-34a9-4b86-bec3-91ef44ad2484,gc,Neumann Bau AG,kontakt@firma748.example,Flooring,Stuttgart,11-50,de,free,2026-08-30T12:53:28.453021+00:00,
+ae7303c0-50ab-4660-ab94-5cbb3d162ab9,gc,Wagner Bau AG,kontakt@firma749.example,Scaffolding,Berlin,51-200,de,free,2026-06-21T04:06:41.838747+00:00,
+794ceef2-f833-4fa7-9a26-15f89810b8c1,gc,Schwarz Bau GmbH,kontakt@firma750.example,HVAC,Cologne,11-50,de,free,2026-09-04T04:37:18.801951+00:00,
+4dfa6a17-1999-4b39-980a-7e01c67736bc,gc,Weber Bau GmbH,kontakt@firma751.example,Drywall,Stuttgart,51-200,de,free,2026-08-07T05:31:26.284697+00:00,
+84909370-e430-4b91-956f-e90eb5ccdbe6,gc,Becker Bau GmbH & Co. KG,kontakt@firma752.example,Concrete,Stuttgart,11-50,en,free,2026-06-20T21:46:12.830615+00:00,
+5b7117bd-2442-4191-be7c-7d6ea8cc4515,gc,Hoffmann Bau GmbH,kontakt@firma753.example,Electrical,Munich,11-50,de,free,2026-07-09T10:33:22.928486+00:00,
+add74b0f-e90b-4651-83eb-4ff02cc9abb6,gc,Braun Bau AG,kontakt@firma754.example,Concrete,Munich,1000+,de,free,2026-07-26T21:42:09.498062+00:00,
+58d4d949-cad6-43ef-8ae2-f489f7d8e086,gc,Koch Bau AG,kontakt@firma755.example,HVAC,Hamburg,51-200,en,free,2026-08-06T06:42:43.566423+00:00,
+ccbeb6db-108a-44de-89cb-67907ca08cde,gc,Weber Bau GmbH & Co. KG,kontakt@firma756.example,Scaffolding,Hamburg,51-200,de,free,2026-09-07T15:55:58.225616+00:00,
+aa52cdf3-8082-40ee-9be8-1d7ac90703e8,gc,Becker Bau GmbH & Co. KG,kontakt@firma757.example,Electrical,Leipzig,51-200,de,free,2026-06-14T23:34:45.738446+00:00,
+cfcc2abd-3fac-4bcc-9ac9-2db2eed4d005,gc,Müller Bau GmbH & Co. KG,kontakt@firma758.example,HVAC,Frankfurt,51-200,de,free,2026-08-17T18:11:49.670826+00:00,
+22bca104-4001-470a-b312-de73c48563a3,gc,Weber Bau AG,kontakt@firma759.example,Painting,Munich,201-1000,de,free,2026-08-28T13:57:41.214955+00:00,
+ef544897-80fa-47e3-9031-d661b1b2b9c6,gc,Richter Bau GmbH & Co. KG,kontakt@firma760.example,Flooring,Frankfurt,11-50,de,free,2026-08-22T22:10:32.362489+00:00,
+e8273dee-9d7e-4eb7-a3fd-6adec17fcf19,gc,Hoffmann Bau GmbH,kontakt@firma761.example,Electrical,Hamburg,1000+,de,free,2026-08-04T18:03:35.705957+00:00,
+dffa28ae-c353-4c87-8eb7-138a767a92b7,gc,Wolf Bau GmbH,kontakt@firma762.example,Flooring,Cologne,11-50,en,free,2026-09-22T22:05:29.683716+00:00,
+bd8fa26f-1f16-4e17-8f94-d562dd43b0cf,gc,Neumann Bau GmbH & Co. KG,kontakt@firma763.example,Roofing,Cologne,51-200,de,free,2026-07-12T04:57:53.534500+00:00,
+a0d44d24-4d07-4581-a79f-5df0da2d6df9,gc,Wolf Bau AG,kontakt@firma764.example,Plumbing,Hamburg,51-200,en,free,2026-10-01T21:56:47.271997+00:00,
+719deadd-817c-4779-952d-8f91064fe164,gc,Schneider Bau GmbH & Co. KG,kontakt@firma765.example,HVAC,Munich,51-200,en,free,2026-08-29T03:57:39.965251+00:00,
+1f89cec2-9dfe-49d2-a87d-2106dbfbfea4,gc,Wolf Bau GmbH & Co. KG,kontakt@firma766.example,Roofing,Munich,201-1000,de,free,2026-09-11T09:40:51.600078+00:00,
+f58703c5-199a-43da-aae3-9bc04a1954ec,gc,Koch Bau GmbH & Co. KG,kontakt@firma767.example,Facade,Cologne,51-200,de,free,2026-09-01T00:15:00.547897+00:00,
+949e24ad-02d2-4ee7-a3b1-a52e907001b6,gc,Koch Bau GmbH,kontakt@firma768.example,Plumbing,Hamburg,11-50,de,free,2026-06-21T22:27:38.835042+00:00,
+5b9559d0-2887-4d02-bb54-35ba0255b13b,gc,Koch Bau GmbH & Co. KG,kontakt@firma769.example,Concrete,Cologne,1000+,en,free,2026-09-08T09:59:50.967177+00:00,
+a88fc85a-c33a-402e-88f3-332a47414ca4,gc,Neumann Bau GmbH,kontakt@firma770.example,Scaffolding,Hamburg,51-200,de,free,2026-06-19T07:08:56.433601+00:00,
+b2a0f851-2121-4c4f-825c-a2e38682d62f,gc,Richter Bau AG,kontakt@firma771.example,Scaffolding,Hamburg,201-1000,en,free,2026-08-23T15:00:28.319126+00:00,
+79f633e8-ade8-4084-af29-f4137fdae666,gc,Wolf Bau GmbH,kontakt@firma772.example,Plumbing,Hamburg,51-200,de,free,2026-07-05T21:44:20.814512+00:00,
+d8c80184-0994-4e76-9d4e-2772401fb5a6,gc,Müller Bau AG,kontakt@firma773.example,Flooring,Stuttgart,1000+,de,free,2026-08-20T14:37:17.907977+00:00,
+493d269e-adc9-4caa-b000-f93b7db8ed71,gc,Fischer Bau GmbH & Co. KG,kontakt@firma774.example,Scaffolding,Hamburg,51-200,de,free,2026-08-13T17:44:12.374390+00:00,
+5738db52-126c-4e50-9d4f-4af28becb8cc,gc,Hoffmann Bau AG,kontakt@firma775.example,Electrical,Berlin,51-200,de,free,2026-06-19T21:25:20.689363+00:00,
+234bae09-da79-4686-8f06-c963e65664ac,gc,Becker Bau AG,kontakt@firma776.example,Concrete,Stuttgart,51-200,de,free,2026-07-22T17:27:05.545174+00:00,
+4a36a7c0-f0cc-4f56-9242-89ea39597465,gc,Becker Bau GmbH,kontakt@firma777.example,Electrical,Leipzig,201-1000,de,free,2026-07-13T18:42:58.780002+00:00,
+e44d8dc2-b290-4892-8bc2-d46d0e807f03,gc,Hoffmann Bau AG,kontakt@firma778.example,Scaffolding,Berlin,51-200,de,free,2026-06-19T03:45:02.099320+00:00,
+a9d06567-c1e1-48aa-ac96-af2754614433,gc,Zimmermann Bau AG,kontakt@firma779.example,Plumbing,Düsseldorf,51-200,de,free,2026-08-06T21:32:18.812296+00:00,
+edeac5b8-9cc8-42cd-bd42-11d1992033eb,gc,Schneider Bau GmbH & Co. KG,kontakt@firma780.example,Electrical,Berlin,51-200,de,free,2026-06-15T19:07:58.104975+00:00,
+06bf1fb7-0e2b-48c9-ae66-2c46057d4e28,gc,Wagner Bau GmbH,kontakt@firma781.example,Painting,Stuttgart,51-200,en,free,2026-08-02T05:23:51.711145+00:00,
+6d44f723-b38a-4f82-ae02-0a88200f8ed9,gc,Hoffmann Bau AG,kontakt@firma782.example,Electrical,Cologne,51-200,de,free,2026-09-19T02:05:28.382598+00:00,
+bf5a910f-69be-48c9-ba24-ec1902929d3d,gc,Schneider Bau AG,kontakt@firma783.example,Electrical,Stuttgart,51-200,en,free,2026-08-01T23:47:24.606550+00:00,
+9b2aeea6-2135-4574-8adb-8f79ff82bf84,gc,Wolf Bau GmbH,kontakt@firma784.example,Painting,Munich,51-200,de,free,2026-07-19T03:33:41.370402+00:00,
+f1015bfe-4d7e-4c8e-b68f-f0dc718bf53a,gc,Zimmermann Bau GmbH,kontakt@firma785.example,Painting,Munich,1000+,de,free,2026-06-24T17:23:27.138527+00:00,
+7c781b98-9f32-4d3e-b358-206db49bc1ef,gc,Braun Bau GmbH & Co. KG,kontakt@firma786.example,HVAC,Hamburg,11-50,de,free,2026-09-16T21:16:03.956105+00:00,
+7429cf81-c3a2-45ff-a660-604f70b6052f,gc,Fischer Bau AG,kontakt@firma787.example,Plumbing,Leipzig,11-50,de,free,2026-06-28T11:29:35.179202+00:00,
+61f14c98-dcde-4dc8-84d3-40e87ecfbfc6,gc,Klein Bau GmbH & Co. KG,kontakt@firma788.example,Electrical,Munich,51-200,de,free,2026-09-08T23:56:07.948038+00:00,
+e4a6bf51-c125-498e-9bd6-5690e8f94c88,gc,Braun Bau GmbH,kontakt@firma789.example,Facade,Hamburg,201-1000,en,free,2026-09-02T11:09:37.128298+00:00,
+0e9f52f7-c09d-457f-bc44-1fbcedb68854,gc,Hoffmann Bau AG,kontakt@firma790.example,Scaffolding,Stuttgart,51-200,de,free,2026-06-15T02:55:24.800526+00:00,
+47dbf6a2-03e3-4f78-a85f-da5521c268f3,gc,Braun Bau GmbH,kontakt@firma791.example,Flooring,Stuttgart,51-200,en,free,2026-09-22T19:40:08.112950+00:00,
+cf6d2a9d-a72d-4bf4-884d-16c04021a347,gc,Wagner Bau AG,kontakt@firma792.example,Scaffolding,Stuttgart,51-200,de,free,2026-08-28T08:43:12.157437+00:00,
+a34321bf-7aee-47df-9bd5-5037f7444596,gc,Koch Bau GmbH,kontakt@firma793.example,Electrical,Düsseldorf,51-200,de,free,2026-09-25T22:03:23.496922+00:00,
+259b5aea-2cab-49ad-a15d-d7c43a38204b,gc,Koch Bau GmbH,kontakt@firma794.example,Roofing,Düsseldorf,51-200,de,free,2026-09-05T21:34:28.926400+00:00,
+fdf1d205-b6ec-484e-b3a2-dc1d0f916e97,gc,Neumann Bau GmbH,kontakt@firma795.example,Painting,Hamburg,11-50,de,free,2026-07-16T15:24:01.051950+00:00,
+5f116839-9203-4fc2-9366-e938343c1752,gc,Schneider Bau GmbH,kontakt@firma796.example,Concrete,Stuttgart,11-50,de,free,2026-09-24T10:42:19.847852+00:00,
+f9375fff-f146-46f1-b87e-d06b5fed5cb7,gc,Hoffmann Bau AG,kontakt@firma797.example,Painting,Hamburg,51-200,de,free,2026-08-21T07:14:14.614868+00:00,
+c8914d99-8218-4bb9-bdf6-8eb0c7e75797,gc,Richter Bau AG,kontakt@firma798.example,Drywall,Cologne,201-1000,de,free,2026-09-07T22:42:46.828031+00:00,
+89f9c43e-6b07-4c79-bbe4-3aa78c58fff0,gc,Klein Bau AG,kontakt@firma799.example,Drywall,Frankfurt,51-200,en,free,2026-08-02T23:08:34.847652+00:00,
+3e3a0dfc-5424-4ae4-be78-af27e93bda3b,gc,Klein Bau GmbH & Co. KG,kontakt@firma800.example,Roofing,Stuttgart,11-50,en,free,2026-09-06T02:29:32.410816+00:00,
+5cbf7ee6-ea25-4d83-9391-d18a8171d955,gc,Becker Bau AG,kontakt@firma801.example,Flooring,Frankfurt,51-200,de,free,2026-08-12T00:35:56.165829+00:00,
+49714ec3-cbbd-4732-82a1-a4299b050a6c,gc,Wolf Bau GmbH,kontakt@firma802.example,Flooring,Munich,201-1000,de,free,2026-08-16T16:16:58.700858+00:00,
+6b2b0c27-1eec-4480-aab1-803803f89c7b,gc,Braun Bau GmbH & Co. KG,kontakt@firma803.example,Drywall,Hamburg,1000+,de,free,2026-06-17T16:36:18.782682+00:00,
+20a0c244-5ab7-48b2-ac1f-b2fce77d9bec,gc,Richter Bau GmbH & Co. KG,kontakt@firma804.example,Plumbing,Munich,51-200,de,free,2026-07-12T18:40:34.256413+00:00,
+68ac039c-e921-4231-b2ea-ce11f32de530,gc,Braun Bau GmbH & Co. KG,kontakt@firma805.example,Electrical,Frankfurt,11-50,de,free,2026-08-13T13:14:45.152694+00:00,
+01fe1d86-e545-4cc6-a6fa-466b15733a73,gc,Braun Bau AG,kontakt@firma806.example,Scaffolding,Cologne,1000+,de,free,2026-07-19T23:23:36.730759+00:00,
+e5b58f30-8486-4583-906a-e95d0c5c9940,gc,Koch Bau GmbH & Co. KG,kontakt@firma807.example,HVAC,Cologne,51-200,de,free,2026-06-17T22:21:01.517387+00:00,
+473bccd4-84e6-478f-ae37-b72135ef2b60,gc,Neumann Bau AG,kontakt@firma808.example,Electrical,Cologne,201-1000,de,free,2026-09-21T05:13:22.934827+00:00,
+1b2aa4e4-c0e3-44e7-9b2d-f807fd225cba,gc,Braun Bau GmbH & Co. KG,kontakt@firma809.example,Plumbing,Leipzig,51-200,de,free,2026-09-16T10:34:55.375850+00:00,
+0699576d-d288-406a-951f-03b17d058c07,gc,Fischer Bau GmbH,kontakt@firma810.example,Facade,Munich,51-200,de,free,2026-06-15T15:36:09.000998+00:00,
+7e45fee4-6ea8-4b32-a38d-9fb071c487bc,gc,Braun Bau GmbH,kontakt@firma811.example,HVAC,Hamburg,201-1000,en,free,2026-06-10T10:51:26.867082+00:00,
+8349c078-bc4b-4732-a170-920c7416386b,gc,Becker Bau GmbH & Co. KG,kontakt@firma812.example,Painting,Frankfurt,11-50,de,free,2026-07-15T13:02:34.682508+00:00,
+a095c0d0-a26e-47da-b2fd-a085091f73f3,gc,Braun Bau AG,kontakt@firma813.example,Facade,Berlin,201-1000,de,free,2026-08-20T09:24:49.237646+00:00,
+b9291d34-db6e-40ba-842c-a512f369c683,gc,Wolf Bau GmbH,kontakt@firma814.example,Roofing,Stuttgart,11-50,de,free,2026-09-24T22:06:34.474423+00:00,
+7bf6b2ad-5944-469c-a341-441c3c165571,gc,Wolf Bau AG,kontakt@firma815.example,Roofing,Cologne,201-1000,en,free,2026-06-23T16:46:30.861613+00:00,
+1cc41c62-380b-44cb-98b6-66f84ba0768a,gc,Richter Bau GmbH & Co. KG,kontakt@firma816.example,Flooring,Leipzig,51-200,en,free,2026-07-06T19:17:08.184536+00:00,
+65e92e49-b26c-4876-98fa-e8c71d10b6f6,gc,Becker Bau AG,kontakt@firma817.example,Plumbing,Frankfurt,51-200,de,free,2026-08-08T00:37:54.364865+00:00,
+52bcb64d-c594-48c5-8ff0-18450f90cd63,gc,Fischer Bau GmbH & Co. KG,kontakt@firma818.example,Roofing,Hamburg,51-200,de,free,2026-08-18T15:32:46.705991+00:00,
+8938279c-2aa2-4c1e-a028-c315928fbbae,gc,Hoffmann Bau GmbH,kontakt@firma819.example,Electrical,Hamburg,51-200,de,free,2026-06-15T15:36:28.663308+00:00,
+c44fc2a8-5a4a-46ae-a987-cfb255525e11,gc,Schneider Bau AG,kontakt@firma820.example,Electrical,Stuttgart,201-1000,de,free,2026-09-26T23:55:00.111739+00:00,
+8d8e352b-3732-4d15-a9d4-45f354dd528c,gc,Braun Bau GmbH & Co. KG,kontakt@firma821.example,Roofing,Frankfurt,201-1000,en,free,2026-09-28T12:11:01.500475+00:00,
+c5bcc4cd-a1ad-4f14-bae1-9f9c0634e0e6,gc,Wagner Bau GmbH & Co. KG,kontakt@firma822.example,Concrete,Frankfurt,11-50,de,free,2026-07-08T09:59:03.090968+00:00,
+0528d309-6a56-487d-bb8e-37e2c32bba73,gc,Neumann Bau AG,kontakt@firma823.example,HVAC,Berlin,11-50,en,free,2026-07-25T02:18:15.615928+00:00,
+33e1f6f7-757a-4703-8628-1fb84d59f68e,gc,Neumann Bau GmbH,kontakt@firma824.example,Painting,Berlin,51-200,en,free,2026-07-28T09:26:07.486319+00:00,
+61e5835e-3e9f-469a-81b0-1ca488800d17,gc,Braun Bau AG,kontakt@firma825.example,Roofing,Berlin,51-200,de,free,2026-08-18T09:17:23.899889+00:00,
+1be40ba9-902a-4019-ba0f-fa865eaca15d,gc,Fischer Bau GmbH & Co. KG,kontakt@firma826.example,Electrical,Frankfurt,51-200,de,free,2026-07-01T13:01:54.127999+00:00,
+910f445d-d6f3-4d9b-b918-a6e885fde9e9,gc,Zimmermann Bau GmbH & Co. KG,kontakt@firma827.example,Plumbing,Stuttgart,51-200,de,free,2026-08-06T21:55:03.745164+00:00,
+7ff3e818-8bab-4414-bd1d-3494cb712efd,gc,Fischer Bau AG,kontakt@firma828.example,Electrical,Hamburg,51-200,de,free,2026-08-26T15:28:40.479835+00:00,
+c1c353c4-2095-45a4-a02c-f60413d754d6,gc,Hoffmann Bau AG,kontakt@firma829.example,HVAC,Berlin,1000+,de,free,2026-09-18T16:28:20.128056+00:00,
+dfcc8eb4-bfbe-4892-a3ce-37db7cb8b49d,gc,Schwarz Bau AG,kontakt@firma830.example,Concrete,Cologne,11-50,de,free,2026-08-29T12:43:04.260487+00:00,
+34579c7f-af5d-499c-85f3-cb124a4a5612,gc,Weber Bau GmbH,kontakt@firma831.example,Painting,Stuttgart,51-200,en,free,2026-08-20T23:05:29.558335+00:00,
+2de1bda4-6a92-447b-9154-00a60283a43b,gc,Neumann Bau GmbH & Co. KG,kontakt@firma832.example,Plumbing,Berlin,11-50,de,free,2026-06-12T07:17:47.560475+00:00,
+59b7463f-1117-4840-a80d-4e22982e2afd,gc,Klein Bau GmbH & Co. KG,kontakt@firma833.example,Painting,Frankfurt,11-50,en,free,2026-08-23T23:40:05.245914+00:00,
+ef2ecdc9-673c-484b-8459-61729fdf4b1b,gc,Wagner Bau GmbH & Co. KG,kontakt@firma834.example,Flooring,Hamburg,51-200,de,free,2026-07-18T19:53:46.248647+00:00,
+6208c875-c41c-433d-a513-964e965a693e,gc,Weber Bau AG,kontakt@firma835.example,Roofing,Hamburg,51-200,de,free,2026-07-26T13:21:41.557738+00:00,
+edf6cca4-1761-41ce-b768-d6aafd34d21e,gc,Müller Bau GmbH,kontakt@firma836.example,Concrete,Stuttgart,51-200,de,free,2026-09-13T16:51:06.930980+00:00,
+62b215ad-c61f-48b1-a097-5bc064abd035,gc,Fischer Bau AG,kontakt@firma837.example,Facade,Frankfurt,201-1000,de,free,2026-06-28T05:04:41.732209+00:00,
+6fef2c5d-d702-4edd-a494-0bbdb61ae1b0,gc,Zimmermann Bau GmbH & Co. KG,kontakt@firma838.example,Plumbing,Cologne,1000+,de,free,2026-07-03T22:12:25.633487+00:00,
+ba7e6b51-5892-471a-ab87-aea4c54f87ad,gc,Zimmermann Bau GmbH & Co. KG,kontakt@firma839.example,Electrical,Munich,201-1000,de,free,2026-06-23T21:10:36.932817+00:00,
+ebeb9d98-80b7-40a6-80f6-6fdeea725584,gc,Schneider Bau GmbH & Co. KG,kontakt@firma840.example,Scaffolding,Berlin,51-200,de,free,2026-07-20T05:25:43.209919+00:00,
+9b8826ed-ff4a-4185-b886-f504ed758b74,gc,Zimmermann Bau AG,kontakt@firma841.example,Scaffolding,Frankfurt,201-1000,de,free,2026-08-09T05:01:58.963612+00:00,
+d8868de4-d585-4f0b-ab69-1bd21533fe82,gc,Weber Bau GmbH,kontakt@firma842.example,Plumbing,Berlin,201-1000,de,free,2026-07-12T22:31:11.546282+00:00,
+e5d20eae-5104-4a0c-a650-8af4d9259a4b,gc,Becker Bau AG,kontakt@firma843.example,Scaffolding,Frankfurt,201-1000,en,free,2026-07-27T04:03:05.771557+00:00,
+4688d612-0b64-4782-b182-96af2c2e8ba0,gc,Wagner Bau GmbH,kontakt@firma844.example,Facade,Cologne,11-50,de,free,2026-08-16T14:12:59.400087+00:00,
+1691c83a-7687-453e-ae26-5c9590f1c7ee,gc,Neumann Bau GmbH,kontakt@firma845.example,Concrete,Berlin,51-200,de,free,2026-07-10T18:11:29.879507+00:00,
+d659d69f-4eca-4266-bf29-d615f1780077,gc,Braun Bau AG,kontakt@firma846.example,Painting,Frankfurt,51-200,en,free,2026-06-25T05:29:36.848335+00:00,
+d5d4999b-39d8-4a14-a9fa-c66650c74b31,gc,Weber Bau AG,kontakt@firma847.example,Roofing,Berlin,11-50,en,free,2026-09-12T06:55:16.726218+00:00,
+a18af249-d45a-4de3-b31d-c76f85e620fe,gc,Schwarz Bau AG,kontakt@firma848.example,Scaffolding,Frankfurt,51-200,de,free,2026-06-15T10:40:29.715807+00:00,
+57992f42-351b-4e63-89e7-85c7cbd8715e,gc,Schwarz Bau AG,kontakt@firma849.example,Flooring,Frankfurt,51-200,de,free,2026-06-29T05:20:36.491267+00:00,

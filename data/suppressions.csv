@@ -1,0 +1,16 @@
+user_id,reason
+a84ca488-ec40-44c6-9a60-69f38e40b294,in_active_sales_cycle
+1f3eea66-af6c-4f61-8fef-a2a2e7354db2,do_not_contact
+ef544897-80fa-47e3-9031-d661b1b2b9c6,do_not_contact
+2bcdce43-1e7d-4f7b-8d59-c34d44bd604f,bounced
+51057c35-1ceb-48fe-b2de-b798b31a25b5,in_active_sales_cycle
+5d411ac5-335d-4b46-85b3-75aa0f546781,do_not_contact
+debac186-ba10-4217-8ad7-c9a2727716ec,bounced
+33b636dc-c2d0-4c42-bd59-5978796512e3,do_not_contact
+b1edf3d3-668f-4032-a512-5d2e24b3bc8e,in_active_sales_cycle
+4f10aae3-b518-474f-8587-4243cbd10fdc,bounced
+17e1e8f6-a03e-4003-a29c-b897142925a0,in_active_sales_cycle
+6de59332-9364-43d0-9024-bdc6dcb33df3,unsubscribed
+10d4de39-1612-47c9-a25d-f9a89ca8a5c4,do_not_contact
+e44d8dc2-b290-4892-8bc2-d46d0e807f03,in_active_sales_cycle
+a7c854e4-0684-4c86-b8a6-040223d26b8d,do_not_contact

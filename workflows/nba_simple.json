@@ -1,0 +1,645 @@
+{
+  "name": "NBA Simple (dry run)",
+  "nodes": [
+    {
+      "parameters": {
+        "width": 600,
+        "height": 230,
+        "content": "## Setup (dry run)\nNeeds 2 credentials: **Postgres** and a **chat model** (Anthropic Claude by default; any chat model node works. Tested with Groq `llama-3.3-70b-versatile`).\n1. Set the Postgres credential on *Get candidates*, *Log decision*, *Decision report*, *Experiment readout* and *Email data*, and the model credential on the model node.\n2. Click **Execute workflow**. Nothing is sent: decisions and email drafts are written to the `decisions` table and shown in the last nodes.\nFree model tiers rate-limit: lower `LIMIT` in *Get candidates* if you see failures. To reset a re-run: `DELETE FROM decisions WHERE workflow_version = 'nba-simple-v1';`",
+        "color": 1
+      },
+      "id": "666e8431-d5a3-46bc-9cde-3808fb753583",
+      "name": "Notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        330
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5a3f0ce0-9444-4acc-a7a2-3295d1254a84",
+      "name": "Run manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT c.*,\n  CASE WHEN c.role = 'subcontractor'\n       THEN coalesce((SELECT jsonb_agg(to_jsonb(m) ORDER BY m.score DESC) FROM match_tenders(c.user_id, 3) m), '[]'::jsonb)\n       ELSE '[]'::jsonb END AS top_tenders,\n  (SELECT to_jsonb(a) FROM crm_accounts a WHERE a.user_id = c.user_id) AS crm\nFROM v_nba_candidates c\nLIMIT 10;",
+        "options": {}
+      },
+      "id": "43458c14-e261-4a0f-8b76-c29456382ef8",
+      "name": "Get candidates",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        220,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ab4b637d-14a1-4049-9dcb-24d81eedb810",
+              "leftValue": "={{ $json.arm }}",
+              "rightValue": "agent",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "78c4cc33-0199-4a2c-a1cc-3a8d02298eed",
+      "name": "Agent arm?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Decide the next best action for this user.\n\n{{ JSON.stringify({ language: $json.language, ab_variant: $json.ab_variant, signal_type: $json.signal_type, signal_detail: $json.signal_detail, profile: $json.profile, recent_events: $json.recent_events, call_insights: $json.call_insights, crm: $json.crm, top_tenders: $json.top_tenders }, null, 2) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You are the Next-Best-Action decision agent for a B2B construction marketplace connecting general contractors (GCs) and subcontractors.\n\nGiven ONE user (profile, behavioural signal, recent events, optional call insights, optional CRM record and, for subcontractors, the top matching open tenders), decide what happens next and draft the opening of the email if one should be sent.\n\nGoals: subcontractors -> first bid, then paid conversion, then repeat bidding. GCs -> a second and third tender.\n\nAllowed actions: send_tender_digest, send_nudge, send_onboarding_help, request_referral, human_handoff, no_action.\nAllowed channels: email, in_app, human, none.\nAllowed timing: now, next_business_morning, in_3_days, in_7_days.\n\nRules:\n1. human_handoff (channel human) when: call insights show a decision-stage buyer, or negative sentiment with a concrete objection; the CRM shows an open opportunity or churn_risk; or you are unsure.\n2. no_action rather than a weak, generic touch. Never choose send_tender_digest if top_tenders is empty.\n3. message_angle: short snake_case label. Variant A leads with value/outcome (e.g. value_led). Variant B leads with urgency or timing (e.g. urgency_led). Respect the variant you are given.\n4. confidence is 0 to 1 and must reflect the evidence. Low confidence routes to a human.\n5. reasoning: 1-3 sentences citing the specific evidence. Never invent facts.\n6. subject (max 60 chars) and intro (1-2 sentences) are written in the user's language (de: formal \"Sie\"; en: plain and direct). Use only facts from the input. Do NOT list tenders, links or prices: the system appends the tender list. For human_handoff or no_action, return empty strings for subject and intro.\n\nReturn only the structured JSON."
+            }
+          ]
+        }
+      },
+      "id": "031cb6cc-2ea9-4121-b2d3-bd2cc7ac7c35",
+      "name": "Decide + draft",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        680,
+        0
+      ],
+      "onError": "continueRegularOutput",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 20000
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "options": {
+          "temperature": 0.2,
+          "maxTokensToSample": 1024
+        }
+      },
+      "id": "28433e23-67ef-461e-b608-f325a27e814f",
+      "name": "Claude",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        620,
+        240
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"action\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"send_tender_digest\",\n        \"send_nudge\",\n        \"send_onboarding_help\",\n        \"request_referral\",\n        \"human_handoff\",\n        \"no_action\"\n      ]\n    },\n    \"channel\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"email\",\n        \"in_app\",\n        \"human\",\n        \"none\"\n      ]\n    },\n    \"timing\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"now\",\n        \"next_business_morning\",\n        \"in_3_days\",\n        \"in_7_days\"\n      ]\n    },\n    \"message_angle\": {\n      \"type\": \"string\"\n    },\n    \"confidence\": {\n      \"type\": \"number\",\n      \"minimum\": 0,\n      \"maximum\": 1\n    },\n    \"reasoning\": {\n      \"type\": \"string\"\n    },\n    \"subject\": {\n      \"type\": \"string\"\n    },\n    \"intro\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"action\",\n    \"channel\",\n    \"timing\",\n    \"message_angle\",\n    \"confidence\",\n    \"reasoning\",\n    \"subject\",\n    \"intro\"\n  ]\n}"
+      },
+      "id": "72a36544-e6c4-4db6-a991-3b794ca55cfb",
+      "name": "Output parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        800,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst APP_BASE_URL = 'https://app.example.com';   // TODO: your deep-link base\nconst MIN_CONF = 0.6;                              // below this -> human handoff\nconst ACTIONS = ['send_tender_digest', 'send_nudge', 'send_onboarding_help', 'request_referral', 'human_handoff', 'no_action', 'none'];\nconst CHANNELS = ['email', 'in_app', 'human', 'none'];\n\nfunction tenderBlock(c) {\n  const tenders = c.top_tenders || [];\n  if (!tenders.length) return '';\n  const de = c.language !== 'en', loc = de ? 'de-DE' : 'en-GB';\n  const L = de ? { dl: 'Frist', val: 'Volumen' } : { dl: 'Deadline', val: 'Value' };\n  const eur = v => new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Number(v));\n  const day = d => new Date(d).toLocaleDateString(loc, { day: '2-digit', month: 'short', year: 'numeric' });\n  return tenders.map((t, i) => `${i + 1}. ${t.title}\\n   ${L.dl}: ${day(t.deadline)} | ${L.val}: ${eur(t.value_eur)}\\n   ${APP_BASE_URL}/tenders/${t.tender_id}?utm_source=nba&utm_medium=email`).join('\\n\\n');\n}\n\nfunction build(c, d) {\n  d = { ...d };\n  if (!ACTIONS.includes(d.action)) {\n    d = { action: 'human_handoff', channel: 'human', timing: 'now', message_angle: 'invalid_output', confidence: 0,\n          reasoning: 'Invalid action from model: ' + String(d.action).slice(0, 80) };\n  }\n  d.confidence = Math.max(0, Math.min(1, Number(d.confidence) || 0));\n  if (!CHANNELS.includes(d.channel)) d.channel = 'none';\n  const needsHuman = d.action === 'human_handoff' || d.channel === 'human' || d.confidence < MIN_CONF || c.is_high_value === true;\n  let routed_to = 'none';\n  if (c.arm === 'holdout') routed_to = 'holdout';\n  else if (d.action === 'no_action' || d.action === 'none') routed_to = 'none';\n  else if (needsHuman) routed_to = 'human';\n  else if (d.channel === 'email' || d.channel === 'in_app') routed_to = d.channel;\n  const emailText = (d.subject && d.intro) ? (d.intro + '\\n\\n' + tenderBlock(c)).trim() : null;\n  return { json: {\n    user_id: c.user_id, arm: c.arm, ab_variant: c.ab_variant, signal_type: c.signal_type,\n    action: d.action, channel: d.channel, timing: d.timing || 'now', message_angle: d.message_angle || null,\n    confidence: d.confidence, reasoning: d.reasoning || null, routed_to,\n    sent: false,   // DRY RUN: nothing is sent. Add a send node after 'Log decision' when you are ready.\n    payload: { dry_run: true, subject: d.subject || null, email_text: emailText,\n               tender_ids: (c.top_tenders || []).map(t => t.tender_id), signal_detail: c.signal_detail }\n  }};\n}\n\nconst c = $('Get candidates').item.json;\nconst o = $json.output;\nif (!o || $json.error) {\n  return build(c, { action: 'human_handoff', channel: 'human', timing: 'now', message_angle: 'agent_failure', confidence: 0,\n                    reasoning: 'LLM returned no valid output: ' + JSON.stringify($json.error || '').slice(0, 200) });\n}\nreturn build(c, o);\n"
+      },
+      "id": "296769f7-1e19-4372-b4ce-bbf3e3abbeff",
+      "name": "Guardrails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst APP_BASE_URL = 'https://app.example.com';   // TODO: your deep-link base\nconst MIN_CONF = 0.6;                              // below this -> human handoff\nconst ACTIONS = ['send_tender_digest', 'send_nudge', 'send_onboarding_help', 'request_referral', 'human_handoff', 'no_action', 'none'];\nconst CHANNELS = ['email', 'in_app', 'human', 'none'];\n\nfunction tenderBlock(c) {\n  const tenders = c.top_tenders || [];\n  if (!tenders.length) return '';\n  const de = c.language !== 'en', loc = de ? 'de-DE' : 'en-GB';\n  const L = de ? { dl: 'Frist', val: 'Volumen' } : { dl: 'Deadline', val: 'Value' };\n  const eur = v => new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Number(v));\n  const day = d => new Date(d).toLocaleDateString(loc, { day: '2-digit', month: 'short', year: 'numeric' });\n  return tenders.map((t, i) => `${i + 1}. ${t.title}\\n   ${L.dl}: ${day(t.deadline)} | ${L.val}: ${eur(t.value_eur)}\\n   ${APP_BASE_URL}/tenders/${t.tender_id}?utm_source=nba&utm_medium=email`).join('\\n\\n');\n}\n\nfunction build(c, d) {\n  d = { ...d };\n  if (!ACTIONS.includes(d.action)) {\n    d = { action: 'human_handoff', channel: 'human', timing: 'now', message_angle: 'invalid_output', confidence: 0,\n          reasoning: 'Invalid action from model: ' + String(d.action).slice(0, 80) };\n  }\n  d.confidence = Math.max(0, Math.min(1, Number(d.confidence) || 0));\n  if (!CHANNELS.includes(d.channel)) d.channel = 'none';\n  const needsHuman = d.action === 'human_handoff' || d.channel === 'human' || d.confidence < MIN_CONF || c.is_high_value === true;\n  let routed_to = 'none';\n  if (c.arm === 'holdout') routed_to = 'holdout';\n  else if (d.action === 'no_action' || d.action === 'none') routed_to = 'none';\n  else if (needsHuman) routed_to = 'human';\n  else if (d.channel === 'email' || d.channel === 'in_app') routed_to = d.channel;\n  const emailText = (d.subject && d.intro) ? (d.intro + '\\n\\n' + tenderBlock(c)).trim() : null;\n  return { json: {\n    user_id: c.user_id, arm: c.arm, ab_variant: c.ab_variant, signal_type: c.signal_type,\n    action: d.action, channel: d.channel, timing: d.timing || 'now', message_angle: d.message_angle || null,\n    confidence: d.confidence, reasoning: d.reasoning || null, routed_to,\n    sent: false,   // DRY RUN: nothing is sent. Add a send node after 'Log decision' when you are ready.\n    payload: { dry_run: true, subject: d.subject || null, email_text: emailText,\n               tender_ids: (c.top_tenders || []).map(t => t.tender_id), signal_detail: c.signal_detail }\n  }};\n}\n\nconst c = $json;\nif (c.arm === 'holdout') {\n  return build(c, { action: 'none', channel: 'none', timing: 'now', message_angle: null, confidence: 1, reasoning: 'Holdout: no touch' });\n}\nconst de = c.language !== 'en';\nconst R = {\n  viewed_no_bid:    { action: 'send_tender_digest', angle: 'deadline_reminder',\n    subject: de ? 'Diese Ausschreibungen passen zu Ihrem Gewerk' : 'Open tenders that match your trade',\n    intro: de ? 'Sie haben sich kürzlich eine Ausschreibung angesehen. Diese offenen Ausschreibungen passen zu Ihrem Gewerk:' : 'You recently looked at a tender. These open tenders match your trade:' },\n  idle_14d:         { action: 'send_tender_digest', angle: 'new_matching_tenders',\n    subject: de ? 'Neue passende Ausschreibungen' : 'New tenders that match your trade',\n    intro: de ? 'Seit Ihrem letzten Besuch gibt es neue passende Ausschreibungen:' : 'There are new tenders that match your trade since your last visit:' },\n  gc_single_tender: { action: 'send_nudge', angle: 'second_tender_prompt',\n    subject: de ? 'Ihre nächste Ausschreibung in wenigen Minuten' : 'Post your next tender in minutes',\n    intro: de ? 'Sie haben eine Ausschreibung veröffentlicht. Hier erfahren Sie, wie Sie die nächste schnell anlegen.' : 'You posted one tender. Here is how to set up your next one quickly.' },\n};\nconst r = R[c.signal_type];\nif (!r) return build(c, { action: 'no_action', channel: 'none', timing: 'now', confidence: 1, reasoning: 'No rule for ' + c.signal_type });\nreturn build(c, { action: r.action, channel: 'email', timing: 'next_business_morning', message_angle: r.angle,\n                  confidence: 1, reasoning: 'Static rule for ' + c.signal_type, subject: r.subject, intro: r.intro });\n"
+      },
+      "id": "c6d8e43c-9621-45a1-9385-f2d79c16c911",
+      "name": "Rules or holdout",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "name"
+        },
+        "table": {
+          "__rl": true,
+          "value": "decisions",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $json.user_id }}",
+            "arm": "={{ $json.arm }}",
+            "ab_variant": "={{ $json.ab_variant }}",
+            "signal_type": "={{ $json.signal_type }}",
+            "action": "={{ $json.action }}",
+            "channel": "={{ $json.channel }}",
+            "timing": "={{ $json.timing }}",
+            "message_angle": "={{ $json.message_angle }}",
+            "confidence": "={{ $json.confidence }}",
+            "reasoning": "={{ $json.reasoning }}",
+            "routed_to": "={{ $json.routed_to }}",
+            "sent": "={{ $json.sent }}",
+            "payload": "={{ JSON.stringify($json.payload) }}",
+            "workflow_version": "nba-simple-v1"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "2f23dbca-fdd4-4de4-951a-164bfd3eca62",
+      "name": "Log decision",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1160,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT d.id,\n       u.company_name, u.role, u.trade, u.region,\n       d.signal_type, d.arm, d.ab_variant,\n       d.routed_to, d.action, d.channel, d.timing, d.message_angle,\n       d.confidence, d.reasoning,\n       d.payload->>'subject'    AS email_subject,\n       d.payload->>'email_text' AS email_preview,\n       d.decided_at\nFROM decisions d\nJOIN users u ON u.id = d.user_id\nWHERE d.workflow_version = 'nba-simple-v1'\n  AND d.decided_at > (SELECT max(decided_at) FROM decisions WHERE workflow_version = 'nba-simple-v1') - interval '15 minutes'\nORDER BY CASE d.routed_to WHEN 'email' THEN 1 WHEN 'human' THEN 2 WHEN 'holdout' THEN 3 ELSE 4 END, d.id;",
+        "options": {}
+      },
+      "id": "662c3546-e3a1-4f42-a3cb-41df70352d99",
+      "name": "Decision report",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1400,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst rows = $input.all().map(i => i.json);\nconst n = f => rows.filter(f).length;\nconst tally = k => rows.reduce((a, r) => { a[r[k]] = (a[r[k]] || 0) + 1; return a; }, {});\nconst agent = rows.filter(r => r.arm === 'agent');\nconst avgConf = agent.length ? Number((agent.reduce((s, r) => s + Number(r.confidence || 0), 0) / agent.length).toFixed(2)) : null;\nconst firstEmail = rows.find(r => r.routed_to === 'email' && r.email_preview);\nreturn [{ json: {\n  summary: `${rows.length} users processed: ${n(r => r.arm === 'agent')} agent, ${n(r => r.arm === 'rules')} rules baseline, ${n(r => r.arm === 'holdout')} holdout. `\n         + `${n(r => r.routed_to === 'email')} email drafts, ${n(r => r.routed_to === 'human')} human handoffs, `\n         + `${n(r => r.routed_to === 'holdout' || r.routed_to === 'none')} deliberately not touched. Nothing was sent (dry run).`,\n  users_by_arm: tally('arm'),\n  decisions_by_route: tally('routed_to'),\n  avg_agent_confidence: avgConf,\n  human_handoffs: rows.filter(r => r.routed_to === 'human').map(r => ({ company: r.company_name, signal: r.signal_type, arm: r.arm, confidence: Number(r.confidence), why: r.reasoning })),\n  example_email: firstEmail ? { to: firstEmail.company_name, arm: firstEmail.arm, subject: firstEmail.email_subject, body: firstEmail.email_preview } : null\n}}];\n"
+      },
+      "id": "0bcbfa2e-3610-40a0-bd9d-3373f99ecd50",
+      "name": "Run summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT arm,\n       users,\n       conversions,\n       round(cvr * 100, 1)                 AS conversion_pct,\n       round(abs_lift_vs_holdout * 100, 1) AS lift_pp_vs_holdout,\n       round(rel_lift_vs_holdout * 100, 1) AS lift_pct_vs_holdout\nFROM v_incrementality\nORDER BY CASE arm WHEN 'holdout' THEN 1 WHEN 'rules' THEN 2 ELSE 3 END;",
+        "options": {}
+      },
+      "id": "159b7f76-0094-4be3-841d-329a14a52548",
+      "name": "Experiment readout (simulated history)",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1880,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "content": "# Next-Best-Action engine for a two-sided marketplace (dry run)\n\n**The problem.** A static drip journey treats every user the same, but conversion between lifecycle stages stalls for different reasons: a subcontractor who viewed a tender and never bid, a GC who posted one tender and never a second, a free account that went quiet.\n\n**What this workflow does.** Each run it finds users who hit one of those signals, decides **per user** what should happen next (email, in-app or a human touch), drafts the message, and logs the decision with its reasoning. It is a dry run: nothing is sent. The data is synthetic.\n\n**How to read it.** Left to right: signals → experiment arm → decision → guardrails → audit log → results.\n\n**Measured, not assumed.** 10% of users are a permanent holdout that gets no touches. The agent is compared against both the holdout and a static-rules baseline, so the question is incremental impact, not campaign output.",
+        "height": 300,
+        "width": 1280,
+        "color": 4
+      },
+      "id": "6ddb2c59-a399-4d20-9da4-4b5ac84e447b",
+      "name": "Note: overview",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 1. Signals (SQL)\nThe view `v_nba_candidates` decides who needs attention:\n- viewed an open tender 3-10 days ago, never started a bid\n- GC with exactly one tender, 7+ days old\n- free subcontractor idle for 14+ days\n\nEligibility rules live in SQL, not in the workflow: suppression list, 3-day cooldown, max 2 sends per 14 days.\n\nThe same query pre-loads profile, recent events, call insights, CRM record and the **top 3 matching open tenders** (the marketplace liquidity matcher).",
+        "height": 340,
+        "width": 270,
+        "color": 7
+      },
+      "id": "5d870b2c-c7fb-49d5-957b-b7ebfd0b4f97",
+      "name": "Note: 1 signals",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 2. Experiment arms\nA hash of the user ID assigns each user to an arm. It is stable and needs no stored state.\n- **10% holdout**: never touched\n- **30% static rules**: today's drip logic, the baseline\n- **60% agent**: the LLM decides\n\nThe same user always lands in the same arm, so lift vs holdout can be measured later. A second hash assigns the message angle (A: value-led, B: urgency-led).",
+        "height": 340,
+        "width": 250,
+        "color": 6
+      },
+      "id": "144224fb-190a-4e8a-b02e-3e7d7f30bf60",
+      "name": "Note: 2 arms",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        430,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 3. Decision agent\nOne LLM call per user with all context pre-loaded. It returns structured JSON: action, channel, timing, message angle, **confidence** and **reasoning**, plus an email subject and intro.\n\nIt is told to hand off to a human for decision-stage buyers, open sales opportunities, or negative sentiment with an objection, and to prefer no action over a weak touch.\n\nThe tender list is appended by code, not written by the model, so it cannot invent prices or deadlines. The model is swappable (tested with a free Groq model).",
+        "height": 340,
+        "width": 320,
+        "color": 5
+      },
+      "id": "11674193-f1fb-4fdf-96ea-73163c3748d2",
+      "name": "Note: 3 agent",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        700,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4. Guardrails (code)\nDeterministic checks after the model, so a bad answer cannot reach a customer:\n- unknown action or channel → human\n- confidence below 0.6 → human\n- high-value account (200+ employees) → human\n- LLM error → human, logged as a failure\n- holdout users are never touched\n\nA human receives the reasoning with the handoff, so the hand-off is useful.",
+        "height": 340,
+        "width": 290,
+        "color": 3
+      },
+      "id": "98a8d307-bfd2-4138-acf3-f242328a9faa",
+      "name": "Note: 4 guardrails",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 5. Audit log\nEvery decision is stored, including holdout and \"no action\": arm, variant, signal, action, confidence, reasoning, drafted email and tender IDs.\n\nThis table makes the system explainable and feeds the incrementality analysis.",
+        "height": 340,
+        "width": 260,
+        "color": 2
+      },
+      "id": "087a8850-2403-4058-a04f-7e91fb121759",
+      "name": "Note: 5 log",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1350,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 6. Results\n- **Decision report**: one row per user: who, which arm, what the system decided, why, and the email it would send.\n- **Run summary**: counts by arm and route, the human handoffs with reasons, and one example email.\n- **Experiment readout**: conversion by arm vs holdout (`v_incrementality`).\n\nThe readout uses **simulated** past outcomes with assumed lifts. It shows the measurement design, not a real result.",
+        "height": 340,
+        "width": 480,
+        "color": 4
+      },
+      "id": "463614f2-0c4a-4e21-94da-9fa7f711b5b3",
+      "name": "Note: 6 results",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1630,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Baseline and holdout\nUsers in the rules arm get one fixed email per signal. This is the \"static journey\" the agent has to beat to justify its extra cost and complexity. Holdout users are logged with no action, so they count in the comparison.",
+        "height": 230,
+        "width": 420,
+        "color": 1
+      },
+      "id": "229fe1a5-9184-4177-b2a4-1a28e9bbc52d",
+      "name": "Note: baseline",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        560,
+        330
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Limits and next steps with real data\nAdd a power calculation and a sample-ratio check before launch, confidence intervals on lift, and a consent check per channel. Connect real events, CRM and enrichment instead of synthetic tables. Add error handling and idempotency on the send step, then sample agent decisions for human review.",
+        "height": 230,
+        "width": 560,
+        "color": 1
+      },
+      "id": "633dcb2a-3017-4d00-8e2b-d947df0f69ed",
+      "name": "Note: limits",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        330
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT d.id AS decision_id, u.id AS user_id, u.company_name, u.email, u.language,\n       d.arm, d.ab_variant, d.signal_type, d.message_angle,\n       d.payload->>'subject' AS subject,\n       split_part(d.payload->>'email_text', E'\\n\\n', 1) AS intro,\n       coalesce((SELECT jsonb_agg(jsonb_build_object('tender_id', t.id, 'title', t.title, 'trade', t.trade,\n                                                      'region', t.region, 'value_eur', t.value_eur, 'deadline', t.deadline)\n                                  ORDER BY x.ord)\n                 FROM jsonb_array_elements_text(coalesce(d.payload->'tender_ids', '[]'::jsonb)) WITH ORDINALITY AS x(tid, ord)\n                 JOIN tenders t ON t.id = x.tid::uuid), '[]'::jsonb) AS tenders\nFROM decisions d\nJOIN users u ON u.id = d.user_id\nWHERE d.workflow_version = 'nba-simple-v1'\n  AND d.routed_to = 'email'\n  AND d.payload->>'email_text' IS NOT NULL\n  AND d.decided_at > (SELECT max(decided_at) FROM decisions WHERE workflow_version = 'nba-simple-v1') - interval '15 minutes'\nORDER BY d.id;",
+        "options": {}
+      },
+      "id": "8f41fbc7-98ee-4974-945b-5c7be8e3bb02",
+      "name": "Email data",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2120,
+        100
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst APP_BASE_URL = 'https://app.example.com';   // TODO: your product deep-link base\nconst rows = $input.all().map(i => i.json);\nconst esc = s => String(s ?? '').replace(/[&<>\"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', \"'\": '&#39;' }[c]));\nconst out = [];\n\nfor (const r of rows) {\n  const de = r.language !== 'en';\n  const loc = de ? 'de-DE' : 'en-GB';\n  const T = de\n    ? { cta: 'Ausschreibung ansehen', home: 'Zur Plattform', deadline: 'Frist', value: 'Volumen',\n        left: d => d === 1 ? 'noch 1 Tag' : `noch ${d} Tage`, fallback: 'Neues von Ihrer Plattform',\n        footer: 'Vorschau aus einem Testlauf mit synthetischen Daten. Den Abmeldelink ergänzt die E-Mail-Plattform.' }\n    : { cta: 'View tender', home: 'Open the platform', deadline: 'Deadline', value: 'Value',\n        left: d => d === 1 ? '1 day left' : `${d} days left`, fallback: 'News from your platform',\n        footer: 'Preview from a dry run on synthetic data. The unsubscribe link is added by the email platform.' };\n  const eur = v => new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Number(v));\n  const day = d => new Date(d).toLocaleDateString(loc, { day: '2-digit', month: 'short', year: 'numeric' });\n  const daysLeft = d => Math.max(0, Math.ceil((new Date(d).getTime() - Date.now()) / 864e5));\n  const link = tid => `${APP_BASE_URL}${tid ? '/tenders/' + tid : ''}?utm_source=nba&utm_medium=email&utm_campaign=${encodeURIComponent(r.signal_type || 'nba')}&utm_content=${r.decision_id}`;\n\n  const subject = (r.subject || '').trim() || T.fallback;\n  const intro = (r.intro || '').trim();\n  const tenders = Array.isArray(r.tenders) ? r.tenders : [];\n\n  const cards = tenders.map(t => `\n<tr><td style=\"padding:0 0 14px 0\">\n  <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border:1px solid #e3e6ea;border-radius:8px\">\n    <tr><td style=\"padding:16px 18px;font-family:Arial,Helvetica,sans-serif\">\n      <div style=\"font-size:16px;font-weight:bold;color:#14213d\">${esc(t.title)}</div>\n      <div style=\"font-size:13px;color:#5b6573;margin:4px 0 14px\">${esc(t.trade)} · ${esc(t.region)} · ${T.deadline}: ${day(t.deadline)} (${T.left(daysLeft(t.deadline))}) · ${T.value}: ${eur(t.value_eur)}</div>\n      <a href=\"${esc(link(t.tender_id))}\" style=\"display:inline-block;background:#14213d;color:#ffffff;text-decoration:none;font-size:14px;padding:9px 16px;border-radius:6px\">${T.cta}</a>\n    </td></tr>\n  </table>\n</td></tr>`).join('');\n  const homeButton = tenders.length ? '' : `\n<tr><td style=\"padding:6px 0 14px 0\"><a href=\"${esc(link(null))}\" style=\"display:inline-block;background:#14213d;color:#ffffff;text-decoration:none;font-size:14px;padding:9px 16px;border-radius:6px;font-family:Arial,Helvetica,sans-serif\">${T.home}</a></td></tr>`;\n\n  const html = `<!doctype html>\n<html lang=\"${de ? 'de' : 'en'}\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>${esc(subject)}</title></head>\n<body style=\"margin:0;padding:0;background:#f4f5f7\">\n<div style=\"display:none;max-height:0;overflow:hidden;opacity:0\">${esc(intro)}</div>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f5f7\"><tr><td align=\"center\" style=\"padding:24px 12px\">\n<table role=\"presentation\" width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:600px;width:100%;background:#ffffff;border-radius:10px\">\n<tr><td style=\"padding:24px 24px 8px 24px\"><table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n<tr><td style=\"padding:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#222\">${esc(intro)}</td></tr>${cards}${homeButton}\n</table></td></tr>\n<tr><td style=\"padding:12px 24px 22px 24px;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#8a919c;border-top:1px solid #eceef1\">${T.footer}</td></tr>\n</table></td></tr></table></body></html>`;\n\n  const item = { json: {\n    to: r.email, company: r.company_name, subject, arm: r.arm, ab_variant: r.ab_variant,\n    signal_type: r.signal_type, message_angle: r.message_angle, tenders_included: tenders.length,\n    decision_id: r.decision_id, html\n  }};\n  if (this.helpers && this.helpers.prepareBinaryData) {\n    const slug = String(r.company_name || 'email').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');\n    item.binary = { data: await this.helpers.prepareBinaryData(Buffer.from(html, 'utf8'), `email_${slug}.html`, 'text/html') };\n  }\n  out.push(item);\n}\nreturn out;\n"
+      },
+      "id": "54201f65-a627-4dc7-b344-1b91837c1683",
+      "name": "Emails to send (HTML)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2360,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "width": 480,
+        "height": 340,
+        "color": 7,
+        "content": "## 7. Emails ready to send\nFinal output of the dry run: one item per email that the system *would* send today.\n\nEach item has `to`, `subject` and a complete, responsive **`html`** document with the tender cards and deep links tagged with the decision ID for attribution. Open the **Binary** tab to download the email as an .html file and look at it in a browser.\n\nToday nothing is sent. In production a Gmail, SMTP or ActiveCampaign node goes right after this one and maps `to`, `subject` and `html`.\nHoldout users, human handoffs and \"no action\" decisions never appear here."
+      },
+      "id": "63a252f2-4bb3-44fc-aaee-a8ae300e06a2",
+      "name": "Note: 7 emails",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        -360
+      ]
+    }
+  ],
+  "connections": {
+    "Run manually": {
+      "main": [
+        [
+          {
+            "node": "Get candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get candidates": {
+      "main": [
+        [
+          {
+            "node": "Agent arm?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agent arm?": {
+      "main": [
+        [
+          {
+            "node": "Decide + draft",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Rules or holdout",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Decide + draft",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Output parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Decide + draft",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decide + draft": {
+      "main": [
+        [
+          {
+            "node": "Guardrails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardrails": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rules or holdout": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decision report": {
+      "main": [
+        [
+          {
+            "node": "Run summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run summary": {
+      "main": [
+        [
+          {
+            "node": "Experiment readout (simulated history)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email data": {
+      "main": [
+        [
+          {
+            "node": "Emails to send (HTML)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log decision": {
+      "main": [
+        [
+          {
+            "node": "Decision report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Experiment readout (simulated history)": {
+      "main": [
+        [
+          {
+            "node": "Email data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}

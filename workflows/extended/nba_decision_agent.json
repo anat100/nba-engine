@@ -1,0 +1,959 @@
+{
+  "name": "NBA Decision Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "width": 640,
+        "height": 220,
+        "content": "## NBA Decision Agent\nSynthetic-data demo. Arms (hash of user id): 10% holdout, 30% static rules, 60% agent.\n1. Set credentials: Postgres, Anthropic, Slack, HubSpot (header auth), ActiveCampaign (header `Api-Token`).\n2. Replace the ActiveCampaign host and custom field IDs.\n3. Run `sql/01_schema.sql` + `scripts/seed_data.py` first.\n4. Test with the manual trigger, then activate the hourly schedule."
+      },
+      "id": "5d922c2e-942c-4be2-adc4-f20d9fcc6da1",
+      "name": "Notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "09a7bbb0-7444-4bb3-825e-1ea7f917cdab",
+      "name": "Every hour",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9390d688-07a8-494d-8755-7fc830b4f0e8",
+      "name": "Manual run",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM v_nba_candidates LIMIT 25;",
+        "options": {}
+      },
+      "id": "e6cd7e77-80cf-4c3e-9046-3abef886d5a5",
+      "name": "Get candidates",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        240,
+        80
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1a99bdb1-d0f0-4d7a-99d0-578519e279c1",
+              "leftValue": "={{ $json.arm }}",
+              "rightValue": "holdout",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "74f8b112-f8ce-4f11-be18-9de96c153197",
+      "name": "Is holdout?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "name"
+        },
+        "table": {
+          "__rl": true,
+          "value": "decisions",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $json.user_id }}",
+            "arm": "holdout",
+            "ab_variant": "={{ $json.ab_variant }}",
+            "signal_type": "={{ $json.signal_type }}",
+            "action": "none",
+            "channel": "none",
+            "routed_to": "holdout",
+            "sent": false,
+            "reasoning": "Holdout: no agent- or rules-driven touch",
+            "payload": "={{ JSON.stringify({signal_detail: $json.signal_detail}) }}",
+            "workflow_version": "nba-agent-v1"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "7a69c32d-9f93-427e-bdc7-8f5efc245a22",
+      "name": "Log holdout",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        720,
+        -60
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "923f0342-6f19-40d5-955e-ac0645c6fa90",
+              "leftValue": "={{ $json.arm }}",
+              "rightValue": "rules",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c204dcfd-576a-4313-bf24-451531ad13bf",
+      "name": "Is rules arm?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst MIN_CONF = 0.6;               // below this -> human handoff\nconst CHANNELS = ['email', 'in_app', 'human', 'none'];\nfunction finish(c, d) {\n  d.confidence = Math.max(0, Math.min(1, Number(d.confidence) || 0));\n  if (!CHANNELS.includes(d.channel)) d.channel = 'none';\n  const needsHuman = d.action === 'human_handoff' || d.channel === 'human'\n                     || d.confidence < MIN_CONF || c.is_high_value === true;\n  let routed_to = 'none';\n  if (d.action === 'no_action') routed_to = 'none';\n  else if (needsHuman) routed_to = 'human';\n  else if (d.channel === 'email' || d.channel === 'in_app') routed_to = d.channel;\n  return { json: {\n    user_id: c.user_id, email: c.email, language: c.language, company_name: c.company_name, role: c.role,\n    signal_type: c.signal_type, arm: c.arm, ab_variant: c.ab_variant, is_high_value: c.is_high_value,\n    action: d.action, channel: d.channel, timing: d.timing, message_angle: d.message_angle,\n    confidence: d.confidence, reasoning: d.reasoning, routed_to,\n    payload: { user_id: c.user_id, action: d.action, channel: d.channel, timing: d.timing,\n               message_angle: d.message_angle, variant: c.ab_variant, signal_type: c.signal_type,\n               signal_detail: c.signal_detail }\n  }};\n}\n\nconst c = $json;\nconst RULES = {\n  viewed_no_bid:    { action: 'send_tender_digest', message_angle: 'deadline_reminder',     timing: 'next_business_morning' },\n  gc_single_tender: { action: 'send_nudge',         message_angle: 'second_tender_prompt',  timing: 'in_3_days' },\n  idle_14d:         { action: 'send_tender_digest', message_angle: 'new_matching_tenders',  timing: 'next_business_morning' },\n};\nconst r = RULES[c.signal_type] || { action: 'no_action', message_angle: 'none', timing: 'now' };\nreturn finish(c, { ...r, channel: 'email', confidence: 1, reasoning: 'Static rule for signal ' + c.signal_type });\n"
+      },
+      "id": "0c427427-4f52-4f5c-b820-150e7184d46b",
+      "name": "Rules baseline",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Decide the next best action for this user.\n\n{{ JSON.stringify({ user_id: $json.user_id, ab_variant: $json.ab_variant, signal_type: $json.signal_type, signal_detail: $json.signal_detail, profile: $json.profile, recent_events: $json.recent_events, call_insights: $json.call_insights }, null, 2) }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are the Next-Best-Action decision agent for Cosuno, a B2B marketplace connecting general contractors (GCs) and subcontractors in construction.\n\nYour job: given ONE user, a behavioural signal, recent events and call insights, decide what should happen next. You do not write the message; you decide the action, channel, timing and the angle of the message.\n\nMarketplace logic:\n- Subcontractors: goal is first bid, then paid conversion, then repeat bidding. Liquidity matters: the right subcontractor on the right tender.\n- GCs: goal is early product adoption and repeat tendering (a second and third tender).\n\nTools (use them, do not guess):\n- get_recent_events: last 30 days of activity for the user.\n- match_tenders: top open tenders for a subcontractor, with score and reasons. Use it before choosing send_tender_digest.\n- crm_lookup: account stage, owner and open opportunities. If an opportunity is open or the stage is churn_risk, prefer human_handoff.\n\nAllowed actions: send_tender_digest, send_nudge, send_onboarding_help, request_referral, human_handoff, no_action.\nAllowed channels: email, in_app, human, none.\nAllowed timing: now, next_business_morning, in_3_days, in_7_days.\n\nRules:\n1. Prefer a human_handoff (channel human) when: the call insights show a decision-stage buyer, a negative sentiment with a concrete objection, an open sales opportunity, or you are unsure.\n2. Prefer no_action over a weak, generic touch. Never send a digest if match_tenders returns nothing relevant.\n3. message_angle is a short snake_case label. The A/B variant constrains it: variant A leads with value/outcome (e.g. value_led), variant B leads with urgency or social proof (e.g. urgency_led, peer_proof). Respect the variant you are given.\n4. confidence is 0 to 1 and must reflect how well the evidence supports the action. Be honest; low confidence routes to a human.\n5. reasoning: 1-3 sentences that cite the specific evidence (signal, events, tender match, call insight). Do not invent facts that are not in the data or tool results.\n6. Respect the user's language only for the message_angle's tone note; output fields stay in English.\n\nReturn only the structured JSON.",
+          "maxIterations": 6
+        }
+      },
+      "id": "f69282a8-977b-4556-8dc6-e927905b05ef",
+      "name": "Decision agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        960,
+        280
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "options": {
+          "temperature": 0.2,
+          "maxTokensToSample": 1024
+        }
+      },
+      "id": "6dae15d6-afa2-4a01-978e-9c3af717ed9d",
+      "name": "Claude",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        880,
+        520
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"action\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"send_tender_digest\",\n        \"send_nudge\",\n        \"send_onboarding_help\",\n        \"request_referral\",\n        \"human_handoff\",\n        \"no_action\"\n      ]\n    },\n    \"channel\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"email\",\n        \"in_app\",\n        \"human\",\n        \"none\"\n      ]\n    },\n    \"timing\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"now\",\n        \"next_business_morning\",\n        \"in_3_days\",\n        \"in_7_days\"\n      ]\n    },\n    \"message_angle\": {\n      \"type\": \"string\"\n    },\n    \"confidence\": {\n      \"type\": \"number\",\n      \"minimum\": 0,\n      \"maximum\": 1\n    },\n    \"reasoning\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"action\",\n    \"channel\",\n    \"timing\",\n    \"message_angle\",\n    \"confidence\",\n    \"reasoning\"\n  ]\n}"
+      },
+      "id": "f65b6eff-b52f-415b-9e00-26454ba20d61",
+      "name": "Output parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Returns the user's last 30 days of events (type, timestamp, tender_id), newest first, max 30. Input: user_id.",
+        "operation": "executeQuery",
+        "query": "SELECT event_type, occurred_at, tender_id FROM events WHERE user_id = $1::uuid AND occurred_at > now() - interval '30 days' ORDER BY occurred_at DESC LIMIT 30;",
+        "options": {
+          "queryReplacement": "={{ $fromAI('user_id', 'UUID of the user being decided on', 'string') }}"
+        }
+      },
+      "id": "fc895021-5bae-4b6c-8340-ab83e1e7ac3b",
+      "name": "get_recent_events",
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.5,
+      "position": [
+        1000,
+        520
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Ranks open tenders for a subcontractor by trade, region, deadline urgency and past bid behaviour. Returns up to 3 with score and reasons. Input: user_id.",
+        "operation": "executeQuery",
+        "query": "SELECT * FROM match_tenders($1::uuid, 3);",
+        "options": {
+          "queryReplacement": "={{ $fromAI('user_id', 'UUID of the user being decided on', 'string') }}"
+        }
+      },
+      "id": "818567ee-d34e-49c8-87d4-d6eb24bfb57f",
+      "name": "match_tenders",
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.5,
+      "position": [
+        1120,
+        640
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Looks up the user's CRM account: owner, stage, open_opportunity, arr_eur, last_activity_at. Empty result means no CRM record. Input: user_id.",
+        "operation": "executeQuery",
+        "query": "SELECT owner, stage, open_opportunity, arr_eur, last_activity_at, notes FROM crm_accounts WHERE user_id = $1::uuid;",
+        "options": {
+          "queryReplacement": "={{ $fromAI('user_id', 'UUID of the user being decided on', 'string') }}"
+        }
+      },
+      "id": "0e2ef3e1-f710-4fe4-a665-33c9d2231b29",
+      "name": "crm_lookup",
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.5,
+      "position": [
+        920,
+        640
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "\nconst MIN_CONF = 0.6;               // below this -> human handoff\nconst CHANNELS = ['email', 'in_app', 'human', 'none'];\nfunction finish(c, d) {\n  d.confidence = Math.max(0, Math.min(1, Number(d.confidence) || 0));\n  if (!CHANNELS.includes(d.channel)) d.channel = 'none';\n  const needsHuman = d.action === 'human_handoff' || d.channel === 'human'\n                     || d.confidence < MIN_CONF || c.is_high_value === true;\n  let routed_to = 'none';\n  if (d.action === 'no_action') routed_to = 'none';\n  else if (needsHuman) routed_to = 'human';\n  else if (d.channel === 'email' || d.channel === 'in_app') routed_to = d.channel;\n  return { json: {\n    user_id: c.user_id, email: c.email, language: c.language, company_name: c.company_name, role: c.role,\n    signal_type: c.signal_type, arm: c.arm, ab_variant: c.ab_variant, is_high_value: c.is_high_value,\n    action: d.action, channel: d.channel, timing: d.timing, message_angle: d.message_angle,\n    confidence: d.confidence, reasoning: d.reasoning, routed_to,\n    payload: { user_id: c.user_id, action: d.action, channel: d.channel, timing: d.timing,\n               message_angle: d.message_angle, variant: c.ab_variant, signal_type: c.signal_type,\n               signal_detail: c.signal_detail }\n  }};\n}\n\nconst c = $('Get candidates').item.json;\nconst out = $json.output;\nlet d;\nif (!out || $json.error) {\n  d = { action: 'human_handoff', channel: 'human', timing: 'now', message_angle: 'agent_failure',\n        confidence: 0, reasoning: 'Agent returned no valid output: ' + JSON.stringify($json.error || '').slice(0, 300) };\n} else {\n  d = { action: out.action, channel: out.channel, timing: out.timing, message_angle: out.message_angle,\n        confidence: out.confidence, reasoning: out.reasoning };\n}\nreturn finish(c, d);\n"
+      },
+      "id": "11d19cfc-2691-4821-9653-7f141275072d",
+      "name": "Normalise decision",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        280
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fb8c25bb-7cb9-4357-a2b2-612bd0bd2af1",
+      "name": "Decision ready",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cd0a6931-055d-4aa3-a5df-f6fc72ec844c",
+              "leftValue": "={{ $json.routed_to }}",
+              "rightValue": "human",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8d6e76c4-0db1-4999-9dd6-ac03a499c986",
+      "name": "Route: human?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1720,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#nba-handoffs",
+          "mode": "name"
+        },
+        "text": "={{ ':raising_hand: *Human touch suggested* for ' + $('Decision ready').item.json.company_name + ' (' + $('Decision ready').item.json.role + ')\\n*Signal:* ' + $('Decision ready').item.json.signal_type + ' | *Arm:* ' + $('Decision ready').item.json.arm + ' | *Confidence:* ' + $('Decision ready').item.json.confidence + (($('Decision ready').item.json.is_high_value) ? ' | high-value account' : '') + '\\n*Suggested:* ' + $('Decision ready').item.json.action + ' / ' + $('Decision ready').item.json.message_angle + '\\n*Why:* ' + $('Decision ready').item.json.reasoning }}",
+        "otherOptions": {}
+      },
+      "id": "a725a4c1-6151-4777-9d27-ba288aa3158e",
+      "name": "Alert Sales/CS",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1960,
+        0
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME",
+          "name": "Slack"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/tasks",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ properties: { hs_timestamp: new Date().toISOString(), hs_task_status: 'NOT_STARTED', hs_task_subject: 'NBA handoff: ' + $('Decision ready').item.json.company_name + ' (' + $('Decision ready').item.json.signal_type + ')', hs_task_body: 'Suggested: ' + $('Decision ready').item.json.action + ' / ' + $('Decision ready').item.json.message_angle + '. Reasoning: ' + $('Decision ready').item.json.reasoning } }) }}",
+        "options": {}
+      },
+      "id": "59c2bf2b-fa65-4250-8577-ee1242d5d3e0",
+      "name": "Create CRM task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4451b3a6-0795-4af9-8750-d1cc3e13f83b",
+              "leftValue": "={{ $json.routed_to }}",
+              "rightValue": "email",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "60bee046-2564-4adc-a3e3-fbbe1b6cc4dc",
+      "name": "Route: email?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1960,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://YOUR_ACCOUNT.api-us1.com/api/3/contact/sync",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contact: { email: $('Decision ready').item.json.email, fieldValues: [ { field: '1', value: $('Decision ready').item.json.message_angle }, { field: '2', value: $('Decision ready').item.json.action }, { field: '3', value: $('Decision ready').item.json.timing }, { field: '4', value: $('Decision ready').item.json.ab_variant } ] } }) }}",
+        "options": {}
+      },
+      "id": "481b4d6a-aa6b-4152-a4e3-b13147b960d8",
+      "name": "ActiveCampaign sync",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2440,
+        320
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "ActiveCampaign Api-Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c666b352-c8ca-4cfc-88e4-458de11d05ec",
+              "leftValue": "={{ $json.action }}",
+              "rightValue": "send_tender_digest",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7e83a107-fa55-4c01-8a59-c8f351b997d2",
+      "name": "Is digest?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2200,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_TENDER_DIGEST_BUILDER_ID",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "7c7260fd-e439-4482-b0dd-29675f26cbd0",
+      "name": "Build tender digest",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        2440,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "10944257-008b-4d38-b5c1-956435177616",
+              "leftValue": "={{ $json.routed_to }}",
+              "rightValue": "in_app",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "66476343-ab54-4e7a-bb97-fa3822e5dd6b",
+      "name": "Route: in-app?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2200,
+        500
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9f4814c4-a2fe-44e3-a014-a5ed238ea363",
+      "name": "In-app trigger",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "name"
+        },
+        "table": {
+          "__rl": true,
+          "value": "decisions",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $('Decision ready').item.json.user_id }}",
+            "arm": "={{ $('Decision ready').item.json.arm }}",
+            "ab_variant": "={{ $('Decision ready').item.json.ab_variant }}",
+            "signal_type": "={{ $('Decision ready').item.json.signal_type }}",
+            "action": "={{ $('Decision ready').item.json.action }}",
+            "channel": "={{ $('Decision ready').item.json.channel }}",
+            "timing": "={{ $('Decision ready').item.json.timing }}",
+            "message_angle": "={{ $('Decision ready').item.json.message_angle }}",
+            "confidence": "={{ $('Decision ready').item.json.confidence }}",
+            "reasoning": "={{ $('Decision ready').item.json.reasoning }}",
+            "routed_to": "={{ $('Decision ready').item.json.routed_to }}",
+            "sent": "={{ ['email','in_app'].includes($('Decision ready').item.json.routed_to) && $json.status !== 'skipped' }}",
+            "payload": "={{ JSON.stringify($('Decision ready').item.json.payload) }}",
+            "workflow_version": "nba-agent-v1"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "0a13c20a-c18d-4bbf-868e-5056408cb065",
+      "name": "Log decision",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        2680,
+        160
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "REPLACE_ME",
+          "name": "NBA Postgres"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "get_recent_events": {
+      "ai_tool": [
+        [
+          {
+            "node": "Decision agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "match_tenders": {
+      "ai_tool": [
+        [
+          {
+            "node": "Decision agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crm_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Decision agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every hour": {
+      "main": [
+        [
+          {
+            "node": "Get candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual run": {
+      "main": [
+        [
+          {
+            "node": "Get candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get candidates": {
+      "main": [
+        [
+          {
+            "node": "Is holdout?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is holdout?": {
+      "main": [
+        [
+          {
+            "node": "Log holdout",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Is rules arm?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is rules arm?": {
+      "main": [
+        [
+          {
+            "node": "Rules baseline",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Decision agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rules baseline": {
+      "main": [
+        [
+          {
+            "node": "Decision ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decision agent": {
+      "main": [
+        [
+          {
+            "node": "Normalise decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalise decision": {
+      "main": [
+        [
+          {
+            "node": "Decision ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Decision agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Output parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Decision agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decision ready": {
+      "main": [
+        [
+          {
+            "node": "Route: human?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: human?": {
+      "main": [
+        [
+          {
+            "node": "Alert Sales/CS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Route: email?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Sales/CS": {
+      "main": [
+        [
+          {
+            "node": "Create CRM task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create CRM task": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: email?": {
+      "main": [
+        [
+          {
+            "node": "Is digest?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Route: in-app?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is digest?": {
+      "main": [
+        [
+          {
+            "node": "Build tender digest",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ActiveCampaign sync",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build tender digest": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ActiveCampaign sync": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: in-app?": {
+      "main": [
+        [
+          {
+            "node": "In-app trigger",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "In-app trigger": {
+      "main": [
+        [
+          {
+            "node": "Log decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}
