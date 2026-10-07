@@ -203,6 +203,3 @@ docker-compose.yml                   Postgres 16 and n8n
 
 </details>
 
-## License
-
-MIT
